@@ -1,5 +1,6 @@
 import { Component } from "react";
 import PersionContent  from '../../component/persionMain/persionContent';
+import Calender from "./Calender/Calender";
 
 
 class persionMain extends Component{
@@ -9,6 +10,7 @@ class persionMain extends Component{
         return (
             <PersionContent title ="메인">
                 메인
+                <Calender/>
             </PersionContent>
         );
     }
