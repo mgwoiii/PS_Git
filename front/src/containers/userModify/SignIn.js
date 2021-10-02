@@ -17,7 +17,6 @@ class SignIn extends Component {
     render() {
         const { isOpen, close } = this.props;   //아까 버튼에서 props로 가져온것
         return (
-            console.log(isOpen +"이다"),
             <>
             {isOpen ? (
     
