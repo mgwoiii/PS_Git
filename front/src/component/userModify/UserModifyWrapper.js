@@ -47,7 +47,7 @@ const UserModifyWrapper = ({children}) => (
     <Positioner>
         <ShadowedBox>
             <LogoWrapper>
-                <Logo>122</Logo>
+                <Logo>개인정보 변경</Logo>
             </LogoWrapper>
             <Contents>
                 {children}

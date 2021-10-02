@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import InputWithLabel from "../../component/mainLogin/InputWithLabel";
+import LoginButton from "../../component/mainLogin/loginButton";
+
 
 
 class SignIn extends Component {
@@ -14,9 +17,9 @@ class SignIn extends Component {
     render() {
         const { isOpen, close } = this.props;   //아까 버튼에서 props로 가져온것
         return (
-            console.log(isOpen),
+            console.log(isOpen +"이다"),
             <>
-            {isOpen ? (  
+            {isOpen ? (
     
              ////만약 isopen(this.state.isModalOpen)이 true일때 코드를 실행 false면  null
             /// <div onClick={close}> 로그인창 말고 회색 바탕을 누를시 모달이 꺼지게 만듬
@@ -25,14 +28,16 @@ class SignIn extends Component {
              /// true인 상태로 있어서 화면이 안꺼진다.
           
               <Modal>
-                <IsModal onClick={close}>
-                        
-                    <BoxModal>
-                        <SpanClose>
+                <IsModal>
+                    <BoxModal onClick = {() => isOpen}>
+                        <SpanClose onClick={close}>
                         &times;
                         </SpanClose>
                         <ModalContents onClick = {() => isOpen}>
-                            모달이
+                        <InputWithLabel label="현재 비밀번호" name="password" placeholder="비밀번호" type="password"/>
+                            <InputWithLabel label="비밀번호" name="password" placeholder="비밀번호" type="password"/>
+                            <InputWithLabel label="비밀번호 확인" name="password" placeholder="비밀번호 확인" type="password"/>
+                            <LoginButton onClick={this.openModal}>비밀번호 변경</LoginButton>
                         </ModalContents>
                     
                     </BoxModal>
@@ -78,10 +83,8 @@ const SpanClose = styled.span`
 `
 const ModalContents = styled.div`
     margin: 0 auto;
-    width: 200px;
+    width: 100%;
     height: 300px;
-    background: blue;     
-
     position: relative;
     padding: 0 20px 32px;
     box-sizing: border-box;
