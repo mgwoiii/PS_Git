@@ -15,7 +15,7 @@ import Top from '../Top/Top';
 
 // 너비, 그림자 설정
 const ShadowedBox = styled.div`
-    width: 500px;
+    width: 1000px;
     ${shadow(2)}
 `;
 
@@ -48,7 +48,6 @@ const PersionWrapper = ({children}) => (
     <div>
         <Top/>
         <Positioner>
-            
             <ShadowedBox>
                 <LogoWrapper>
                     <Logo to="/">122</Logo>
