@@ -3,12 +3,22 @@ import styled from "styled-components";
 import Header from './Header';
 import Calendar from './Calendar';
 
+import moment from 'moment';
+
 class CalenderApp extends Component {
+
+    state = {
+        calenderYM : moment(),
+        today : moment()
+    }
+
     render(){
         return (
             <TastLayout>
                 <RCA_APP_CONTAINER>
-                    <Header/>
+                    <Header calenderYM ={this.state.calenderYM.format("YYYY년 MM월")}
+                            today = {this.state.today.format("현재 YYYY - MM - DD")}
+                    />
                     <Calendar/>
                 </RCA_APP_CONTAINER>
             </TastLayout>
