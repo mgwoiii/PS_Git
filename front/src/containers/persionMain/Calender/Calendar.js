@@ -21,31 +21,21 @@ class DateHeader extends Component {
             }
 
             return dateArray.map((date, index) => {
+            
                 const className = () => {
-                    let className = "RCA-calender-date-component";
+                    let className = null;
                     if(index === 0){
-                        return className + "date-sun"
+                        return className = <DATE_SUN >{date}</DATE_SUN>
                     }else if(index === 6) {
-                        return className + "date-sat"
+                        return className = <DATE_SAT>{date}</DATE_SAT>
                     }else {
-                        return className + "date-weekday"
-                    }
-
-                }
-                const className2 = () => {
-                    let className2 = null;
-                    if(index === 0){
-                        return className2 = <DATE_SUN>{date}</DATE_SUN>
-                    }else if(index === 6) {
-                        return className2 = <DATE_SAT>{date}</DATE_SAT>
-                    }else {
-                        return className2 = <DATE_WEEKDAY>{date}</DATE_WEEKDAY>
+                        return className = <DATE_WEEKDAY>{date}</DATE_WEEKDAY>
                     }
                 }
 
                 return (
-                    <RCA_CALENDER_DATE_COMPONENT>
-                      {className2()}
+                    <RCA_CALENDER_DATE_COMPONENT key={index}>
+                      {className()}
                     </RCA_CALENDER_DATE_COMPONENT>
                 )
             })
@@ -69,7 +59,7 @@ class Calendar extends Component {
     render(){
         return (
             <RCA_CALENDER_CONTAINER>
-                <DateHeader />
+                <DateHeader dates={"일, 월, 화, 수, 목, 금, 토"}/>
             </RCA_CALENDER_CONTAINER>
         )
     }
