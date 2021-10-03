@@ -12,12 +12,19 @@ class CalenderApp extends Component {
         today : moment()
     }
 
+    moveMonth = (month) => {
+        this.setState({
+            calenderYM : this.state.calenderYM.add(month,'M')
+        })
+    }
+
     render(){
         return (
             <TastLayout>
                 <RCA_APP_CONTAINER>
                     <Header calenderYM ={this.state.calenderYM.format("YYYY년 MM월")}
                             today = {this.state.today.format("현재 YYYY - MM - DD")}
+                            moveMonth={this.moveMonth}
                     />
                     <Calendar/>
                 </RCA_APP_CONTAINER>

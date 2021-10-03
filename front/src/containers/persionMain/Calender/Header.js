@@ -20,14 +20,14 @@ class Header extends Component {
                        
                         <RCA_Header_Middle>
                             <RCA_UL>
-                                    <RCA_LI>
+                                    <RCA_LI onClick={() => {this.props.moveMonth(-1)}}>
                                          &lt;
                                     </RCA_LI>
 
                                     <RCA_LI>
                                         이동
                                     </RCA_LI>
-                                    <RCA_LI>
+                                    <RCA_LI onClick={() => {this.props.moveMonth(1)}}>
                                         &gt;
                                     </RCA_LI>
                             </RCA_UL>
