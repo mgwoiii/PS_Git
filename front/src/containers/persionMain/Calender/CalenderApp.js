@@ -26,7 +26,7 @@ class CalenderApp extends Component {
                             today = {this.state.today.format("현재 YYYY - MM - DD")}
                             moveMonth={this.moveMonth}
                     />
-                    <Calendar/>
+                    <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}/>
                 </RCA_APP_CONTAINER>
             </TastLayout>
         )
