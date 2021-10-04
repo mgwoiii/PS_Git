@@ -3,9 +3,6 @@ import { Component } from "react";
 import styled from "styled-components";
 import oc from 'open-color';
 import { withRouter } from "react-router";
-import { connect } from "react-redux";
-
-import * as actions from '../../action/tabNumberActions';
 
 const obj = [
         {id : 0 , value : "메인"},
@@ -29,9 +26,6 @@ class Top extends Component{
 
     clickLi = (number2) => {
 
-            // tab 번호 저장
-            //this.props.TAB_NUMBER(number2);
-
             this.setState({
                 number2:number2
             });
@@ -47,13 +41,11 @@ class Top extends Component{
         }
 
     render(){
-        const { storeTabNumber } = this.props;
         return (
             <Wrap>
                 <MenuBar>
                     <Wrapper>
                         {
-                           //console.log( 'reducer : ' + storeTabNumber),
                             obj.map((obj, index) => {
                                 console.log(this.state.number2);
                                 return <LiItem className={this.state.number2 === index ? "null" : "submenu"}
@@ -113,13 +105,5 @@ const LiItem = styled.li`
 
 `;
 
-const mapStateToProps = (state) => ({
-    storeTabNumber : state.tabNumberReucer.number,
-  });
   
-const mapDispatchToProps = (dispatch) => ({
-    TAB_NUMBER: (number) => dispatch(actions.tabNumber(number))
-});
-
-  
-export default connect(mapStateToProps, mapDispatchToProps) (withRouter(Top));
+export default withRouter(Top);
