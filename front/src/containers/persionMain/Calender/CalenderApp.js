@@ -9,7 +9,6 @@ class CalenderApp extends Component {
 
     state = {
         calenderYM : moment(),
-        today : moment(),
         selected : moment().format("YYYY-MM-DD")
     }
 
@@ -48,10 +47,8 @@ class CalenderApp extends Component {
 
     render(){
         return (
-            <TastLayout>
                 <RCA_APP_CONTAINER>
                     <Header calenderYM ={this.state.calenderYM.format("YYYY년 MM월")}
-                            today = {this.state.today.format("오늘날짜 YYYY - MM - DD")}
                             moveMonth={this.moveMonth}
                     />
                     <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}
@@ -59,7 +56,6 @@ class CalenderApp extends Component {
                               changeSelected = {this.changeSelected}
                     />
                 </RCA_APP_CONTAINER>
-            </TastLayout>
         )
     }
 }
