@@ -35,8 +35,8 @@ class CalenderApp extends Component {
 
 const TastLayout = styled.div`
     width: 100%;
-    height: 80vh;
-    border: 1px solid black;
+    height: auto%;
+    border: none;
 `
 
 const RCA_APP_CONTAINER = styled.div`
@@ -44,6 +44,7 @@ const RCA_APP_CONTAINER = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    border : none;
 `
 
  

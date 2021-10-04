@@ -1,4 +1,4 @@
-import moment, { fn } from 'moment';
+import moment from 'moment';
 import React, { Component } from 'react';
 import styled from "styled-components";
 
@@ -9,6 +9,8 @@ class Week extends Component {
     state = {}
    
     Days = (firstDayFormat) => {
+        console.log(firstDayFormat);                
+
       const _days = [];
    
       for (let i = 0; i < 7; i++){
@@ -24,25 +26,30 @@ class Week extends Component {
       return _days;
     }
 
-    mapDaysToComponents = (Days, fn = () => { }) => {
+    mapDaysToComponents = (Days, fn = () => {}) => {
 
         return Days.map((dayInfo, i) => {
-            let className = "date-weekday-label";
+            
+            let className = null;
 
             if( i === 0){
-                className = "date-sun";
+                className = <><DATE_SUN> {dayInfo.getDay} </DATE_SUN> <DATE_NOTE> 본문내용 </DATE_NOTE> </>;
             }else if( i === 6 ){
-                className ="date-set";
-            }
-      
-        
+                className = <><DATE_SAT> {dayInfo.getDay} </DATE_SAT> <DATE_NOTE> 본문내용 </DATE_NOTE> </>;
+            }else {
+                className = <><DATE_WEEKDAY_LABEL>{dayInfo.getDay}</DATE_WEEKDAY_LABEL> <DATE_NOTE>본문 내용</DATE_NOTE> </>;
+             }
+
+
+    
         return (
-            <div className = {"RCA_calender_day" + className} onClick={() => fn(dayInfo.yearMonthDayFormat)}>
-                <label className = "RCA_calender-day-label">
-                    {dayInfo.getDay}
-                </label>
-                { /* <label className="RCA_calender_day">{dayInfo.getDay}</label> */}
-            </div>
+            <RCA_CALENDER_DAY className = {"RCA_CALENDER_DAY" + className} onClick={() => fn(dayInfo.yearMonthDayFormat)}>
+                    <RCA_CALENDER_DAY_LABEL>
+                        {className}
+                    </RCA_CALENDER_DAY_LABEL>
+                    
+                    { /* <label className="RCA_calender_day">{dayInfo.getDay}</label> */}
+            </RCA_CALENDER_DAY>
                 )
             })
     }
@@ -58,33 +65,31 @@ class Week extends Component {
 
 class Calendar extends Component {
     
-    Weeks = (monthYear) => {
-        const firstDayOfMonth = moment(monthYear).startOf('month');
-        const firstDateOfMonth = firstDayOfMonth.get('d');
-
-        const firstDayOfWeek = firstDayOfMonth.clone().add('d', -firstDateOfMonth);
-        // const lastDayOfThisCalender = dayOfThisCalender.clone().add('d', 6 * 7);
-        
-        const _Weeks = [];
-
-        for( let i = 0; i < 6 ; i++){
-            _Weeks.push((
-                <Week key={`RCA_CALENDER_WEEK_${i}`} firstDayOfThisWeekformat = 
-                {firstDayOfWeek.clone().add('d', i * 7).format("YYYY-MM-DD")} />
-
-            ))
-        }
-    
-    
-    }
-    render(){
-        return (
-            <RCA_CALENDER_CONTAINER>
-                <DateHeader dates={"일, 월, 화, 수, 목, 금, 토"}/>
-                {this.Weeks(this.props.YM)}
-            </RCA_CALENDER_CONTAINER>
-        )
-    }
+            Weeks = (monthYear) => {
+                const firstDayOfMonth = moment(monthYear).startOf('month');
+                const firstDateOfMonth = firstDayOfMonth.get('d');
+            
+                const firstDayOfWeek = firstDayOfMonth.clone().add('d', -firstDateOfMonth);
+                // const lastDayOfThisCalendar = dayOfThisCalendar.clone().add('d', 6 * 7);
+            
+                const _Weeks = [];
+            
+                for (let i = 0; i < 6; i++) {
+                _Weeks.push((
+                    <Week key={`RCA-calendar-week-${i}`} firstDayOfThisWeekformat={firstDayOfWeek.clone().add('d', i *7).format("YYYY-MM-DD")} />
+                ))
+                }
+                return _Weeks
+            }
+            
+            render(){
+                return (
+                    <RCA_CALENDER_CONTAINER>
+                        <DateHeader dates={"일, 월, 화, 수, 목, 금, 토"}/>
+                        {this.Weeks(this.props.YM)}
+                    </RCA_CALENDER_CONTAINER>
+                )
+            }
 }
 
 export default Calendar;
@@ -102,16 +107,16 @@ const RCA_CALENDER_DAY_CONTAINER = styled.div`
 `
 
 const RCA_CALENDER_DAY = styled.div`
-    box-sizing: border-box;
-    position: relative;
+    
     flex-basis: 14.2857143%;
     border: 0.1px solid white;
-    border-top: none;
     background-color: rgb(225,224,224);
+    vertical-align: top;
 
     &:nth-child(odd){
         border-left : none;
         border-right: none;
+    }
 `
 const RCA_CALENDER_WEEK = styled.div`
     display: flex;
@@ -119,16 +124,38 @@ const RCA_CALENDER_WEEK = styled.div`
 ` 
 
 const RCA_CALENDER_DAY_LABEL = styled.div`
-    display: inline-block;
-    font-size: 1.2rem;
-    position: absolute;
-    text-align: center;
-    line-height: 25px;
-    top : 5px;
-    right: 5px;
+    border: 0.5px solid white;
+
+
 ` 
 
 const DATE_WEEKDAY_LABEL = styled.div`
-    color : rgb(71, 71, 71)
+    color : rgb(71, 71, 71);
+    height: 30px;
+    text-align: right;
+    font-size: 1.2rem;
 
 ` 
+
+const DATE_SUN = styled.div`
+    color : tomato;
+    height: 30px;
+    text-align: right;
+    font-size: 1.2rem;
+
+ 
+`
+const DATE_SAT = styled.div`
+    color : skyblue;
+    height: 30px;
+    text-align: right;
+    font-size: 1.2rem;
+
+`
+const DATE_NOTE = styled.div`
+    color : black;
+    height: 130px;
+    font-size: 1.2rem;
+
+
+`
