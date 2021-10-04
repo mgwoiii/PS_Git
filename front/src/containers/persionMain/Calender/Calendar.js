@@ -7,7 +7,7 @@ import Week from "./Week";
 
 class Calendar extends Component {
     
-            Weeks = (monthYear) => {
+            Weeks = (monthYear, selected, clickFn) => {
                 const firstDayOfMonth = moment(monthYear).startOf('month');
                 const firstDateOfMonth = firstDayOfMonth.get('d');
                 const firstDayOfWeek = firstDayOfMonth.clone().add('d', -firstDateOfMonth);
@@ -16,9 +16,13 @@ class Calendar extends Component {
                 for (let i = 0; i < 6; i++) {
                 _Weeks.push((
                     <Week key={`RCA_Calender_Week_${i}`}
-                    ymOfThisCalendar = {firstDayOfMonth.format("YYYY-MM")}
-                    firstDayOfThisWeekformat={firstDayOfWeek.clone().add('d', i *7).format("YYYY-MM-DD")} />
-                ))
+                        weekIndex = {i}
+                        ymOfThisCalendar = {firstDayOfMonth.format("YYYY-MM")}
+                        firstDayOfThisWeekformat={firstDayOfWeek.clone().add('d', i *7).format("YYYY-MM-DD")}
+                        selected = {selected}
+                        fn = {clickFn}
+                    />
+                    ))
                 }
                 return _Weeks
             }
@@ -27,7 +31,7 @@ class Calendar extends Component {
                 return (
                     <RCA_CALENDER_CONTAINER>
                         <DateHeader dates={"일, 월, 화, 수, 목, 금, 토"}/>
-                        {this.Weeks(this.props.YM)}
+                        {this.Weeks(this.props.YM, this.props.selected, this.props.changeSelected)}
                     </RCA_CALENDER_CONTAINER>
                 )
             }

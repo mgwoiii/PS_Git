@@ -7,7 +7,7 @@ class Week extends Component {
  
     state = {}
    
-    Days = (firstDayFormat) => {
+    Days = (firstDayFormat, weekIndex) => {
 
       const _days = [];
    
@@ -17,14 +17,15 @@ class Week extends Component {
         _days.push({
           yearMonthDayFormat: Day.format("YYYY-MM-DD"),
           getDay: Day.format('D'),
-          isHolyDay: false
+          isHolyDay: false,
+          weekIndex
         });
       }
 
       return _days;
     }
 
-    mapDaysToComponents = (Days, calenderMonthYear, fn = () => {}) => {
+    mapDaysToComponents = (Days, calenderMonthYear,selectedDayFormat, fn = () => {}) => {
 
         const thisMonth = moment(calenderMonthYear);
 
@@ -62,7 +63,14 @@ class Week extends Component {
                               </DATE_NOTE> </>;
              }
 
-
+             if(moment(dayInfo.yearMonthDayFormat).isSame(selectedDayFormat, 'day')){
+                className = <>
+                                <SELECTED>{dayInfo.getDay}</SELECTED>
+                                <SELECTED_DATE_NOTE>
+                                    
+                                </SELECTED_DATE_NOTE>
+                            </>
+             }
     
         return (
             <RCA_CALENDER_DAY key={`RCA_Calender_Week_${i}`} onClick={() => fn(dayInfo.yearMonthDayFormat)}>
@@ -77,7 +85,10 @@ class Week extends Component {
         render() {
             return (
                 <RCA_CALENDER_WEEK>
-                    {this.mapDaysToComponents(this.Days(this.props.firstDayOfThisWeekformat), this.props.ymOfThisCalendar)}
+                    {this.mapDaysToComponents(this.Days(this.props.firstDayOfThisWeekformat),
+                    this.props.ymOfThisCalendar,
+                    this.props.selected,
+                    this.props.fn)}
                 </RCA_CALENDER_WEEK>
             )
         }
@@ -136,6 +147,20 @@ const DATE_SAT = styled.div`
 `
 const DATE_NOTE = styled.div`
     color : black;
+    height: 130px;
+    font-size: 0.5rem;
+`
+
+const SELECTED = styled.div`
+    background-color: rgb(49,50,50);
+    color: orange;
+    text-align: right;
+    font-size: 1.2rem;
+    height: 30px;
+`
+
+const SELECTED_DATE_NOTE = styled.div`
+    background-color: rgb(49,50,50);
     height: 130px;
     font-size: 0.5rem;
 `

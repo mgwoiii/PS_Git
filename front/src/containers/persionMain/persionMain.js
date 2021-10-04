@@ -8,8 +8,7 @@ class persionMain extends Component{
     render(){
         
         return (
-            <PersionContent title ="메인">
-                메인
+            <PersionContent>
                 <CalenderApp/>
             </PersionContent>
         );

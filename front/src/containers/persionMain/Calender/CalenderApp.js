@@ -9,14 +9,42 @@ class CalenderApp extends Component {
 
     state = {
         calenderYM : moment(),
-        today : moment()
+        today : moment(),
+        selected : moment().format("YYYY-MM-DD")
     }
+
+    
 
     moveMonth = (month) => {
         this.setState({
             calenderYM : this.state.calenderYM.add(month,'M')
         })
     }
+
+    static defaultProps = {
+        clickFn : () => {}
+    }
+
+    changeSelected = (clickedDate) => {
+
+        if(moment(clickedDate).isSame(this.state.selected,'day')){
+            this.props.clickFn(clickedDate);
+            return;
+        }
+
+        this.setState({
+            selected : clickedDate
+        })
+
+        this.props.clickFn(clickedDate)
+
+        if(moment(clickedDate).isBefore(this.state.calenderYM,'month')){
+            this.moveMonth(-1)
+        }else if(moment(clickedDate).isAfter(this.state.calenderYM,'month')){
+            this.moveMonth(1)
+        }
+    }
+
 
     render(){
         return (
@@ -26,7 +54,10 @@ class CalenderApp extends Component {
                             today = {this.state.today.format("현재 YYYY - MM - DD")}
                             moveMonth={this.moveMonth}
                     />
-                    <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}/>
+                    <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}
+                              selected = {this.state.selected}
+                              changeSelected = {this.changeSelected}
+                    />
                 </RCA_APP_CONTAINER>
             </TastLayout>
         )
