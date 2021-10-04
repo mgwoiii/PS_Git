@@ -97,6 +97,10 @@ class NavBar extends Component {
         this.props.history.push('/users');
     }
 
+    persinMainPage = () => {
+        this.props.history.push('/persion-main/persionMain');
+    }
+
     logOut = () => {
         alert('로그아웃');
 
@@ -125,8 +129,7 @@ class NavBar extends Component {
     render(){
         
         const { storeIsLoading, storeUsername, LOADING_TRUE, LOADING_FALSE } = this.props;
-        let button = null;
-        let button2 = null;
+        let button, button2, button3= null;
 
     if (storeIsLoading === true && storeUsername === null) {
        
@@ -139,11 +142,14 @@ class NavBar extends Component {
         onClick={()=>{ LOADING_FALSE(); this.logOut(); }}>{storeUsername} 로그 아웃</LinkBtn>;
 
         button2 = <LinkBtn 
-        onClick={()=>{ LOADING_TRUE(); this.UserModify(); }}>개인정보 수정</LinkBtn>;
-
+        onClick={()=>{ this.UserModify(); }}>개인정보 수정</LinkBtn>;
+        
+        button3 = <LinkBtn 
+        onClick={()=>{ this.persinMainPage(); }}>첫화면으로</LinkBtn>;
 
     }else if(storeIsLoading === false && storeUsername === null) {
-        button = <LinkBtn onClick={()=> { LOADING_TRUE(); this.mainPage(); }}>처음으로</LinkBtn>;}
+        button = <LinkBtn onClick={()=> { LOADING_TRUE(); this.mainPage(); }}>처음으로</LinkBtn>;
+    }
   
         return(
         <div>
@@ -171,7 +177,7 @@ class NavBar extends Component {
 
             <Navbar>
                 <form>
-                    {button2}{button}
+                    {button3}{button2}{button}
                     <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn>
                 </form>
             </Navbar>
