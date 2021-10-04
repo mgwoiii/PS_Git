@@ -82,14 +82,4 @@ const RCA_LI = styled.li`
     font-size: 20px;
 `
 
-// const RCA_Header_Buttons = styled.div`
-//     flex-basis: 120px;
-//     padding-left: 0;
-//     padding-top: 4px;
-//     display: block;
-//     list-style-type: none;
-//     margin: 0;
-// `
-
-
 export default Header;
