@@ -20,8 +20,6 @@ class Top extends Component{
             this.state = {
                 number2: 0
             }
-        
-        
         }
 
     clickLi = (number2) => {
@@ -47,7 +45,6 @@ class Top extends Component{
                     <Wrapper>
                         {
                             obj.map((obj, index) => {
-                                console.log(this.state.number2);
                                 return <LiItem className={this.state.number2 === index ? "null" : "submenu"}
                                          key = {obj.id} onClick = {() => {this.clickLi(obj.id)}}>
                                         {obj.value}</LiItem>})
