@@ -75,6 +75,10 @@ class Login extends Component {
 
                   // 로그인 정보 저장
                   this.props.LOGIN_USER(user.username);
+
+                  window.sessionStorage.setItem('name', response.data.username);
+                  window.sessionStorage.setItem('id', response.data.id);
+
                   //window.localStorage.setItem('value' ,user.username);
                   this.props.LOADING_FALSE();
                   

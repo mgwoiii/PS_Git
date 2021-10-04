@@ -108,6 +108,7 @@ class NavBar extends Component {
         // window.localStorage.clear();
         
         this.props.LOGOUT_USER();
+        window.sessionStorage.clear();
 
         // users 상태에서는 새로고침을 해줘야 한다.
         //if(this.props.location.pathname === '/users'){
@@ -154,6 +155,15 @@ class NavBar extends Component {
         button = <LinkBtn onClick={()=> { LOADING_TRUE(); this.mainPage(); }}>처음으로</LinkBtn>;
     }
   
+
+
+
+
+// ---------------------------------------------------------------------------------------
+
+        console.log(window.sessionStorage.getItem('name'));
+        console.log(window.sessionStorage.getItem('id'));
+
         return(
         <div>
             {/* <div>

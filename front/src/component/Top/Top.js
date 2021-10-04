@@ -17,13 +17,26 @@ const obj = [
 
 class Top extends Component{
 
-    clickLi = (number) => {
+        constructor(props){
+            super(props);
+        
+            this.state = {
+                number2: 0
+            }
+        
+        
+        }
+
+    clickLi = (number2) => {
 
             // tab 번호 저장
-            this.props.TAB_NUMBER(number);
+            //this.props.TAB_NUMBER(number2);
 
-     
-            switch(number){
+            this.setState({
+                number2:number2
+            });
+
+            switch(number2){
                 case 0 :  return  this.props.history.push('/persion-main/persionMain');
                 case 1 :  return  this.props.history.push('/persion-main/income');
                 case 2 :  return  this.props.history.push('/persion-main/expenditure');
@@ -42,7 +55,8 @@ class Top extends Component{
                         {
                            //console.log( 'reducer : ' + storeTabNumber),
                             obj.map((obj, index) => {
-                                return <LiItem className={storeTabNumber === index ? "null" : "submenu"}
+                                console.log(this.state.number2);
+                                return <LiItem className={this.state.number2 === index ? "null" : "submenu"}
                                          key = {obj.id} onClick = {() => {this.clickLi(obj.id)}}>
                                         {obj.value}</LiItem>})
                         }
