@@ -51,7 +51,7 @@ class CalenderApp extends Component {
             <TastLayout>
                 <RCA_APP_CONTAINER>
                     <Header calenderYM ={this.state.calenderYM.format("YYYY년 MM월")}
-                            today = {this.state.today.format("현재 YYYY - MM - DD")}
+                            today = {this.state.today.format("오늘날짜 YYYY - MM - DD")}
                             moveMonth={this.moveMonth}
                     />
                     <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}

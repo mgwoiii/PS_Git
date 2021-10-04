@@ -6,17 +6,17 @@ class Header extends Component {
         return (
             <RCA_HEADER_CONTAINER>
 
-                        <H2_RCA_Header_CalendarYM>
-                            <RCA_Header_Middle>
-                               {this.props.calenderYM}
-                            </RCA_Header_Middle>
-                        </H2_RCA_Header_CalendarYM>
-
                         <H3_RCA_Header_Today>
                            <RCA_Header_Middle>
                               {this.props.today}
                            </RCA_Header_Middle>
                         </H3_RCA_Header_Today>
+
+                        <H2_RCA_Header_CalendarYM>
+                            <RCA_Header_Middle>
+                               {this.props.calenderYM}
+                            </RCA_Header_Middle>
+                        </H2_RCA_Header_CalendarYM>
                        
                         <RCA_Header_Middle>
                             <RCA_UL>
@@ -42,9 +42,9 @@ class Header extends Component {
 const H2_RCA_Header_CalendarYM = styled.div`
     font-size: 1.5em;
     box-sizing : border-box;
-    padding-left : 5px;
     flex-grow : 1;
-    
+    text-align:center;
+
 `
 const H3_RCA_Header_Today = styled.div`
     font-size: 1em;
@@ -60,19 +60,15 @@ const RCA_HEADER_CONTAINER = styled.div`
     background-color: rgb(224, 215, 202);
     display : flex;
     line-height: 80px;   
-
 `
 
 const RCA_UL = styled.ul`
     padding-left: 0;
     list-style-type: none;
     margin: 0;
-    
     cursor: pointer;   
     float:left; 
     text-align:center;
-    
-
 `
 const RCA_LI = styled.li`
     float: left;
