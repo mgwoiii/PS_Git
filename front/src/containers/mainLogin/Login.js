@@ -9,7 +9,6 @@ import RightAlignedLink from '../../component/mainLogin/RightAlignedLink';
 
 import * as actions from '../../action/loadingActions';
 import * as actionsLogin from '../../action/loginActions';
-import * as actionsTabNumber from '../../action/tabNumberActions';
 
 // class Login extends Component {
     
@@ -69,10 +68,7 @@ class Login extends Component {
                   alert(user.username + "님 환영합니다");
                   // this.props.history.push('/users');
                   this.props.history.push('/persion-main/persionMain');
-                  
-                  // 로그인시 top 메뉴 초기화
-                  this.props.TAB_NUMBER(0);
-
+                
                   // 로그인 정보 저장
                   this.props.LOGIN_USER(user.username);
 
@@ -117,7 +113,6 @@ const mapDispatchToProps = (dispatch) => ({
 
   LOADING_FALSE: () => dispatch(actions.loadingFalse()),
   LOGIN_USER : (user) => dispatch(actionsLogin.loginUser(user)),
-  TAB_NUMBER: (number) => dispatch(actionsTabNumber.tabNumber(number))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (withRouter(Login));
