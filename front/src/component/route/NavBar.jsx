@@ -141,8 +141,11 @@ class NavBar extends Component {
         button = <LinkBtn 
         onClick={()=>{ LOADING_FALSE(); this.logOut(); }}>{storeUsername} 로그 아웃</LinkBtn>;
 
-        button2 = <LinkBtn 
-        onClick={()=>{ this.UserModify(); }}>개인정보 수정</LinkBtn>;
+
+        if(this.props.location.pathname !== '/modify-user/userInpoModify'){
+            button2 = <LinkBtn 
+            onClick={()=>{ this.UserModify(); }}>개인정보 수정</LinkBtn>;    
+        }
         
         button3 = <LinkBtn 
         onClick={()=>{ this.persinMainPage(); }}>첫화면으로</LinkBtn>;
@@ -178,7 +181,7 @@ class NavBar extends Component {
             <Navbar>
                 <form>
                     {button3}{button2}{button}
-                    <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn>
+                    {/* <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn> */}
                 </form>
             </Navbar>
         </div>
