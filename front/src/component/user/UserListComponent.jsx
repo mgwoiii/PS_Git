@@ -80,7 +80,7 @@ class UserListComponent extends Component {
     render(){
 
       const usernameSession = window.sessionStorage.getItem('name');
-      const idSession = window.sessionStorage.getItem('id');
+      //const idSession = window.sessionStorage.getItem('id');
 
         return(
           

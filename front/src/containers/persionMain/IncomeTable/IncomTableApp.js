@@ -45,14 +45,3 @@ const IncomTable = styled.div`
     width : 100%;
 
 `
-
-const IncomTableRow = styled.div`
-    width: 100%;
-    display: flex;
-`
-
-const IncomTableCell = styled.div`
-    border : 0.1px solid blue;
-    width: 20%;
-    text-align : center;
-`

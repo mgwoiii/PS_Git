@@ -1,6 +1,4 @@
-import oc from "open-color";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import InputWithLabel from "../../component/mainLogin/InputWithLabel";

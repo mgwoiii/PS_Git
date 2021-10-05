@@ -17,31 +17,31 @@ const obj = [
 
 class IncomTableBody extends Component {
 
-    IncomTables = () => {
+    IncomTables = (number) => {
 
         const _IncomTables = [];
 
-        obj.map((obj, index) => {
+        obj.map( obj => 
             _IncomTables.push((
-                  <IncomTableRow key={`TableBody_${index}`}>
+                  <IncomTableRow key={`TableBody_${obj.id}`}>
                         <IncomTableCell>
                             {obj.value}
                         </IncomTableCell>
                         <IncomTableCell>
-                            야놀자 {index}
+                            야놀자 {obj.id}
                         </IncomTableCell>
                         <IncomTableCell>
-                            350000 {index}
+                            350000 {obj.id}
                         </IncomTableCell>
                         <IncomTableCell>
-                            40000 {index}
+                            40000 {obj.id}
                         </IncomTableCell>
                         <IncomTableCell>
-                            390000 {index}
+                            390000 {obj.id}
                         </IncomTableCell>
                     </IncomTableRow>
                 ))
-        });
+        );
 
         return _IncomTables;
     }
@@ -70,35 +70,4 @@ const IncomTableCell = styled.div`
     border : 0.1px solid blue;
     width: 20%;
     text-align : center;
-`
-
-const RCA_UL = styled.ul`
-    display: inline-block;
-    list-style:none;
-    margin: 0;
-
-`
-const RCA_LI = styled.li`
-    font-size: 2rem;
-    font-weight: bold;
-
-    display: flex;
-    justify-content: center;
-    width : 50px;
-    height: 80px;
-    cursor: pointer;   
-    float: left;
-    line-height: 80px;
-
-`
-const RCA_LI2 = styled.li`
-    font-size: 2rem;
-    font-weight: bold;
-    display: inline-block;
-
-    width : 300px;
-    height: 80px;
-    float: left;
-    line-height: 80px;
-
 `
