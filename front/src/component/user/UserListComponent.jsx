@@ -27,6 +27,7 @@ class UserListComponent extends Component {
     }
 
     componentDidMount(){
+      
         this.reloadUserList();
     }
 
@@ -78,12 +79,14 @@ class UserListComponent extends Component {
 
     render(){
 
-      const { storeUsername } = this.props;
+      const usernameSession = window.sessionStorage.getItem('name');
+      const idSession = window.sessionStorage.getItem('id');
+
         return(
           
             <div>
               
-              <Typography variant="h3" style ={style}> User List {storeUsername}   </Typography>
+              <Typography variant="h3" style ={style}> User List {usernameSession}   </Typography>
               <Button variant="contained" color="primary" onClick={this.addUser}> Add User </Button>
 
               <UserTableComponent users = {this.state.users}  />
@@ -148,5 +151,5 @@ UserListComponent.defaultProps = {
   users : []
 }
 
-export default  (withRouter(UserListComponent));
+export default withRouter(UserListComponent);
 // export default connect(mapStateToProps, mapDispatchToProps) (withRouter(UserListComponent));

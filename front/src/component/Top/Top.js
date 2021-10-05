@@ -25,7 +25,7 @@ class Top extends Component{
             this.props.history.push('/persion-main/persionMain');
         }
 
-    clickLi = (number2) => {
+        clickLi = (number2) => {
 
             this.setState({
                 number2 : number2

@@ -1,43 +1,22 @@
 import React, { Component } from 'react';
-
 import { withRouter } from 'react-router-dom'
-
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
-
 import { connect } from 'react-redux';
 
 import * as actions from '../../action/loadingActions';
-
-import * as actionsLogin from '../../action/loginActions';
 
 import styled from "styled-components";
 import oc from 'open-color';
 
 class NavBar extends Component {
 
-    
-   
     componentDidMount() {
-     // this.componentsHandler(this.props.location.pathname);
-    //  let name = window.sessionStorage.getItem('name');
-    //  let id = window.sessionStorage.getItem('id');
+       // this.componentsHandler(this.props.location.pathname);
 
         
-        this.aa();
     }
     
-    aa = () =>{
-        this.props.history.push('/persion-main/persionMain');
 
-        console.log(window.sessionStorage.getItem('name'));
-        console.log(window.sessionStorage.getItem('id'));
-    }
-    
+
     // componentDidUpdate(prevProps) {
         
     //     if (this.props.location !== prevProps.location) {
@@ -105,13 +84,10 @@ class NavBar extends Component {
 
     logOut = () => {
         alert('로그아웃');
-
-        // window.localStorage.removeItem('value');
-        // window.localStorage.clear();
-        
-        this.props.LOGOUT_USER();
+   
         window.sessionStorage.clear();
-
+        window.localStorage.clear();
+        
         // users 상태에서는 새로고침을 해줘야 한다.
         //if(this.props.location.pathname === '/users'){
         //    window.location.replace("/users")
@@ -124,78 +100,52 @@ class NavBar extends Component {
         this.props.history.push('/main-login/login');
     }
     
-    UserModify = () => {        
-        window.localStorage.setItem('userId', this.props.storeUsername)
+    UserModify = () => {
+        window.localStorage.setItem('userId', window.sessionStorage.getItem('name'))
         this.props.history.push('/modify-user/userInpoModify');
     }
    
     render(){
         
-        const { storeIsLoading, storeUsername, LOADING_TRUE, LOADING_FALSE } = this.props;
+        const { storeIsLoading, LOADING_TRUE, LOADING_FALSE, } = this.props;
+        const usernameSession = window.sessionStorage.getItem('name');
+        const idSession = window.sessionStorage.getItem('id');
+
         let button, button2, button3= null;
 
-    if (storeIsLoading === true && storeUsername === null) {
+    if (storeIsLoading === true && usernameSession === null) {
        
         button = <LinkBtn 
         onClick={()=> { LOADING_FALSE(); this.gogo(); }} >Login</LinkBtn>;
 
-    }else if (storeIsLoading === false && storeUsername){
+    }else if (storeIsLoading === false && usernameSession){
 
         button = <LinkBtn 
-        onClick={()=>{ LOADING_FALSE(); this.logOut(); }}>{storeUsername} 로그 아웃</LinkBtn>;
+        onClick={()=>{ LOADING_FALSE(); this.logOut(); }}>{usernameSession}님 로그 아웃</LinkBtn>;
 
 
         if(this.props.location.pathname !== '/modify-user/userInpoModify'){
             button2 = <LinkBtn 
             onClick={()=>{ this.UserModify(); }}>개인정보 수정</LinkBtn>;    
         }
-        
-        button3 = <LinkBtn 
-        onClick={()=>{ this.persinMainPage(); }}>첫화면으로</LinkBtn>;
 
-    }else if(storeIsLoading === false && storeUsername === null) {
+        let patArr = this.props.location.pathname.split("/");
+
+        if(patArr[1] !== 'persion-main'){
+            button3 = <LinkBtn 
+            onClick={()=>{ this.persinMainPage(0); }}>첫화면으로</LinkBtn>;
+        }
+
+    }else if(storeIsLoading === false && usernameSession === null) {
         button = <LinkBtn onClick={()=> { LOADING_TRUE(); this.mainPage(); }}>처음으로</LinkBtn>;
     }
-  
 
-
-
-
-// ---------------------------------------------------------------------------------------
-
-         //console.log(window.sessionStorage.getItem('name'));
-         //console.log(window.sessionStorage.getItem('id'));
-        //console.log(this.props.username);
-        //console.log(this.props.id);
         return(
-        <div>
-            {/* <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="Menu">
-                            <MenuIcon/>
-                        </IconButton>
-
-                        <Typography variant="h6" style = {style}>
-                            React User Application 
-                        </Typography>
-                        <form>
-                        {button}
-                        </form>
-
-                        <form>
-                        <Button onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</Button>
-                        <Button onClick={() =>{ this.gogo();}}> 고고 </Button>
-                        </form>
-                    </Toolbar>
-                </AppBar>
-            </div> */}
-
             <Navbar>
                     {button3}{button2}{button}
                     {/* <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn> */}
             </Navbar>
-        </div>
+ 
     )
 }
 }
@@ -226,14 +176,12 @@ const LinkBtn = styled.button`
 // }
 
 const mapStateToProps = (state) => ({
-    storeIsLoading : state.loadingReucer.isLoading ,
-    storeUsername : state.loginReucer.username
+    storeIsLoading : state.loadingReucer.isLoading
   });
   
 const mapDispatchToProps = (dispatch) => ({
     LOADING_TRUE: () => dispatch(actions.loadingTrue()),
     LOADING_FALSE: () => dispatch(actions.loadingFalse()),
-    LOGOUT_USER : () => dispatch(actionsLogin.logoutUser())
 });
 
   
