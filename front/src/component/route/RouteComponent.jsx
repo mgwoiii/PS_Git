@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import UserListComponent from '../../containers/UserListContainer';
 import AddUserComponent from '../user/AddUserComponent'
@@ -11,13 +11,29 @@ import MainLogin from '../../pages/mainLogin';
 import persionMain from '../../pages/persionMain';
 import UserModify from '../../pages/userModify';
 
-const AppRouter = () => {
-    return (
+class AppRouter extends Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isLoading : true,
+            username : null,
+            id : null
+            // username : window.sessionStorage.getItem('name'),
+            // id : window.sessionStorage.getItem('id')
+        }
+
+
+    }
+
+    render(){
+        return (
         <div>
             
             <Router>
                 <div style = {style}>
-                    <NavBar/>
+                    <NavBar username ={this.state.username} id = {this.state.id} />
                     <Switch>
                         <Route exact path="/" component={UserListComponent} />
                         <Route path="/persion-main" component = {persionMain}/>
@@ -33,6 +49,7 @@ const AppRouter = () => {
             </Router>
         </div>
     );
+        }
 }
 
 const style = {

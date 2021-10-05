@@ -21,19 +21,21 @@ import oc from 'open-color';
 class NavBar extends Component {
 
     
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isLoading : true,
-            username : null
-        }
-
-
-    }
-
+   
     componentDidMount() {
      // this.componentsHandler(this.props.location.pathname);
+    //  let name = window.sessionStorage.getItem('name');
+    //  let id = window.sessionStorage.getItem('id');
+
+        
+        this.aa();
+    }
+    
+    aa = () =>{
+        this.props.history.push('/persion-main/persionMain');
+
+        console.log(window.sessionStorage.getItem('name'));
+        console.log(window.sessionStorage.getItem('id'));
     }
     
     // componentDidUpdate(prevProps) {
@@ -161,9 +163,10 @@ class NavBar extends Component {
 
 // ---------------------------------------------------------------------------------------
 
-        console.log(window.sessionStorage.getItem('name'));
-        console.log(window.sessionStorage.getItem('id'));
-
+         //console.log(window.sessionStorage.getItem('name'));
+         //console.log(window.sessionStorage.getItem('id'));
+        //console.log(this.props.username);
+        //console.log(this.props.id);
         return(
         <div>
             {/* <div>
@@ -189,10 +192,8 @@ class NavBar extends Component {
             </div> */}
 
             <Navbar>
-                <form>
                     {button3}{button2}{button}
                     {/* <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn> */}
-                </form>
             </Navbar>
         </div>
     )

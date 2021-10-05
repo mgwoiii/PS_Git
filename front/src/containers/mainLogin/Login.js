@@ -74,7 +74,10 @@ class Login extends Component {
 
                   window.sessionStorage.setItem('name', response.data.username);
                   window.sessionStorage.setItem('id', response.data.id);
-
+                   
+                  console.log("온ㄷ");
+                  
+                  
                   //window.localStorage.setItem('value' ,user.username);
                   this.props.LOADING_FALSE();
                   

@@ -20,12 +20,15 @@ class Top extends Component{
             this.state = {
                 number2: 0
             }
+
+            // 새로고침을 하면 state 초기화가 되므로 페이지도 알맞게 이동
+            this.props.history.push('/persion-main/persionMain');
         }
 
     clickLi = (number2) => {
 
             this.setState({
-                number2:number2
+                number2 : number2
             });
 
             switch(number2){
