@@ -109,7 +109,7 @@ class NavBar extends Component {
         
         const { storeIsLoading, LOADING_TRUE, LOADING_FALSE, } = this.props;
         const usernameSession = window.sessionStorage.getItem('name');
-        const idSession = window.sessionStorage.getItem('id');
+        //const idSession = window.sessionStorage.getItem('id');
 
         let button, button2, button3= null;
 

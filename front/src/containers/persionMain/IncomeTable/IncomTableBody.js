@@ -61,13 +61,6 @@ class IncomTableBody extends Component {
 
 export default IncomTableBody;
 
-
-const IncomTableHeaderRow = styled.div`
-    width: 100%;
-    text-align : center;
-
-`
-
 const IncomTableRow = styled.div`
     width: 100%;
     display: flex;
