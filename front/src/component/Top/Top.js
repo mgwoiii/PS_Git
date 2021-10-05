@@ -18,11 +18,12 @@ class Top extends Component{
             super(props);
         
             this.state = {
-                number2: 0
+                number2: 1
             }
 
             // 새로고침을 하면 state 초기화가 되므로 페이지도 알맞게 이동
-            this.props.history.push('/persion-main/persionMain');
+            //this.props.history.push('/persion-main/persionMain');
+            this.props.history.push('/persion-main/income');
         }
 
         clickLi = (number2) => {
