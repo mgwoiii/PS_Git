@@ -1,7 +1,6 @@
 
 import { Component } from "react";
 import styled from "styled-components";
-import oc from 'open-color';
 import { withRouter } from "react-router";
 
 const obj = [
@@ -69,7 +68,7 @@ const Wrap = styled.div`
 
 const MenuBar = styled.div`
     /* padding: 1rem; */
-    background: ${oc.teal[6]};
+    background: #715B56;
     width: 100%;
     margin-bottom: 1rem;
 `;
@@ -78,7 +77,7 @@ const Wrapper = styled.ul`
 
     .submenu {
         color: white;
-        background-color:  ${oc.teal[6]};
+        background-color:  #715B56;
     }
 
 `;
@@ -89,17 +88,17 @@ const LiItem = styled.li`
     font-weight: bold;
     display: inline-block;
     color: white;
-    background: ${oc.teal[5]};
+    background: #947872;
     cursor: pointer;
     padding: 1rem;
 
     &:hover {
-        background: ${oc.teal[5]};
+        background: #947872;
     }
 
     &:active{
         color: white;
-        background:  ${oc.teal[6]};
+        background:  #947872;
         height: 100%;
     }
 

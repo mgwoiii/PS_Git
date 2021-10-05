@@ -10,7 +10,7 @@ class Calendar extends Component {
             Weeks = (monthYear, selected, clickFn) => {
                 const firstDayOfMonth = moment(monthYear).startOf('month');
                 const firstDateOfMonth = firstDayOfMonth.get('d');
-                const firstDayOfWeek = firstDayOfMonth.clone().add('d', -firstDateOfMonth);
+                const firstDayOfWeek = firstDayOfMonth.clone().add(-firstDateOfMonth,'d');
                 const _Weeks = [];
             
                 for (let i = 0; i < 6; i++) {
@@ -18,7 +18,7 @@ class Calendar extends Component {
                     <Week key={`RCA_Calender_Week_${i}`}
                         weekIndex = {i}
                         ymOfThisCalendar = {firstDayOfMonth.format("YYYY-MM")}
-                        firstDayOfThisWeekformat={firstDayOfWeek.clone().add('d', i *7).format("YYYY-MM-DD")}
+                        firstDayOfThisWeekformat={firstDayOfWeek.clone().add(i *7, 'day').format("YYYY-MM-DD")}
                         selected = {selected}
                         fn = {clickFn}
                     />

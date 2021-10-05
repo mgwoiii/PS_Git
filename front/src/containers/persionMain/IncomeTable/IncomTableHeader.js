@@ -50,17 +50,22 @@ export default IncomTableHeader;
 
 const IncomTableHeaderRow = styled.div`
     width: 100%;
+    background-color: #CF767A;
+    border-bottom: 0.5px solid white;
+    color : white;
     text-align : center;
 
 `
 
 const IncomTableRow = styled.div`
     width: 100%;
+    background-color: #EEC0B7;
+    border-bottom: 0.5px solid white;
     display: flex;
 `
 
 const IncomTableCell = styled.div`
-    border : 0.1px solid blue;
+    border : none;
     width: 20%;
     text-align : center;
 `
@@ -72,13 +77,13 @@ const RCA_UL = styled.ul`
 
 `
 const RCA_LI = styled.li`
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 
     display: flex;
     justify-content: center;
     width : 50px;
-    height: 80px;
+    height: 50px;
     cursor: pointer;   
     float: left;
     line-height: 80px;

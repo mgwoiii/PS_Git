@@ -13,7 +13,7 @@ class Week extends Component {
    
       for (let i = 0; i < 7; i++){
    
-        const Day = moment(firstDayFormat).add('d', i);
+        const Day = moment(firstDayFormat).add( i,'day');
         _days.push({
           yearMonthDayFormat: Day.format("YYYY-MM-DD"),
           getDay: Day.format('D'),
@@ -101,7 +101,7 @@ const RCA_CALENDER_DAY = styled.div`
     
     flex-basis: 14.2857143%;
     border: 0.1px solid white;
-    background-color: rgb(225,224,224);
+    background-color: #EDD8CA;
     vertical-align: top;
 
     &:nth-child(odd){
@@ -126,7 +126,7 @@ const DATE_WEEKDAY_LABEL = styled.div`
 
 ` 
 const DATE_NOT_THIS_MONTH = styled.div`
-    color: rgb(255, 255, 255);
+    color: white;
     height: 30px;
 `
 

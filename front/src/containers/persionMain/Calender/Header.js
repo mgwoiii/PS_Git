@@ -22,10 +22,11 @@ class Header extends Component {
 }
 
 const RCA_HEADER_CONTAINER = styled.div`
-    background-color: rgb(224, 215, 202);
+    background-color: #CF767A;
     text-align : center;
     width: 100%
-    
+    font-weight: bold;
+
 `
 
 const RCA_UL = styled.ul`
@@ -36,7 +37,7 @@ const RCA_UL = styled.ul`
 `
 const RCA_LI = styled.li`
     font-size: 2rem;
-    font-weight: bold;
+    color : white;
 
     display: flex;
     justify-content: center;
@@ -50,6 +51,8 @@ const RCA_LI = styled.li`
 const RCA_LI2 = styled.li`
     font-size: 2rem;
     font-weight: bold;
+    color : white;
+
     display: inline-block;
 
     width : 200px;

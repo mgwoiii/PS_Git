@@ -66,7 +66,7 @@ const RCA_CALENDER_DATE_HEADER = styled.div`
 const RCA_CALENDER_DATE_COMPONENT = styled.div`
     text-align : center;
     box-sizing : border-box;
-    background-color : rgb(107, 107, 108);
+    background-color : #EEC0B7;
     border : 0.1px solid white;
     font-size : 1.5rem;
     line-height : 50px;
@@ -79,13 +79,13 @@ const RCA_CALENDER_DATE_COMPONENT = styled.div`
 `
 
 const DATE_WEEKDAY = styled.div `
-    color : rgba( 255, 255, 255, 0.603)
+    color : black;
 `
 
 const DATE_SUN = styled.div`
-    color : tomato;   
+    color : red;   
  
 `
 const DATE_SAT = styled.div`
-    color : skyblue;
+    color : blue;
 `

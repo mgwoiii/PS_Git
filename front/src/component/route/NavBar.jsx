@@ -151,29 +151,28 @@ class NavBar extends Component {
 }
 
 const Navbar = styled.div`
-    background : ${oc.teal[6]};
+    background : #758B66;
     color : white;
-    font-size: 1rem;
     padding: 1rem;
     height: auto;
     text-align:right;
+    font-weight: bold;
 
 `
 
 const LinkBtn = styled.button`
-    background : ${oc.teal[6]};
+    background : #758B66;
     padding: 0.5rem;
     color : white;
     border : 0;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+
     &:hover {
-        background: ${oc.teal[5]};
+        background: #829973};
     }
 `
-
-// const style = {
-//     flexGrow : 1
-// }
 
 const mapStateToProps = (state) => ({
     storeIsLoading : state.loadingReucer.isLoading

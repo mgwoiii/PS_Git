@@ -64,10 +64,13 @@ export default IncomTableBody;
 const IncomTableRow = styled.div`
     width: 100%;
     display: flex;
+    background-color : #EDD8CA;
 `
 
 const IncomTableCell = styled.div`
-    border : 0.1px solid blue;
+    border-bottom: 0.5px solid white;
+    color : rgb(71, 71, 71);
+    
     width: 20%;
     text-align : center;
 `
