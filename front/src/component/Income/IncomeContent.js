@@ -10,11 +10,11 @@ margin-bottom: 1rem;
 `;
 
 
-const Income = ({title, children}) => (
+const PersionContent = ({title, children}) => (
     <div>
         <Title>{title}</Title>
         {children}
     </div>
 );
 
-export default Income;
+export default PersionContent;

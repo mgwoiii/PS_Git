@@ -1,9 +1,8 @@
 import { Component } from "react";
-import PersionContent  from '../../component/persionMain/persionContent';
+import IncomeContent  from '../../component/Income/IncomeContent';
 
 import IncomTableApp from './IncomeTable/IncomTableApp';
 import BtnIncomeApp from './BtnIncome/BtnIncomeApp';
-import styled from "styled-components";
 
 const obj = [
     {id : 0 , value : "수입일지 등록"},
@@ -31,7 +30,7 @@ class Income extends Component{
 
     btnChanged = (number) => {
         switch (number){            
-            case 0 :  return  alert(number); //this.props.history.push('www.naver.com');
+            case 0 :  return  this.props.history.push('/persion-main/Income/IncomeSingUp');
             case 1 :  return  alert(number);//this.props.history.push('www.gogle.com');
             case 2 :  return  alert(number);//this.props.history.push('/users');            
             default : return ;
@@ -41,10 +40,10 @@ class Income extends Component{
     render(){
         
         return (
-            <PersionContent>
+            <IncomeContent>
                     {this.btnSeleted()}
                     <IncomTableApp />
-            </PersionContent>
+            </IncomeContent>
         );
     }
 }

@@ -22,7 +22,7 @@ class Top extends Component{
 
             // 새로고침을 하면 state 초기화가 되므로 페이지도 알맞게 이동
             //this.props.history.push('/persion-main/persionMain');
-            this.props.history.push('/persion-main/income');
+            this.props.history.push('/persion-main/Income/income');
         }
 
         clickLi = (number2) => {
@@ -33,7 +33,7 @@ class Top extends Component{
 
             switch(number2){
                 case 0 :  return  this.props.history.push('/persion-main/persionMain');
-                case 1 :  return  this.props.history.push('/persion-main/income');
+                case 1 :  return  this.props.history.push('/persion-main/Income/income');
                 case 2 :  return  this.props.history.push('/persion-main/expenditure');
                 case 3 :  return  this.props.history.push('/persion-main/tax');
                 case 4 :  return  this.props.history.push('/persion-main/admin');
@@ -44,16 +44,12 @@ class Top extends Component{
     render(){
         return (
             <Wrap>
-                <MenuBar>
-                    <Wrapper>
                         {
                             obj.map((obj, index) => {
                                 return <LiItem className={this.state.number2 === index ? "submenu" : "null"}
                                          key = {obj.id} onClick = {() => {this.clickLi(obj.id)}}>
                                         {obj.value}</LiItem>})
                         }
-                    </Wrapper>      
-                </MenuBar>
             </Wrap>
             
         );
@@ -64,21 +60,14 @@ const Wrap = styled.div`
     background: white;
     padding: 0.5rem;
     height: auto;
-`;
-
-const MenuBar = styled.div`
     /* padding: 1rem; */
     width: 100%;
     margin-bottom: 1rem;
-`;
-
-const Wrapper = styled.ul`
 
     .submenu {
         color: #758B66;
         border-bottom: 2px solid #758B66;
     }
-
 `;
 
 const LiItem = styled.li`

@@ -3,10 +3,11 @@ import { Route } from "react-router";
 import PersionWrapper from "../component/persionMain/persionWrapper";
 
 import PersionMain from '../containers/persionMain/persionMain';
-import Income from '../containers/Income/Income';
 import Expenditure from '../containers/persionMain/Expenditure';
 import Tax from '../containers/persionMain/Tax';
 import Admin from '../containers/persionMain/Admin';
+
+import IncomeMain from './Income/IncomeMain';
 
 
 
@@ -24,10 +25,11 @@ class persionMain extends Component {
     // }
 
     render(){
-        return (
+        return (           
+
             <PersionWrapper>
                 <Route path = "/persion-main/persionMain" component={PersionMain}/>
-                <Route path = "/persion-main/income" component={Income}/>
+                <Route path = "/persion-main/Income" component={IncomeMain}/>
                 <Route path = "/persion-main/expenditure" component={Expenditure}/>
                 <Route path = "/persion-main/tax" component={Tax}/>
                 <Route path = "/persion-main/admin" component={Admin}/>
