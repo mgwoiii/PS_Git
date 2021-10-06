@@ -13,11 +13,8 @@ import UserModify from '../../pages/userModify';
 class AppRouter extends Component{
 
     render(){
-        return (
-        <div>
-            
+        return (            
             <Router>
-                <div style = {style}>
                     <NavBar />
                     <Switch>
                         <Route exact path="/" component={UserListComponent} />
@@ -30,17 +27,11 @@ class AppRouter extends Component{
                         <Route path="/edit-user" component={EditUserComponent} />
                         
                     </Switch>
-                </div>
             </Router>
-        </div>
     );
         }
 }
 
-const style = {
-    color: 'black',
-    margin: '10px'
-    
-  }
+
 
   export default AppRouter;

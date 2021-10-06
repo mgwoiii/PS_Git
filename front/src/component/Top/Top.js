@@ -48,7 +48,7 @@ class Top extends Component{
                     <Wrapper>
                         {
                             obj.map((obj, index) => {
-                                return <LiItem className={this.state.number2 === index ? "null" : "submenu"}
+                                return <LiItem className={this.state.number2 === index ? "submenu" : "null"}
                                          key = {obj.id} onClick = {() => {this.clickLi(obj.id)}}>
                                         {obj.value}</LiItem>})
                         }
@@ -68,7 +68,6 @@ const Wrap = styled.div`
 
 const MenuBar = styled.div`
     /* padding: 1rem; */
-    background: #715B56;
     width: 100%;
     margin-bottom: 1rem;
 `;
@@ -76,8 +75,8 @@ const MenuBar = styled.div`
 const Wrapper = styled.ul`
 
     .submenu {
-        color: white;
-        background-color:  #715B56;
+        color: #758B66;
+        border-bottom: 2px solid #758B66;
     }
 
 `;
@@ -87,19 +86,20 @@ const LiItem = styled.li`
     font-size: 1rem;
     font-weight: bold;
     display: inline-block;
-    color: white;
-    background: #947872;
+    color: black;
     cursor: pointer;
     padding: 1rem;
+    border-bottom: 2px solid white;
 
     &:hover {
-        background: #947872;
+        color : #758B66;
+        border-bottom: 2px solid #758B66;
+
     }
 
     &:active{
-        color: white;
-        background:  #947872;
-        height: 100%;
+        color : #758B66;
+        border-bottom: 2px solid #758B66;
     }
 
 

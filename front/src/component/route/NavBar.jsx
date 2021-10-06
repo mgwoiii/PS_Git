@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../action/loadingActions';
 
 import styled from "styled-components";
-import oc from 'open-color';
 
 class NavBar extends Component {
 

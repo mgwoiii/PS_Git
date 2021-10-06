@@ -50,7 +50,7 @@ export default IncomTableHeader;
 
 const IncomTableHeaderRow = styled.div`
     width: 100%;
-    background-color: #CF767A;
+    background-color: #758B66;
     border-bottom: 0.5px solid white;
     color : white;
     text-align : center;
@@ -59,8 +59,12 @@ const IncomTableHeaderRow = styled.div`
 
 const IncomTableRow = styled.div`
     width: 100%;
-    background-color: #EEC0B7;
+    height : 40px;
+    line-height: 40px;
+
+    background-color: #a7bd99;
     border-bottom: 0.5px solid white;
+    color : white;
     display: flex;
 `
 

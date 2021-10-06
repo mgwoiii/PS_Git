@@ -51,6 +51,7 @@ class IncomTableBody extends Component {
     render(){
         return(
                 <>   
+                    
                     {this.IncomTables()}
                 </>
         )
@@ -64,7 +65,10 @@ export default IncomTableBody;
 const IncomTableRow = styled.div`
     width: 100%;
     display: flex;
-    background-color : #EDD8CA;
+    background-color : #cde0c1;
+    height : 30px;
+    line-height: 30px;
+
 `
 
 const IncomTableCell = styled.div`

@@ -60,13 +60,12 @@ export default DateHeader;
 const RCA_CALENDER_DATE_HEADER = styled.div`
     display: flex;
     height: 50px;
-    background-color: green;
 `
 
 const RCA_CALENDER_DATE_COMPONENT = styled.div`
     text-align : center;
     box-sizing : border-box;
-    background-color : #EEC0B7;
+    background-color : #a7bd99;
     border : 0.1px solid white;
     font-size : 1.5rem;
     line-height : 50px;
@@ -79,13 +78,13 @@ const RCA_CALENDER_DATE_COMPONENT = styled.div`
 `
 
 const DATE_WEEKDAY = styled.div `
-    color : black;
+    color : rgb(71, 71, 71);
 `
 
 const DATE_SUN = styled.div`
-    color : red;   
+    color : tomato;   
  
 `
 const DATE_SAT = styled.div`
-    color : blue;
+    color : skyblue;
 `

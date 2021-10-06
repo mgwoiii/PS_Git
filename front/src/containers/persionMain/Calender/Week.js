@@ -101,7 +101,7 @@ const RCA_CALENDER_DAY = styled.div`
     
     flex-basis: 14.2857143%;
     border: 0.1px solid white;
-    background-color: #EDD8CA;
+    background-color : #cde0c1;
     vertical-align: top;
 
     &:nth-child(odd){

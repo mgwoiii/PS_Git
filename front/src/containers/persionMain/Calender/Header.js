@@ -22,7 +22,7 @@ class Header extends Component {
 }
 
 const RCA_HEADER_CONTAINER = styled.div`
-    background-color: #CF767A;
+    background-color: #758B66;
     text-align : center;
     width: 100%
     font-weight: bold;
