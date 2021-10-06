@@ -17,7 +17,7 @@ const obj = [
 
 class IncomTableBody extends Component {
 
-    IncomTables = (number) => {
+    IncomTables = () => {
 
         const _IncomTables = [];
 

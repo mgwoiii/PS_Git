@@ -22,7 +22,6 @@ class IncomTableApp extends Component {
     render(){
         return(        
             <IncomTable>
-                버튼
                 <IncomTableHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
                                   moveDay={this.moveDay} />
                 <IncomTableBody />
