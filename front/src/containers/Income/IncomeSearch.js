@@ -25,8 +25,8 @@ class IncomeSearch extends Component{
 
     btnChanged = (number) => {
         switch (number){            
-            case 0 :  return  this.props.history.push('/persion-main/Income/IncomeModify');      
-            default : return ;
+           case 0 :  return  this.props.history.push('/persion-main/Income/IncomeModify');      
+           default : return ;
         }
     }
 

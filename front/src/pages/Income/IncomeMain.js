@@ -6,6 +6,7 @@ import Income from '../../containers/Income/Income';
 import IncomeSingUp from '../../containers/Income/IncomeSingUp';
 import IncomeSearch from '../../containers/Income/IncomeSearch';
 import IncomeSearchList from '../../containers/Income/IncomeSearchList';
+import IncomeSearchListMonth from '../../containers/Income/IncomeSearchListMonth';
 import IncomeModify from '../../containers/Income/IncomeModify';
 
 
@@ -21,6 +22,8 @@ class IncomeMain extends Component {
                 <Route path = "/persion-main/Income/IncomeSingUp" component={IncomeSingUp}/>
                 <Route path = "/persion-main/Income/IncomeSearch" component={IncomeSearch}/>
                 <Route path = "/persion-main/Income/IncomeSearchList" component={IncomeSearchList}/>
+                <Route path = "/persion-main/Income/IncomeSearchListMonth" component={IncomeSearchListMonth}/>
+
                 <Route path = "/persion-main/Income/IncomeModify" component={IncomeModify}/>
 
                 
