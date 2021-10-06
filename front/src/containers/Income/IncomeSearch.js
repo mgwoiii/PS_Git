@@ -1,16 +1,12 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
-
-import IncomTableApp from './IncomeTable/IncomTableApp';
 import BtnIncomeApp from './BtnIncome/BtnIncomeApp';
 
 const obj = [
-    {id : 0 , value : "수입일지 등록"},
-    {id : 1 , value : "일지 조회"},
-    {id : 2 , value : "기간별 조회(월별)"}
+    {id : 0 , value : "수입일지 일별 수정"}
 ]
 
-class Income extends Component{
+class IncomeSearch extends Component{
 
     btnSeleted = () => {
         const _BtnTables = [];
@@ -24,15 +20,12 @@ class Income extends Component{
                     key={`TableBtn_${obj.id}`} />
             ))
             )
-
         return _BtnTables;
     }
 
     btnChanged = (number) => {
         switch (number){            
-            case 0 :  return  this.props.history.push('/persion-main/Income/IncomeSingUp');
-            case 1 :  return  this.props.history.push('/persion-main/Income/IncomeSearch');   
-            case 2 :  return  this.props.history.push('/persion-main/Income/IncomeSearchList');            
+            case 0 :  return  this.props.history.push('/persion-main/Income/IncomeModify');      
             default : return ;
         }
     }
@@ -41,11 +34,11 @@ class Income extends Component{
         
         return (
             <IncomeContent>
-                    {this.btnSeleted()}
-                    <IncomTableApp />
+                {this.btnSeleted()}
+                수입일지 일별 조회 
             </IncomeContent>
         );
     }
 }
 
-export default Income;
+export default IncomeSearch;
