@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import PersionWrapper from "../component/persionMain/persionWrapper";
 
 import PersionMain from '../containers/persionMain/persionMain';
-import Income from '../containers/persionMain/Income';
+import Income from '../containers/Income/Income';
 import Expenditure from '../containers/persionMain/Expenditure';
 import Tax from '../containers/persionMain/Tax';
 import Admin from '../containers/persionMain/Admin';
