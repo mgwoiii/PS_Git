@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import { ko } from 'date-fns/esm/locale';
-import moment from 'moment';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-       
 class Header extends Component {
 
     constructor(props){
@@ -15,24 +13,29 @@ class Header extends Component {
         let dateNumber = this.props.calenderYMD;
 
         let year2 = dateNumber.format("YYYY");
-        let month2 = (dateNumber.format("MM") -1); 
+        let month2 = (dateNumber.format("MM")); 
         let day2 = dateNumber.format("DD");
 
         
 
-        console.log(year2 +"::" + month2 + ";;" + day2);
+        console.log(year2 +":" + month2 + ":" + day2);
 
         this.state = {
-            startDate : new Date(year2,month2,day2),
+            startDate : new Date(year2,month2 -1 ,day2),
             openDatePicker : false,
         }
     }
 
 
-    setStartDate = (date) => {
-        this.setState = {
-            startDate : date
-        }
+    setStartDate = (year,month,day) => {
+
+        this.setState({
+            startDate : new Date(year,month -1 ,day),
+          }, () => {
+            // setState 이후 실행됨
+           // setState 한 후 처리할 비지니스 로직 혹은 메서드 호출하면 동기식으로 처리 가능
+          })
+
     }
 
     render(){
@@ -57,54 +60,33 @@ class Header extends Component {
                                         selected={this.state.startDate}
                                         
 
-                                        onChange = {(date) => 
-                                            {   
-                                                let year = date.getFullYear();
-                                                let month = (date.getMonth()); 
-                                                let day = date.getDate();
-                                                
-                                                const dateString = new Date(year, month, day);
-                                                const dateStringOne = new Date(year, month, 1);
-
-                                                let staYear = this.state.startDate.getFullYear();
-                                                let staMonth = (this.state.startDate.getMonth()); 
-                                                let staDay = this.state.startDate.getDate();
-
-                                                const staDateString = new Date(staYear, staMonth, day);
-                                                const staDateStringOne = new Date(staYear, staMonth, 1);
-                                               
-                                                console.log(dateString);
-                                                console.log(staDateString);
-
-                                                let btMs = dateString.getTime() - staDateString.getTime() ;
-                                                let btDay = btMs / (1000*60*60*24) ;
-                                                let btMon = Math.floor(btDay / 30);
-
-                                                
-                                                if(dateStringOne > staDateStringOne){
-
-                                                    console.log( btMon + "(월 차이) 선택한 날짜가 크다");
-                                                    console.log( btDay + "(일 차이) 선택한 날짜가 크다");
-
-                                                    this.props.moveMonth(btMon)
-                                                    this.props.moveDay(btDay)
+                                            onChange = {(date) => 
+                                                {   
+                                                    let year = date.getFullYear();
+                                                    let month = (date.getMonth()); 
+                                                    let day = date.getDate();
                                                     
-                                                }else if(dateStringOne < staDateStringOne){
-
-                                                    console.log( btMon + "(월 차이) 선택한 날짜가 작다");
-                                                    console.log( " 선택한 날짜가 작다");
+                                                
+                                                    let yearND = null;
                                                     
-                                                    this.props.moveMonth(btMon)
-                                                    this.props.moveDay(btDay)
+                                        
+                                                    month ++;
+                                                    if(month <10 ){
+                                                        yearND = year+"-0"+month
+                                                        if(day <10){
+                                                            yearND = yearND + "-0"+day;
+                                                        }else{
+                                                            yearND = yearND + "-"+day;
+                                                        }
+                                                    }else{
+                                                        yearND = year+"-"+month+"-"+ day;
 
-                                                }else{
-                                                    console.log( " 같다");
+                                                    }
 
+                                                        this.props.moveDay(yearND)
+
+                                                    this.setStartDate(year,month,day );
                                                 }
-                                                    console.log( "date : " + date);
-
-                                                this.setStartDate(date);
-                                            }
                                             }
                     
                                         locale={ko}

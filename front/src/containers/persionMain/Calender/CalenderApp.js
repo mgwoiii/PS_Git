@@ -21,13 +21,13 @@ class CalenderApp extends Component {
     }   
     
     moveDay = (day) => {
+        console.log(day);
         this.setState({
-            calenderYM : this.state.calenderYM.add(day,'day')
+            calenderYM : moment(day,'YYYY MM DD')
             
         })
     }
-                    //this.state.calenderYM.moment(date).format('YYYY MM DD HH:mm:ss')
-                     //  moment('2019-08-10').format('YYYY MM DD HH:mm:ss'));
+//this.state.calenderYM.add(day,'day')
     static defaultProps = {
         clickFn : () => {}
     }
