@@ -9,7 +9,7 @@ class CalenderApp extends Component {
 
     state = {
         calenderYM : moment(),
-        selected : moment().format("YYYY-MM-DD")
+        selected : moment().format("YYYY-MM-DD"),
     }
 
     
@@ -18,8 +18,16 @@ class CalenderApp extends Component {
         this.setState({
             calenderYM : this.state.calenderYM.add(month,'M')
         })
+    }   
+    
+    moveDay = (day) => {
+        this.setState({
+            calenderYM : this.state.calenderYM.add(day,'day')
+            
+        })
     }
-
+                    //this.state.calenderYM.moment(date).format('YYYY MM DD HH:mm:ss')
+                     //  moment('2019-08-10').format('YYYY MM DD HH:mm:ss'));
     static defaultProps = {
         clickFn : () => {}
     }
@@ -48,11 +56,13 @@ class CalenderApp extends Component {
     render(){
         return (
                 <RCA_APP_CONTAINER>
-                    <Header calenderYM ={this.state.calenderYM.format("YYYY년 MM월")}
-                            moveMonth={this.moveMonth}
+                    <Header calenderYM ={ this.state.calenderYM.format("YYYY년 MM월")}
+                            calenderYMD = {this.state.calenderYM}
+                            calenderYMDD = {this.state.calenderYM.format("YYYY-MM-DD")}
+                            moveMonth={this.moveMonth} moveDay = {this.moveDay}
                     />
-                    <Calendar YM = {this.state.calenderYM.format("YYYY-MM-DD")}
-                              selected = {this.state.selected}
+                    <Calendar YM = { this.state.calenderYM.format("YYYY-MM-DD")}
+                              selected = {this.state.selected} 
                               changeSelected = {this.changeSelected}
                     />
                 </RCA_APP_CONTAINER>
