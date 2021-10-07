@@ -7,10 +7,23 @@ import moment from 'moment';
 
 class CalenderApp extends Component {
 
-    state = {
-        calenderYM : moment(),
-        selected : moment().format("YYYY-MM-DD"),
+    constructor(props){
+        super(props);
+
+        let dateNumber = moment();
+        let year2 = dateNumber.format("YYYY");
+        let month2 = (dateNumber.format("MM")); 
+        let day2 = dateNumber.format("DD");
+    
+        this.state = {
+            calenderYM : moment(),
+            selected : moment().format("YYYY-MM-DD"),
+            startDate : new Date(year2,month2 -1 ,day2)
+            
+        }
+
     }
+   
 
     
 
@@ -21,13 +34,12 @@ class CalenderApp extends Component {
     }   
     
     moveDay = (day) => {
-        console.log(day);
         this.setState({
             calenderYM : moment(day,'YYYY MM DD')
             
         })
     }
-//this.state.calenderYM.add(day,'day')
+
     static defaultProps = {
         clickFn : () => {}
     }
@@ -40,8 +52,11 @@ class CalenderApp extends Component {
         }
 
         this.setState({
-            selected : clickedDate
-        })
+            selected : clickedDate,
+        }, () => {
+            // setState 이후 실행됨
+           // setState 한 후 처리할 비지니스 로직 혹은 메서드 호출하면 동기식으로 처리 가능
+          })
 
         this.props.clickFn(clickedDate)
 
@@ -50,16 +65,32 @@ class CalenderApp extends Component {
         }else if(moment(clickedDate).isAfter(this.state.calenderYM,'month')){
             this.moveMonth(1)
         }
+
+        // label 업데이트 
+        let aa = clickedDate.split('-');
+
+        // 0(year) , 1(month), 2(day)
+        this.setStartDate(aa[0], aa[1], aa[2]);
     }
 
+    setStartDate = (year,month,day) => {
+        this.setState({
+            startDate : new Date(year,month -1 ,day),
+          }, () => {
+            // setState 이후 실행됨
+           // setState 한 후 처리할 비지니스 로직 혹은 메서드 호출하면 동기식으로 처리 가능
+          })
+
+    }
 
     render(){
         return (
                 <RCA_APP_CONTAINER>
                     <Header calenderYM ={ this.state.calenderYM.format("YYYY년 MM월")}
                             calenderYMD = {this.state.calenderYM}
-                            calenderYMDD = {this.state.calenderYM.format("YYYY-MM-DD")}
-                            moveMonth={this.moveMonth} moveDay = {this.moveDay}
+                            moveDay = {this.moveDay}
+                            startDate = {this.state.startDate}
+                            setStartDate = {this.setStartDate}
                     />
                     <Calendar YM = { this.state.calenderYM.format("YYYY-MM-DD")}
                               selected = {this.state.selected} 
