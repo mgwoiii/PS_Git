@@ -11,18 +11,12 @@ class Header extends Component {
         super(props);
 
         let dateNumber = this.props.calenderYMD;
-
         let year2 = dateNumber.format("YYYY");
         let month2 = (dateNumber.format("MM")); 
         let day2 = dateNumber.format("DD");
 
-        
-
-        console.log(year2 +":" + month2 + ":" + day2);
-
         this.state = {
-            startDate : new Date(year2,month2 -1 ,day2),
-            openDatePicker : false,
+            startDate : new Date(year2,month2 -1 ,day2)
         }
     }
 
@@ -38,60 +32,88 @@ class Header extends Component {
 
     }
 
+    ClickCalender = (dateObj, number) => {
+
+        let date = (dateObj ? dateObj: this.state.startDate);
+
+        let year = date.getFullYear();
+        let month = (date.getMonth() + number); 
+        let day = (dateObj ? date.getDate(): '1');
+        let yearND = null;
+                                                    
+        month ++;
+
+        if(month === 13){
+            year++;
+            month = '1';
+        }
+
+        if(month === 0){
+            year--;
+            month = 12;
+        }
+
+        if(month <10 )
+            yearND = year+"-0"+month        
+        else
+            yearND = year+"-"+month
+        
+        if(day <10)
+            yearND = yearND + "-0"+day;
+        else
+            yearND = yearND + "-"+day;
+
+            this.props.moveDay(yearND)
+            this.setStartDate(year,month,day );
+    }
+
     render(){
       
         return (
             <RCA_HEADER_CONTAINER>              
                         <RCA_UL>
-                                    <RCA_LI onClick={() => {this.props.moveMonth(-1)}}>
+                                    <RCA_LI onClick={() => {this.ClickCalender(null, -1);}}>
                                          &lt;
                                     </RCA_LI>
                                     <RCA_LI2>
                                          {this.props.calenderYM}
                                     </RCA_LI2>
-                                    <RCA_LI2>
-                                         {this.props.calenderYMDD}
-                                    </RCA_LI2>
-                                    <RCA_LI onClick={() => {this.props.moveMonth(1)}}>
+                                    <RCA_LI3>
+                                        <DatePicker
+                                            selected={this.state.startDate}
+                                                onChange = {(date) => 
+                                                    {   
+                                                        this.ClickCalender(date, 0);
+
+                                                        // let year = date.getFullYear();
+                                                        // let month = (date.getMonth()); 
+                                                        // let day = date.getDate();
+                                                        // let yearND = null;
+                                                                                                   
+                                                        // month ++;
+                                                        //     if(month <10 ){
+                                                        //         yearND = year+"-0"+month
+                                                        //         if(day <10)
+                                                        //             yearND = yearND + "-0"+day;
+                                                        //         else
+                                                        //             yearND = yearND + "-"+day;  
+                                                        //     }else{
+                                                        //         yearND = year+"-"+month+"-"+ day;
+                                                        //     }
+                                                        //     this.props.moveDay(yearND)
+                                                        //     this.setStartDate(year,month,day );
+                                                    }
+                                                }
+                        
+                                            locale={ko}
+
+                                            />
+                                    </RCA_LI3>
+                                    <RCA_LI onClick={() => {this.ClickCalender(null, 1);}}>
                                         &gt; 
                                     </RCA_LI>
                                     <RCA_LI3>
-                                        <DatePicker
-                                        selected={this.state.startDate}
                                         
-
-                                            onChange = {(date) => 
-                                                {   
-                                                    let year = date.getFullYear();
-                                                    let month = (date.getMonth()); 
-                                                    let day = date.getDate();
-                                                    
-                                                
-                                                    let yearND = null;
-                                                    
-                                        
-                                                    month ++;
-                                                    if(month <10 ){
-                                                        yearND = year+"-0"+month
-                                                        if(day <10){
-                                                            yearND = yearND + "-0"+day;
-                                                        }else{
-                                                            yearND = yearND + "-"+day;
-                                                        }
-                                                    }else{
-                                                        yearND = year+"-"+month+"-"+ day;
-
-                                                    }
-
-                                                        this.props.moveDay(yearND)
-
-                                                    this.setStartDate(year,month,day );
-                                                }
-                                            }
-                    
-                                        locale={ko}
-
-                                        />
                                     </RCA_LI3>
                         </RCA_UL>       
             </RCA_HEADER_CONTAINER>
