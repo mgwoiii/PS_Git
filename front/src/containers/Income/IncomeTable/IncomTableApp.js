@@ -8,10 +8,15 @@ import moment from 'moment';
 
 class IncomTableApp extends Component {
 
-    state = {
-        calenderYMD : moment(),
-        selected : moment().format("YYYY-MM-DD")
+    constructor(props){
+        super(props);
+        this.state = {
+            calenderYMD : moment(),
+            selected : moment().format("YYYY-MM-DD")
+        }
+
     }
+    
 
     moveDay = (day) => {
         this.setState({
@@ -20,11 +25,14 @@ class IncomTableApp extends Component {
     }
     
     render(){
+
         return(        
             <IncomTable>
                 <IncomTableHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
-                                  moveDay={this.moveDay} />
-                <IncomTableBody />
+                                  moveDay={this.moveDay}
+                                  IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
+                />
+                <IncomTableBody/>
             </IncomTable>
         )
     }

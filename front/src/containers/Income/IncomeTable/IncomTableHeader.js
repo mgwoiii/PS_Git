@@ -4,6 +4,21 @@ import styled from "styled-components";
 
 class IncomTableHeader extends Component {
 
+    IncomHeader = (obj) => {
+
+        const _IncomHeader = [];
+
+        obj.map( obj => 
+            _IncomHeader.push((
+                        <IncomTableCell key={`IncomHeader${obj.id}`}>
+                            {obj.value}
+                        </IncomTableCell>
+                ))
+        );
+
+        return _IncomHeader;
+    }
+
     render(){
         return(
                 <>        
@@ -22,21 +37,7 @@ class IncomTableHeader extends Component {
                     </IncomTableHeaderRow>
 
                     <IncomTableRow>
-                        <IncomTableCell>
-                            호수
-                        </IncomTableCell>
-                        <IncomTableCell>
-                            예약유입경로
-                        </IncomTableCell>
-                        <IncomTableCell>
-                            숙박 비용
-                        </IncomTableCell>
-                        <IncomTableCell>
-                            바베큐 비용
-                        </IncomTableCell>
-                        <IncomTableCell>
-                            계
-                        </IncomTableCell>
+                        {this.IncomHeader(this.props.IncomTableHeaderObj)}
                     </IncomTableRow>
                 </>
         )
@@ -100,7 +101,7 @@ const RCA_LI2 = styled.li`
 
     width : 300px;
     height: 80px;
-    float: left;
     line-height: 80px;
+    float: left;
 
 `

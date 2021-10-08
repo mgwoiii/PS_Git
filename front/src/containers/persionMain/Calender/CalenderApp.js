@@ -19,14 +19,9 @@ class CalenderApp extends Component {
             calenderYM : moment(),
             selected : moment().format("YYYY-MM-DD"),
             startDate : new Date(year2,month2 -1 ,day2)
-            
         }
-
     }
    
-
-    
-
     moveMonth = (month) => {
         this.setState({
             calenderYM : this.state.calenderYM.add(month,'M')
@@ -36,7 +31,6 @@ class CalenderApp extends Component {
     moveDay = (day) => {
         this.setState({
             calenderYM : moment(day,'YYYY MM DD')
-            
         })
     }
 
@@ -89,6 +83,7 @@ class CalenderApp extends Component {
                     <Header calenderYM ={ this.state.calenderYM.format("YYYY년 MM월")}
                             calenderYMD = {this.state.calenderYM}
                             moveDay = {this.moveDay}
+                            changeSelected ={this.changeSelected}
                             startDate = {this.state.startDate}
                             setStartDate = {this.setStartDate}
                     />

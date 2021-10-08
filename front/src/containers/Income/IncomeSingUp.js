@@ -1,5 +1,6 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
+import IncomTableApp from "./IncomeTable/IncomTableApp";
 
 
 class IncomeSingUp extends Component{
@@ -8,7 +9,8 @@ class IncomeSingUp extends Component{
         
         return (
             <IncomeContent>
-               수입일지 
+               수입일지 등록
+               <IncomTableApp />
             </IncomeContent>
         );
     }

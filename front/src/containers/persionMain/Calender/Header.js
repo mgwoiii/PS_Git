@@ -39,6 +39,7 @@ class Header extends Component {
             yearND = yearND + "-"+day;
 
             this.props.moveDay(yearND);
+            this.props.changeSelected(yearND);
             this.props.setStartDate(year,month,day);
     }
 
@@ -58,9 +59,9 @@ class Header extends Component {
                                             selected={this.props.startDate}
                                             onChange = {date => this.ClickCalender(date, 0)}
                                             locale={ko} 
-                                            dateFormat="선택한 날짜 : yyyy-MM-dd"
-                                            style = {styleDate}
+                                            dateFormat="선택한 날짜 : yyyy-MM-dd"                                 
                                             />
+
                                     </RCA_LI3>
                                     <RCA_LI onClick={() => {this.ClickCalender(null, 1);}}>
                                         &gt; 
@@ -87,8 +88,8 @@ const RCA_UL = styled.ul`
     display: inline-block;
     list-style:none;
     margin: 0;
-    height: 60px;
-    line-height: 60px;
+    height: 80px;
+    line-height: 80px;
 
 `
 const RCA_LI = styled.li`
@@ -117,14 +118,9 @@ const RCA_LI2 = styled.li`
 
 const RCA_LI3 = styled.li`
     width : 200px;
-    height : 40px;
     float: left;
 
 `
 
-
-const styleDate = {
-    background :'#758B66'
-}
 
 export default Header;
