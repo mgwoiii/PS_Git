@@ -3,7 +3,8 @@ import IncomeContent  from '../../component/Income/IncomeContent';
 
 class IncomeSearch extends Component{
 
-
+    componentDidMount(){
+    }
 
     render(){
         

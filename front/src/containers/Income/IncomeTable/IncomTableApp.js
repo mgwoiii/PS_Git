@@ -25,14 +25,16 @@ class IncomTableApp extends Component {
     }
     
     render(){
-
         return(        
             <IncomTable>
                 <IncomTableHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
                                   moveDay={this.moveDay}
                                   IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
                 />
-                <IncomTableBody/>
+                <IncomTableBody classNumObj = {this.props.classNumObj} 
+                IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
+                tsetValue = {this.props.tsetValue} urlName ={this.props.urlName}
+                />
             </IncomTable>
         )
     }

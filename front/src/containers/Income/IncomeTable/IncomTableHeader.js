@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 class IncomTableHeader extends Component {
 
-    IncomHeader = (obj) => {
+    IncomHeader = () => {
 
         const _IncomHeader = [];
 
-        obj.map( obj => 
+        this.props && this.props.IncomTableHeaderObj && this.props.IncomTableHeaderObj.map( obj => 
             _IncomHeader.push((
                         <IncomTableCell key={`IncomHeader${obj.id}`}>
                             {obj.value}
@@ -37,7 +37,7 @@ class IncomTableHeader extends Component {
                     </IncomTableHeaderRow>
 
                     <IncomTableRow>
-                        {this.IncomHeader(this.props.IncomTableHeaderObj)}
+                        {this.IncomHeader()}
                     </IncomTableRow>
                 </>
         )
@@ -60,11 +60,12 @@ const IncomTableHeaderRow = styled.div`
 
 const IncomTableRow = styled.div`
     width: 100%;
-    height : 40px;
-    line-height: 40px;
-
+    height : auto;
+    line-height: 20px;
+    word-break:break-all;
     background-color: #a7bd99;
-    border-bottom: 0.5px solid white;
+    font-size: 0.8rem;
+
     color : white;
     display: flex;
 `
@@ -73,6 +74,11 @@ const IncomTableCell = styled.div`
     border : none;
     width: 20%;
     text-align : center;
+    word-break:break-all;
+    word-wrap:break-word;
+    border: 0.5px solid white;
+
+
 `
 
 const RCA_UL = styled.ul`
