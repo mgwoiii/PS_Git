@@ -22,7 +22,7 @@ class Top extends Component{
 
             // 새로고침을 하면 state 초기화가 되므로 페이지도 알맞게 이동
             //this.props.history.push('/persion-main/persionMain');
-            this.props.history.push('/persion-main/expenditure/expenditure');
+            this.props.history.push('/persion-main/Expenditure/expenditure');
         }
 
         clickLi = (number2) => {
@@ -33,8 +33,8 @@ class Top extends Component{
 
             switch(number2){
                 case 0 :  return  this.props.history.push('/persion-main/persionMain');
-                case 1 :  return  this.props.history.push('/persion-main/Income/income');
-                case 2 :  return  this.props.history.push('/persion-main/expenditure/expenditure');
+                case 1 :  return  this.props.history.push('/persion-main/Income/Income');
+                case 2 :  return  this.props.history.push('/persion-main/Expenditure/Expenditure');
                 case 3 :  return  this.props.history.push('/persion-main/tax');
                 case 4 :  return  this.props.history.push('/persion-main/admin');
                 default : return ;
