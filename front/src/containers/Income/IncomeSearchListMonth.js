@@ -1,11 +1,14 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
+import IncomeListMonthApp from '../Income/IncomeListMonth/IncomeListMonthApp';
 
 class IncomeSearchListMonth extends Component{
     render(){
         return (
             <IncomeContent>
-               수입일지 월단위 조회 [21년 1월]
+               수입일지  [21년 ㅇㅇ월] 조회
+               <IncomeListMonthApp />
+
             </IncomeContent>
         );
     }

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
 import BtnIncomeApp from './BtnIncome/BtnIncomeApp';
+import IncomeSearchListApp from "./IncomeSearchList/IncomeSearchListApp";
 
 const obj = [
     {id : 0 , value : "수입일지 월 상세조회"}
@@ -35,6 +36,7 @@ class IncomeSearchList extends Component{
         return (
             <IncomeContent>
                {this.btnSeleted()} 수입일지 월별 조회 [21년 1월 ~ 12월]
+            <IncomeSearchListApp />
             </IncomeContent>
         );
     }

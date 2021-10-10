@@ -43,7 +43,7 @@ const classNumObj = [
 const IncomTableHeaderObj2 = [
     {id : 0 , value : "호수"},
     {id : 1 , value : "예약유입 경로"},
-    {id : 2 , value : ""},
+    {id : 2 , value : "소셜입금"},
     {id : 3 , value : "소셜공제"},
     {id : 4 , value : "숙소비용 (현금)"},
     {id : 5 , value : "숙소비용 (무통장)"},
@@ -58,11 +58,10 @@ const IncomTableHeaderObj2 = [
     {id : 14 , value : "비고"},
     {id : 15 , value : "예약자 성함"}
 ]
-
 // const IncomTableHeaderObj2 = [
 //     {id : 0 , value : "호수"},
 //     {id : 1 , value : "예약유입 경로"},
-//     {id : 2 , value : ""},
+//     {id : 2 , value : "소셜입금"},
 //     {id : 3 , value : "소셜공제"},
 //     {id : 4 , value : "숙소비용 (현금)"},
 //     {id : 5 , value : "숙소비용 (무통장)"},

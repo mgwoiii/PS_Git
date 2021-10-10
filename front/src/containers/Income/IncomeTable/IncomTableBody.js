@@ -12,9 +12,8 @@ class IncomTableBody extends Component {
             for (let j in aa){
                 _DateTables.push((
                     <DDv>
-                         <IncomTableCell2 key={`TableCell_${j}_1`}>{j}</IncomTableCell2> 
-                         <IncomTableCell2 key={`TableCell_${j}`}>{aa[j]}</IncomTableCell2>       
-                    
+                         <IncomTableCell2 key={`IncomTableCell2${j}`}>{j}</IncomTableCell2> 
+                         <IncomTableCell2 key={`IncomTableCell2_1${j}`}>{aa[j]}</IncomTableCell2>                
                     </DDv>
                  )) 
             }        
@@ -124,7 +123,7 @@ class IncomTableBody extends Component {
                         if(i === "username"){  
 
                             _IncomTables.push((
-                                <IncomTableCell3>
+                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
 
                                 {this.Test3(_DateTables)}                        
                                 </IncomTableCell3>
@@ -135,7 +134,7 @@ class IncomTableBody extends Component {
                         }else if (i === "value8"){
 
                             _IncomTables.push((
-                                <IncomTableCell3>
+                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
 
                                 {this.Test3(_DateTables2)}                        
                                 </IncomTableCell3>
@@ -147,7 +146,7 @@ class IncomTableBody extends Component {
                         }else if (i === "value11"){
 
                             _IncomTables.push((
-                                <IncomTableCell3>
+                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
 
                                 {this.Test3(_DateTables3)}                        
                                 </IncomTableCell3>
@@ -158,13 +157,16 @@ class IncomTableBody extends Component {
                             //console.log('통과')
                         }else{
                         _IncomTables.push((
-                            <IncomTableCell key={`TableCell_${index}_${i}`}>{obj[i]}</IncomTableCell>))
+                            <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
+                            {obj[i]}
+                            </IncomTableCell3>
+                            ))
                         }
 
                     }else{
 
                         _IncomTables.push((
-                        <IncomTableCell key={`TableCell_${index}_${i}`}>{obj[i]}</IncomTableCell>))
+                        <IncomTableCell key={`IncomTableCell${index}_${i}`}>{obj[i]}</IncomTableCell>))
                        
                     }
                     }
@@ -180,8 +182,7 @@ class IncomTableBody extends Component {
         this.props && this.props.tsetValue && this.props.tsetValue.map((obj, index)=> {
 
                 _IncomTables.push((
-                    <IncomTableRow key={`TableRow_${obj.id}`}>
-                        
+                    <IncomTableRow key={`IncomTableRow${obj.id}`}>
                         {this.Test(obj, index, urlName)}
                     </IncomTableRow>         
                 ))

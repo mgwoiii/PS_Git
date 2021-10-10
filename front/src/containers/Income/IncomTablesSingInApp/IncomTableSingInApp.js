@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import IncomTableHeader from "./IncomTableHeader";
-import IncomTableBody from "./IncomTableBody";
+import IncomTableSingInHeader from "../IncomTablesSingInApp/IncomTableSingInHeader";
+import IncomTableSingInBody from "../IncomTablesSingInApp/IncomTableSingInBody";
 
 import moment from 'moment';
 
@@ -27,14 +27,11 @@ class IncomTableSingInApp extends Component {
     render(){
         return(        
             <IncomTable>
-                <IncomTableHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
+                <IncomTableSingInHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
                                   moveDay={this.moveDay}
                                   IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
                 />
-                <IncomTableBody classNumObj = {this.props.classNumObj} 
-                IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
-                tsetValue = {this.props.tsetValue} urlName ={this.props.urlName}
-                />
+                <IncomTableSingInBody classNumObj = {this.props.classNumObj} IncomTableHeaderObj = {this.props.IncomTableHeaderObj} />
             </IncomTable>
         )
     }
