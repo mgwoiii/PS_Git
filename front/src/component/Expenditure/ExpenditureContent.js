@@ -10,11 +10,11 @@ margin-bottom: 1rem;
 `;
 
 
-const PersionContent = ({title, children}) => (
+const ExpenditureContent = ({title, children}) => (
     <div>
         <Title>{title}</Title>
         {children}
     </div>
 );
 
-export default PersionContent;
+export default ExpenditureContent;

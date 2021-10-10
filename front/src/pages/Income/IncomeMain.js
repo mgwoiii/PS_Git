@@ -23,10 +23,8 @@ class IncomeMain extends Component {
                 <Route path = "/persion-main/Income/IncomeSearch" component={IncomeSearch}/>
                 <Route path = "/persion-main/Income/IncomeSearchList" component={IncomeSearchList}/>
                 <Route path = "/persion-main/Income/IncomeSearchListMonth" component={IncomeSearchListMonth}/>
-
                 <Route path = "/persion-main/Income/IncomeModify" component={IncomeModify}/>
 
-                
             </IncomeWrapper>
         );
     }

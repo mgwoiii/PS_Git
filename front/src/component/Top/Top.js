@@ -35,8 +35,8 @@ class Top extends Component{
                 case 0 :  return  this.props.history.push('/persion-main/persionMain');
                 case 1 :  return  this.props.history.push('/persion-main/Income/Income');
                 case 2 :  return  this.props.history.push('/persion-main/Expenditure/Expenditure');
-                case 3 :  return  this.props.history.push('/persion-main/tax');
-                case 4 :  return  this.props.history.push('/persion-main/admin');
+                case 3 :  return  this.props.history.push('/persion-main/Tax/Tax');
+                case 4 :  return  this.props.history.push('/persion-main/Admin/Admin');
                 default : return ;
             }
         }
@@ -61,7 +61,6 @@ const Wrap = styled.div`
     padding: 0.5rem;
     height: auto;
     /* padding: 1rem; */
-    width: 100%;
     margin-bottom: 1rem;
 
     .submenu {

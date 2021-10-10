@@ -28,8 +28,8 @@ justify-content: center;
 
 // 너비, 그림자 설정
 const ShadowedBox = styled.div`
-width: 100%;
-${shadow(2)}
+    width: 100%;
+    ${shadow(2)}
 `;
 
 // children 이 들어가는 곳

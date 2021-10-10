@@ -10,11 +10,11 @@ margin-bottom: 1rem;
 `;
 
 
-const ExpenditureContent = ({title, children}) => (
+const IncomeContent = ({title, children}) => (
     <div>
         <Title>{title}</Title>
         {children}
     </div>
 );
 
-export default ExpenditureContent;
+export default IncomeContent;
