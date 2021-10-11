@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PersionContent  from '../../component/Persion/PersionContent';
-import CalenderApp from "./Calender/CalenderApp";
-import BtnPersionApp from './BtnPersion/BtnPersionApp';
+import CalenderApp from "./Template/Calender/CalenderApp";
+import BtnPersionApp from './Template/BtnPersion/BtnPersionApp';
 import moment from "moment";
 
 

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
-import IncomTableSingInApp  from './IncomTablesSingInApp/IncomTableSingInApp';
+import IncomTableSingInApp  from './Template/IncomTablesSingInApp/IncomTableSingInApp';
 
 const classNumObj = [
     {id : 0 , value : "101호"},

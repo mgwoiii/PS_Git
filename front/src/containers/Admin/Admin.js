@@ -1,18 +1,18 @@
 import { Component } from "react";
 import AdminContent  from '../../component/Admin/AdminContent';
-import BtnIncomeApp from "../Income/BtnIncome/BtnIncomeApp";
+import AdminApp from "./Template/AdminTable/AdminApp";
 
-class Expenditure extends Component{
+class Admin extends Component{
 
     render(){
         return (
             <AdminContent>
                     관리자 페이지
-
+            <AdminApp />
             </AdminContent>
         );
     }
 }
 
-export default Expenditure;
+export default Admin;
 

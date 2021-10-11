@@ -10,33 +10,33 @@ class ExpendTableBody extends Component {
                 <>
                 <Row>
                     <Cell>
-                        101호
+                        1
                     </Cell>
 
                     <Cell2>
-                        체크박스
+                        구매내역
+                    </Cell2>
+
+                    
+                    <Cell2>
+                        100000
                     </Cell2>
                     
                 </Row>
                 <Row>
                     <Cell>
-                        201호
+                        2
                     </Cell>
 
                     <Cell2>
-                        체크박스
+                        구매내역1
                     </Cell2>
-                
-                </Row>
-                <Row>
-                    <Cell>
-                        202호
-                    </Cell>
 
+                    
                     <Cell2>
-                        체크박스
+                        100000
                     </Cell2>
-                
+                    
                 </Row>
             </>
             );
@@ -71,7 +71,7 @@ const Cell = styled.div`
 `
 const Cell2 = styled.div`
     border : none;
-    width: 85%;
+    width: 42.5%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

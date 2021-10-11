@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import DatePicker from "react-datepicker";
-import { ko } from 'date-fns/esm/locale';
 
 
 class ExpendTableHeader extends Component {
 
-    ClickCalender = (date) => {
-
-
-        let year = date.getFullYear();
-        let month = date.getMonth(); 
-        let day = date.getDate();
-        
-         this.props.setStartDate(year,month,day);
-    }
-    
     render(){
         return(
                 <>        
                     <HeaderRow>
                         <RCA_UL>
-                            <RCA_LI2>
-                                    <DatePicker
-                                            selected={this.props.startDate}
-                                            onChange = {date => this.ClickCalender(date)}
-                                            locale={ko} 
-                                            dateFormat="선택한 날짜 : yyyy-MM-dd"                                 
-                                            />
-                            </RCA_LI2>
+                                    <RCA_LI onClick={() => {this.props.moveMonth(-1);}}>
+                                         &lt;
+                                    </RCA_LI>
+                                    <RCA_LI2>
+                                         {this.props.calenderYM}
+                                    </RCA_LI2>
+                                    <RCA_LI onClick={() => {this.props.moveMonth(1);}}>
+                                        &gt; 
+                                    </RCA_LI>
+
                         </RCA_UL>       
                     </HeaderRow>
 
                     <Row>
                         <Cell>
-                           호수
+                           순서
                         </Cell>
                         <Cell2>
-                           체크인 여부
+                           지출내용
+                        </Cell2>
+                        <Cell2>
+                           원
                         </Cell2>
                        
                     </Row>
@@ -84,12 +77,13 @@ const Cell = styled.div`
 `
 const Cell2 = styled.div`
     border : none;
-    width: 85%;
+    width: 42.5%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
     border: 0.5px solid white;
 `
+
 
 const RCA_UL = styled.ul`
     display: inline-block;
@@ -97,6 +91,19 @@ const RCA_UL = styled.ul`
     margin: 0;
 
 `
+const RCA_LI = styled.li`
+    font-size: 2rem;
+    color : white;
+
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    line-height: 80px;
+    cursor: pointer;   
+    float: left;
+
+`
+
 const RCA_LI2 = styled.li`
     font-size: 2rem;
     font-weight: bold;

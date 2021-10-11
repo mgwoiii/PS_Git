@@ -1,5 +1,6 @@
 import { Component } from "react";
 import ExpenditureContent  from '../../component/Expenditure/ExpenditureContent';
+import ExpendDayApp from "./Template/ExpendDay/ExpendDayApp";
 
 class ExpenditureModify extends Component{
 
@@ -7,6 +8,7 @@ class ExpenditureModify extends Component{
         return (
             <ExpenditureContent>
                     ExpenditureModify
+                    <ExpendDayApp />
             </ExpenditureContent>
         );
     }

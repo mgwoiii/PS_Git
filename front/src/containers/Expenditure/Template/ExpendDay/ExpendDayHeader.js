@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 
 
-class IncomeListMonthHeader extends Component {
+class IncomTableHeader extends Component {
 
 
     render(){
@@ -22,18 +22,15 @@ class IncomeListMonthHeader extends Component {
                         </RCA_UL>       
                     </IncomTableHeaderRow>
 
-                    <IncomTableRow>
-                        <IncomTableCell>
-                           　
-                        </IncomTableCell>
-                        <IncomTableCell2>
-                           날짜
-                        </IncomTableCell2>
-                        <IncomTableCell2>
-                           계
-                        </IncomTableCell2>
-                       
-                    </IncomTableRow>
+                    <Row>
+                        <Cell>
+                            구매내역
+                        </Cell>
+                        <Cell>
+                            가격
+                        </Cell>
+
+                    </Row>
                 </>
         )
     }
@@ -41,7 +38,7 @@ class IncomeListMonthHeader extends Component {
 
 }
 
-export default IncomeListMonthHeader;
+export default IncomTableHeader;
 
 
 const IncomTableHeaderRow = styled.div`
@@ -53,7 +50,7 @@ const IncomTableHeaderRow = styled.div`
 
 `
 
-const IncomTableRow = styled.div`
+const Row = styled.div`
     width: 100%;
     height : auto;
     line-height: 20px;
@@ -65,19 +62,9 @@ const IncomTableRow = styled.div`
     display: flex;
 `
 
-const IncomTableCell = styled.div`
+const Cell = styled.div`
     border : none;
-    width: 6%;
-    text-align : center;
-    word-break:break-all;
-    word-wrap:break-word;
-    border: 0.5px solid white;
-
-
-`
-const IncomTableCell2 = styled.div`
-    border : none;
-    width: 47%;
+    width: 50%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

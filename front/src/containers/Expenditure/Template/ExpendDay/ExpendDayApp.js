@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import IncomeListMonthHeader from "./IncomeListMonthHeader";
-import IncomeListMonthBody from "./IncomeListMonthBody";
+import ExpendDayHeader from "./ExpendDayHeader";
+import ExpendDayBody from "./ExpendDayBody";
 
 import moment from 'moment';
 
 
-class IncomeListMonthApp extends Component {
+class ExpendDayApp extends Component {
 
     constructor(props){
         super(props);
@@ -27,16 +27,20 @@ class IncomeListMonthApp extends Component {
     render(){
         return(        
             <IncomTable>
-                <IncomeListMonthHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
+                <ExpendDayHeader calenderYMD ={this.state.calenderYMD.format("YYYY년 MM월 DD일")}
                                   moveDay={this.moveDay}
+                                  IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
                 />
-                <IncomeListMonthBody />
+                <ExpendDayBody classNumObj = {this.props.classNumObj} 
+                IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
+                tsetValue = {this.props.tsetValue} urlName ={this.props.urlName}
+                />
             </IncomTable>
         )
     }
 }
 
-export default IncomeListMonthApp;
+export default ExpendDayApp;
 
 const IncomTable = styled.div`
 

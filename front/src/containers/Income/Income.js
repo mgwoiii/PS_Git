@@ -1,8 +1,8 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
 
-import IncomTableApp from './IncomeTable/IncomTableApp';
-import BtnIncomeApp from './BtnIncome/BtnIncomeApp';
+import IncomTableApp from './Template/IncomeTable/IncomTableApp';
+import BtnIncomeApp from './Template/BtnIncome/BtnIncomeApp';
 
 const obj = [
     {id : 0 , value : "수입일지 등록"},

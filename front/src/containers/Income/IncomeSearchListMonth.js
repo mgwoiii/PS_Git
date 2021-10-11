@@ -1,7 +1,6 @@
 import { Component } from "react";
 import IncomeContent  from '../../component/Income/IncomeContent';
-import IncomeListMonthApp from '../Income/IncomeListMonth/IncomeListMonthApp';
-
+import IncomeListMonthApp from './Template/IncomeListMonth/IncomeListMonthApp'
 class IncomeSearchListMonth extends Component{
     render(){
         return (

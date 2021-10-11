@@ -1,5 +1,6 @@
 import { Component } from "react";
 import ExpenditureContent  from '../../component/Expenditure/ExpenditureContent';
+import ExpendYearApp from "./Template/ExpendYear/ExpendYearApp";
 
 class ExpenditureMonth extends Component{
 
@@ -7,6 +8,7 @@ class ExpenditureMonth extends Component{
         return (
             <ExpenditureContent>
                     ExpenditureMonth
+                    <ExpendYearApp />
             </ExpenditureContent>
         );
     }

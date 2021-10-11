@@ -1,6 +1,6 @@
 import { Component } from "react";
 import PersionContent  from '../../component/Persion/PersionContent';
-import PersionTableApp from "./PersionTable/PersionTableApp";
+import PersionTableApp from "./Template/PersionTable/PersionTableApp";
 
 
 class PersionMainDayDetail extends Component{

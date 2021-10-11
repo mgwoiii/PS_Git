@@ -68,9 +68,6 @@ class Header extends Component {
                                     <RCA_LI onClick={() => {this.ClickCalender(null, 1);}}>
                                         &gt; 
                                     </RCA_LI>
-                                    <RCA_LI3>
-                                        
-                                    </RCA_LI3>
                         </RCA_UL>       
             </RCA_HEADER_CONTAINER>
         )

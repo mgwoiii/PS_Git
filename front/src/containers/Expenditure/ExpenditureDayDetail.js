@@ -1,6 +1,7 @@
 import { Component } from "react";
 import ExpenditureContent  from '../../component/Expenditure/ExpenditureContent';
-import BtnIncomeApp from "../Income/BtnIncome/BtnIncomeApp";
+import BtnIncomeApp from "./Template/BtnIncome/BtnIncomeApp";
+import ExpendDayApp from "./Template/ExpendDay/ExpendDayApp";
 
 const obj = [
     {id : 0 , value : "지출일지 수정"}
@@ -37,7 +38,7 @@ class ExpenditureDayDetail extends Component{
             <ExpenditureContent>
                 {this.btnSeleted()}
 
-                ExpenditureDayDetail
+                <ExpendDayApp />
             </ExpenditureContent>
         );
     }

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import ExpenditureContent  from '../../component/Expenditure/ExpenditureContent';
-import BtnIncomeApp from "../Income/BtnIncome/BtnIncomeApp";
-import ExpendTableApp from "./ExpendTable/ExpendTableApp";
+import BtnIncomeApp from "./Template/BtnIncome/BtnIncomeApp";
+import ExpendTableApp from "./Template/ExpendTable/ExpendTableApp";
 import moment from "moment";
 
 const obj = [
@@ -15,18 +15,23 @@ class Expenditure extends Component{
     constructor(props){
         super(props);
 
-        let dateNumber = moment();
-        let year2 = dateNumber.format("YYYY");
-        let month2 = (dateNumber.format("MM")); 
-        let day2 = dateNumber.format("DD");
-    
         this.state = {
             calenderYM : moment(),
             selected : moment().format("YYYY-MM-DD"),
-            startDate : new Date(year2,month2 -1 ,day2)
         }
     }
 
+    moveMonth = (month) => {
+        this.setState({
+            calenderYM : this.state.calenderYM.add(month,'M')
+        })
+    }   
+    
+    moveDay = (day) => {
+        this.setState({
+            calenderYM : moment(day,'YYYY MM DD')
+        })
+    }
 
     btnChanged = (number) => {
         switch (number){            
@@ -54,10 +59,11 @@ class Expenditure extends Component{
     }
 
     render(){
+
         return (
             <ExpenditureContent>
                     {this.btnSeleted()}
-                    <ExpendTableApp  date = {this.state.selected}/>
+                    <ExpendTableApp  calenderYM = {this.state.calenderYM.format("YYYY년 MM월")} moveMonth = {this.moveMonth}/>
 
             </ExpenditureContent>
         );
