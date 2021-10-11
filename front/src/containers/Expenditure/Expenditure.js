@@ -1,6 +1,8 @@
 import { Component } from "react";
 import ExpenditureContent  from '../../component/Expenditure/ExpenditureContent';
 import BtnIncomeApp from "../Income/BtnIncome/BtnIncomeApp";
+import ExpendTableApp from "./ExpendTable/ExpendTableApp";
+import moment from "moment";
 
 const obj = [
     {id : 0 , value : "지출일지 등록"},
@@ -9,6 +11,22 @@ const obj = [
 ]
 
 class Expenditure extends Component{
+
+    constructor(props){
+        super(props);
+
+        let dateNumber = moment();
+        let year2 = dateNumber.format("YYYY");
+        let month2 = (dateNumber.format("MM")); 
+        let day2 = dateNumber.format("DD");
+    
+        this.state = {
+            calenderYM : moment(),
+            selected : moment().format("YYYY-MM-DD"),
+            startDate : new Date(year2,month2 -1 ,day2)
+        }
+    }
+
 
     btnChanged = (number) => {
         switch (number){            
@@ -39,7 +57,7 @@ class Expenditure extends Component{
         return (
             <ExpenditureContent>
                     {this.btnSeleted()}
-                    ExpenditureContent
+                    <ExpendTableApp  date = {this.state.selected}/>
 
             </ExpenditureContent>
         );

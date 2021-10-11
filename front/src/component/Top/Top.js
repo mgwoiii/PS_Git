@@ -7,7 +7,6 @@ const obj = [
         {id : 0 , value : "메인"},
         {id : 1 , value : "수입일지"},
         {id : 2 , value : "지출일지"},
-        {id : 3 , value : "공과금납부"},
         {id : 4 , value : "관리모드"}    
 ]
 
@@ -35,7 +34,6 @@ class Top extends Component{
                 case 0 :  return  this.props.history.push('/persion-main/Persion/PersionMain');
                 case 1 :  return  this.props.history.push('/persion-main/Income/Income');
                 case 2 :  return  this.props.history.push('/persion-main/Expenditure/Expenditure');
-                case 3 :  return  this.props.history.push('/persion-main/Tax/Tax');
                 case 4 :  return  this.props.history.push('/persion-main/Admin/Admin');
                 default : return ;
             }
