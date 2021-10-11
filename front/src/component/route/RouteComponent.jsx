@@ -7,7 +7,7 @@ import NavBar from '../route/NavBar';
 //import PrivateRoute from '../../lib/PrivateRoute';
 
 import MainLogin from '../../pages/mainLogin';
-import persionMain from '../../pages/persionMain';
+import PageMain from '../../pages/PageMain';
 import UserModify from '../../pages/userModify';
 
 class AppRouter extends Component{
@@ -18,7 +18,7 @@ class AppRouter extends Component{
                     <NavBar />
                     <Switch>
                         <Route exact path="/" component={UserListComponent} />
-                        <Route path="/persion-main" component = {persionMain}/>
+                        <Route path="/persion-main" component = {PageMain}/>
                         <Route path="/main-login" component = {MainLogin}/>
                         <Route path="/modify-user" component={UserModify} />
 

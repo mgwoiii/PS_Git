@@ -1,9 +1,8 @@
 import { Component } from "react";
 import { Route } from "react-router";
-import PersionWrapper from "../component/persionMain/persionWrapper";
+import PageMainWrapper from "../component/PageMain/PageMainWrapper";
 
-import PersionMain from '../containers/persionMain/persionMain';
-
+import PersionPageMain from './Persion/PersionPageMain'
 import IncomeMain from './Income/IncomeMain';
 import ExpenditureMain from './Expenditure/ExpenditureMain';
 import TaxMain from './Tax/TaxMain';
@@ -11,20 +10,20 @@ import AdminMain from './Admin/AdminMain';
 
 
 
-class persionMain extends Component {
+class PageMain extends Component {
 
     render(){
         return (           
 
-            <PersionWrapper>
-                <Route path = "/persion-main/persionMain" component={PersionMain}/>
+            <PageMainWrapper>
+                <Route path = "/persion-main/Persion" component={PersionPageMain}/>
                 <Route path = "/persion-main/Income" component={IncomeMain}/>
                 <Route path = "/persion-main/Expenditure" component={ExpenditureMain}/>
                 <Route path = "/persion-main/Tax" component={TaxMain}/>
                 <Route path = "/persion-main/Admin" component={AdminMain}/>
-            </PersionWrapper>
+            </PageMainWrapper>
         );
     }
 }
 
-export default persionMain;
+export default PageMain;

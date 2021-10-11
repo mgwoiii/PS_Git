@@ -4,6 +4,8 @@ import Header from './Header';
 import Calendar from './Calendar';
 
 import moment from 'moment';
+import { withRouter } from 'react-router-dom';
+
 
 class CalenderApp extends Component {
 
@@ -38,33 +40,43 @@ class CalenderApp extends Component {
         clickFn : () => {}
     }
 
-    changeSelected = (clickedDate) => {
+    changeSelected = (clickedDate, value) => {
 
-        if(moment(clickedDate).isSame(this.state.selected,'day')){
-            this.props.clickFn(clickedDate);
-            return;
+        if(value === "header"){
+            if(moment(clickedDate).isSame(this.state.selected,'day')){
+                this.props.clickFn(clickedDate);
+                return;
+            }
+
+            this.setState({
+                selected : clickedDate,
+            }, () => {
+                // setState 이후 실행됨
+            // setState 한 후 처리할 비지니스 로직 혹은 메서드 호출하면 동기식으로 처리 가능
+            })
+
+            this.props.clickFn(clickedDate)
+
+            if(moment(clickedDate).isBefore(this.state.calenderYM,'month')){
+                this.moveMonth(-1)
+            }else if(moment(clickedDate).isAfter(this.state.calenderYM,'month')){
+                this.moveMonth(1)
+            }
+
+            // label 업데이트 
+            let aa = clickedDate.split('-');
+
+            // 0(year) , 1(month), 2(day)
+            this.setStartDate(aa[0], aa[1], aa[2]);
+
+        }else{
+           this.props.history.push({
+                pathname: '/persion-main/Persion/PersionMainDayDetail',
+                clickedDate : clickedDate,
+                
+            });
         }
 
-        this.setState({
-            selected : clickedDate,
-        }, () => {
-            // setState 이후 실행됨
-           // setState 한 후 처리할 비지니스 로직 혹은 메서드 호출하면 동기식으로 처리 가능
-          })
-
-        this.props.clickFn(clickedDate)
-
-        if(moment(clickedDate).isBefore(this.state.calenderYM,'month')){
-            this.moveMonth(-1)
-        }else if(moment(clickedDate).isAfter(this.state.calenderYM,'month')){
-            this.moveMonth(1)
-        }
-
-        // label 업데이트 
-        let aa = clickedDate.split('-');
-
-        // 0(year) , 1(month), 2(day)
-        this.setStartDate(aa[0], aa[1], aa[2]);
     }
 
     setStartDate = (year,month,day) => {
@@ -105,7 +117,5 @@ const RCA_APP_CONTAINER = styled.div`
     
 `
 
- 
- 
 
-export default CalenderApp;
+export default withRouter(CalenderApp);

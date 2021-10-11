@@ -38,10 +38,12 @@ class Header extends Component {
         else
             yearND = yearND + "-"+day;
 
+            
             this.props.moveDay(yearND);
-            this.props.changeSelected(yearND);
+            this.props.changeSelected(yearND, "header");
             this.props.setStartDate(year,month,day);
     }
+    
 
     render(){
       

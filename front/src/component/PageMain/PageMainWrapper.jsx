@@ -7,7 +7,7 @@ import { shadow } from '../lib/styleUtil';
 import Top from '../Top/Top';
 
 
-const PersionWrapper = ({children}) => (
+const PageMainWrapper = ({children}) => (
     <Positioner>
         <ShadowedBox>
             <Top/>
@@ -18,7 +18,7 @@ const PersionWrapper = ({children}) => (
     </Positioner>
 );
 
-export default PersionWrapper;
+export default PageMainWrapper;
 
 // 화면의 중앙에 위치시킨다
 const Positioner = styled.div`
