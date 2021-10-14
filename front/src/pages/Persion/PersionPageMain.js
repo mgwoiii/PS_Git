@@ -16,8 +16,6 @@ class PageMain extends Component {
                 <Route path = "/persion-main/Persion/PersionMain" component={PersionMain}/>
                 <Route path = "/persion-main/Persion/PersionMainDayDetail" component={PersionMainDayDetail}/>    
                 <Route path = "/persion-main/Persion/PersionMainInsert" component={PersionMainInsert}/>    
-
-                
             </PersionWrapper>
         );
     }
