@@ -6,6 +6,8 @@ public interface UserDAO {
 	
 	public void create(UserVO user) throws Exception;
 	
+	public UserVO loginUserRead(UserVO user) throws Exception;
+
 //	public List<UserVO> listAll() throws Exception;
 //	
 //	public UserVO read(Integer id) throws Exception;

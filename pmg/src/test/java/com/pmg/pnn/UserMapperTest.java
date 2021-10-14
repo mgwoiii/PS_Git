@@ -28,9 +28,19 @@ public class UserMapperTest {
 		user.setUserPhonNumber("01012341234");
 		user.setUserBirthday("19930101");
 		
-
 		service.create(user);
 		
+	}
 
+	@Test
+	public void loginUserRead() throws Exception{
+
+		UserVO user = new UserVO();
+		
+		user.setUserId("1234@naver.com");
+		user.setUserPassword("12341234");
+		
+		service.loginUserRead(user);
+		
 	}
 }
