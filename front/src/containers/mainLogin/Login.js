@@ -57,6 +57,9 @@ class Login extends Component {
           .catch(err => {
               console.log('loginUser Err', err);
           })
+
+          // 임시 (반드시 지우기)
+          this.props.history.push('/persion-main/persionMain');
       }
 
 

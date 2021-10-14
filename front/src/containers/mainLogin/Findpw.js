@@ -10,9 +10,10 @@ class Findpw extends Component {
 
         return (
             <LoginContent title = "비밀번호 찾기">
-                <InputWithLabel label="이메일" name="email" placeholder="이메일"/>
-                <InputWithLabel label="이름" name="username" placeholder="이름"/>
-                <InputWithLabel label="전화번호" name="phone" placeholder="전화번호"/>
+                <InputWithLabel label="아이디" name="userId" placeholder="아이디"/>
+                <InputWithLabel label="이름" name="userName" placeholder="이름"/>
+                <InputWithLabel label="전화번호" name="userPhonNumber" placeholder="전화번호"/>
+                <InputWithLabel label="생년월일" name="userBirthday" placeholder="생년월일"/>
                 <LoginButton>비밀번호 찾기</LoginButton>
 
             </LoginContent>

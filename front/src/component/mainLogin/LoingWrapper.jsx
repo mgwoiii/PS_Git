@@ -12,12 +12,16 @@ import { Link } from 'react-router-dom';
 // 너비, 그림자 설정
 const ShadowedBox = styled.div`
     width: 500px;
-    ${shadow(2)}
+    ${shadow(2)};
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin:-150px 0 0 -250px
 `;
 
 // 로고
 const LogoWrapper = styled.div`
-    background: ${oc.teal[7]};
+    background: #cde0c1;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -43,9 +47,6 @@ const LoingWrapper = ({children}) => (
     
     <Positioner>
         <ShadowedBox>
-            <LogoWrapper>
-                <Logo to="/">HEURM</Logo>
-            </LogoWrapper>
             <Contents>
                 {children}
             </Contents>
