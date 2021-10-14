@@ -50,6 +50,14 @@ public class UserServiceImpl implements UserService {
 		return dao.userIdFind(user);
 	}
 	
+	
+	
+	@Override
+	public UserVO userPwFind(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userPwFind(user);
+	}
+	
 //
 //	@Override
 //	public List<UserVO> listAll() throws Exception {

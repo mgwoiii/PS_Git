@@ -53,7 +53,12 @@ public class UserDAOImp implements UserDAO {
         return sqlSession.selectList(namespace+".UserIdFind", user);
 	}
 	
-	
+	@Override
+	public UserVO userPwFind(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".userPwFind", user);
+
+	}
 	
 //	@Override
 //	public List<UserVO> listAll() throws Exception {

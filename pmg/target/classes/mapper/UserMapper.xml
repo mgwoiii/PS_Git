@@ -30,13 +30,24 @@
             where userId = #{userId}
     </select>
     
-       <!-- 로그인 아이디 조회 -->
+       <!-- 로그인 아이디 조회(찾기) -->
     <select id="UserIdFind" resultType="com.pmg.domain.UserVO">
             select userId
             from usertable 
             where userName = #{userName} and userPhonNumber = #{userPhonNumber}
             and userBirthday = #{userBirthday}
     </select>    
+    
+    
+          <!-- 로그인 비밀번호 조회(찾기)1 -->
+    <select id="userPwFind" resultType="com.pmg.domain.UserVO">
+            select userId
+            from usertable 
+            where userId = #{userId} and userName = #{userName} and 
+            userPhonNumber = #{userPhonNumber} and userBirthday = #{userBirthday}
+    </select>   
+    
+    
     
     
     <!-- 게시판 리스트보기 -->

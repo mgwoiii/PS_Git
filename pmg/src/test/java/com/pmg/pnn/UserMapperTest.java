@@ -70,18 +70,33 @@ public class UserMapperTest {
 		user.setUserPhonNumber("01012351235");
 		user.setUserBirthday("19930101");
 		
-		System.out.println(service.userIdFind(user));
+		service.userIdFind(user);
 		
-		int count = 0;
-		for(UserVO str : service.userIdFind(user)){
-		    System.out.println(count + "번째 id는: " + str.getUserId());
-		    count++;
-		}
+		//System.out.println(service.userIdFind(user));
+		
+//		int count = 0;
+//		for(UserVO str : service.userIdFind(user)){
+//		    System.out.println(count + "번째 id는: " + str.getUserId());
+//		    count++;
+//		}
 		
 
 	}
 	
-	
+	// password 찾기
+	@Test
+	public void userPwFind() throws Exception{
+
+		user.setUserId("aaaa22@naver.com");
+		user.setUserName("박박박");
+		user.setUserPhonNumber("01012351235");
+		user.setUserBirthday("19930101");
+		
+		service.userPwFind(user);
+		
+		System.out.println(service.userPwFind(user).getUserId());
+
+	}
 	
 	
 	
