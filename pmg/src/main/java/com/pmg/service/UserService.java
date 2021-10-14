@@ -6,9 +6,11 @@ import com.pmg.domain.UserVO;
 
 public interface UserService {
 
-	public void create(UserVO user) throws Exception;
+	public void userRegister(UserVO user) throws Exception;
 	
 	public UserVO loginUserRead(UserVO user) throws Exception;
+
+	public UserVO UserIdRead(String userId) throws Exception;
 
 	
 //	public UserVO read(Integer id) throws Exception;

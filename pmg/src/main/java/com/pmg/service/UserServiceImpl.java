@@ -16,19 +16,27 @@ public class UserServiceImpl implements UserService {
 	private UserDAO dao;
 	
 	@Override
-	public void create(UserVO user) throws Exception {
+	public void userRegister(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
-		dao.create(user);
+		dao.userRegister(user);
 		
 	}
 	
 	@Override
 	public UserVO loginUserRead(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println(user.getUserId() +"이랑2" + user.getUserPassword());
 
 		return dao.loginUserRead(user);
 	}
+	
+	
+	@Override
+	public UserVO UserIdRead(String userId) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.UserIdRead(userId);
+	}
+	
+
 //
 //	@Override
 //	public List<UserVO> listAll() throws Exception {

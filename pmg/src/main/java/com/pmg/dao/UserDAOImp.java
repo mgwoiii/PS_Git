@@ -18,7 +18,7 @@ public class UserDAOImp implements UserDAO {
     private static String namespace = "com.pmg.mapper.UserMapper";
 
 	@Override
-	public void create(UserVO user) throws Exception {
+	public void userRegister(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
 		sqlSession.insert
         (namespace+".insertUser", user);
@@ -31,7 +31,19 @@ public class UserDAOImp implements UserDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".loginUserRead", user);
 
+	}	
+	
+	@Override
+	public UserVO UserIdRead(String userId) throws Exception {
+		// TODO Auto-generated method stub
+
+		return sqlSession.selectOne(namespace+".UserIdRead", userId);
+
 	}
+	
+	
+	
+	
 	
 //	@Override
 //	public List<UserVO> listAll() throws Exception {
