@@ -8,27 +8,6 @@ import LoginButton from '../../component/mainLogin/loginButton';
 import RightAlignedLink from '../../component/mainLogin/RightAlignedLink';
 
 import * as actions from '../../action/loadingActions';
-import * as actionsLogin from '../../action/loginActions';
-
-// class Login extends Component {
-    
-//     render() {
-//         return (
-//             <AuthContent title="로그인">
-//                 <InputWithLabel label="아이디" name="username" placeholder="아이디"/>
-//                 <InputWithLabel label="비밀번호" name="password" placeholder="비밀번호" type="password"/>
-//                 <LoginButton >로그인</LoginButton>
-            
-//                 <RightAlignedLink to="/main-login/register">회원가입</RightAlignedLink> 
-//                 <RightAlignedLink to="/add-user">아이디 찾기</RightAlignedLink>
-//                 <RightAlignedLink to="/add-user">비밀번호 찾기</RightAlignedLink>
-//             </AuthContent>
-//         );
-//     }
-// }
-
-
-// export default Login;
 
 class Login extends Component {
 
@@ -65,15 +44,14 @@ class Login extends Component {
             
               } else {
   
-                  alert(user.username + "님 환영합니다");
-                  // this.props.history.push('/users');
-                  this.props.history.push('/persion-main/persionMain');
-  
-                  // 로그인 정보 저장
-                  this.props.LOGIN_USER(user.username);
-                  //window.localStorage.setItem('value' ,user.username);
+                  alert(user.username + "님 환영합니다");                
+
                   this.props.LOADING_FALSE();
-                  
+
+                  window.sessionStorage.setItem('name', response.data.username);
+                  window.sessionStorage.setItem('id', response.data.id);
+                  this.props.history.push('/persion-main/persionMain');
+         
               }
           })
           .catch(err => {
@@ -99,18 +77,14 @@ class Login extends Component {
 }
 
 
-//export default Login;
 
 const mapStateToProps = (state) => ({
     storeIsLoading: state.loadingReucer.isLoading ,
   });
 
 const mapDispatchToProps = (dispatch) => ({
-
   LOADING_FALSE: () => dispatch(actions.loadingFalse()),
-  LOGIN_USER : (user) => dispatch(actionsLogin.loginUser(user))
-     
 });
- 
+
 export default connect(mapStateToProps, mapDispatchToProps) (withRouter(Login));
 

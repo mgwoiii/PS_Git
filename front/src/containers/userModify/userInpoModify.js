@@ -74,11 +74,9 @@ class userInpoModify extends Component{
                 <InputWithLabel label="이메일" name="email" placeholder="이메일" value={this.state.username} onChange={this.onChange}/>
                 <InputWithLabel label="이름" name="username" placeholder="이름" value={this.state.firstName} onChange={this.onChange}/>
                 <InputWithLabel label="전화번호" name="phone" placeholder="전화번호" value={this.state.age} onChange={this.onChange} />
-                <InputWithLabel label="비밀번호" name="password" placeholder="비밀번호" type="password"/>
-                <InputWithLabel label="비밀번호 확인" name="password" placeholder="비밀번호 확인" type="password"/>
-                <LoginButton onClick={this.openModal}>비밀번호 변경</LoginButton>
+                
                 <>
-                  <LoginButton onClick={this.openModal}>Modal Open</LoginButton>
+                  <LoginButton onClick={this.openModal}>비밀번호 변경</LoginButton>
                   <SignIn isOpen={this.state.isModalOpen} close={this.closeModal} />
                 </>
                 <LoginButton>정보수정</LoginButton>
