@@ -74,11 +74,11 @@ class NavBar extends Component {
     }
 
     mainPage = () => {
-        this.props.history.push('/users');
+        this.props.history.push('/');
     }
 
     persinMainPage = () => {
-        this.props.history.push('/persion-main/persionMain');
+        this.props.history.push('/persion-main/Persion/PersionMain');
     }
 
     logOut = () => {

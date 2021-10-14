@@ -65,7 +65,6 @@ editUser = (ID) => {
 
 
     render(){
-      console.log(this.props.users);
       
           return(
         <div>

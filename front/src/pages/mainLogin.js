@@ -11,12 +11,13 @@ import Register from '../containers/mainLogin/Register';
 import Findid from '../containers/mainLogin/Findid';
 import Findpw from '../containers/mainLogin/Findpw';
 
-class mainLogin extends Component {
+class MainLogin extends Component {
 
     
     render() {
-        return (
+    return (
                 <LoginWrapper>
+                    <Route exact path="/" component = {Login}/>
                     <Route path="/main-login/login" component = {Login}/>
                     <Route path="/main-login/register" component = {Register}/>
                     <Route path="/main-login/findid" component = {Findid}/>
@@ -33,4 +34,4 @@ export default connect(
     (dispatch) => ({
        // BaseActions: bindActionCreators(baseActions, dispatch)
     })
-)(mainLogin);
+)(MainLogin);

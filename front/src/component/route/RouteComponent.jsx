@@ -4,9 +4,16 @@ import UserListComponent from '../user/UserListComponent';
 import AddUserComponent from '../user/AddUserComponent'
 import EditUserComponent from '../user/EditUserComponent';
 import NavBar from '../route/NavBar';
-//import PrivateRoute from '../../lib/PrivateRoute';
 
-import MainLogin from '../../pages/mainLogin';
+import MainLogin from '../../pages/MainLogin';
+import Login from '../../containers/mainLogin/Login';
+import Register from '../../containers/mainLogin/Register';
+import Findid from '../../containers/mainLogin/Findid';
+import Findpw from '../../containers/mainLogin/Findpw';
+
+
+import LoingWrapper from '../../component/mainLogin/LoingWrapper';
+
 import PageMain from '../../pages/PageMain';
 import UserModify from '../../pages/userModify';
 
@@ -17,7 +24,7 @@ class AppRouter extends Component{
             <Router>
                     <NavBar />
                     <Switch>
-                        <Route exact path="/" component={UserListComponent} />
+                        <Route exact path="/" component = {MainLogin}/>
                         <Route path="/persion-main" component = {PageMain}/>
                         <Route path="/main-login" component = {MainLogin}/>
                         <Route path="/modify-user" component={UserModify} />

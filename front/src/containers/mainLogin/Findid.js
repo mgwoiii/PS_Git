@@ -10,8 +10,9 @@ class Findid extends Component {
 
         return (
             <LoginContent title = "아이디 찾기">
-                <InputWithLabel label="이름" name="username" placeholder="이름"/>
-                <InputWithLabel label="전화번호" name="phone" placeholder="전화번호"/>
+                <InputWithLabel label="이름" name="userName" placeholder="이름"/>
+                <InputWithLabel label="전화번호" name="userPhonNumber" placeholder="전화번호"/>
+                <InputWithLabel label="생년월일" name="userBirthday" placeholder="생년월일"/>
                 <LoginButton>아이디 찾기</LoginButton>
 
             </LoginContent>
