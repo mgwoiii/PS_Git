@@ -10,6 +10,7 @@ public class UserVO {
 	private String userName;
 	private String userPhonNumber;
 	private String userBirthday;
+	
 	public int getId() {
 		return id;
 	}
@@ -52,6 +53,5 @@ public class UserVO {
 	public void setUserBirthday(String userBirthday) {
 		this.userBirthday = userBirthday;
 	}
-	
-	
+		
 }

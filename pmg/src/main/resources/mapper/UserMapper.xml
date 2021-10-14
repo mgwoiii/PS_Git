@@ -8,11 +8,11 @@
 <mapper namespace="com.pmg.mapper.UserMapper">
  
  
-    <!-- 게시판 추가하기 -->
+    <!-- 회원 가입(회원정보 추가하기) -->
     <insert id="insertUser">
- 		INSERT INTO users 
-     ( username, password, firstName, lastName, age, salary)
-      VALUES(#{username}, #{password}, #{firstName}, #{lastName}, #{age}, #{salary}) 
+ 		INSERT INTO usertable
+     ( grade_id, userId, userPassword, userName, userPhonNumber, userBirthday )
+      VALUES(#{grade_id}, #{userId}, #{userPassword}, #{userName}, #{userPhonNumber}, #{userBirthday}) 
     </insert>
     
     <!-- 게시판 리스트보기 -->

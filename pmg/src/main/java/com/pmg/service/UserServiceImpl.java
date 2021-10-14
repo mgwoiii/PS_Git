@@ -21,36 +21,36 @@ public class UserServiceImpl implements UserService {
 		dao.create(user);
 		
 	}
-
-	@Override
-	public List<UserVO> listAll() throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listAll();
-	}
-
-	@Override
-	public UserVO read(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.read(id);
-	}
-
-	@Override
-	public void delete(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		dao.delete(id);
-	}
-
-	@Override
-	public void update(UserVO user) throws Exception {
-		// TODO Auto-generated method stub
-		dao.update(user);
-		
-	}
-
-	@Override
-	public UserVO login(UserVO user) throws Exception {
-		// TODO Auto-generated method stub
-		
-		return dao.login(user);
-	}
+//
+//	@Override
+//	public List<UserVO> listAll() throws Exception {
+//		// TODO Auto-generated method stub
+//		return dao.listAll();
+//	}
+//
+//	@Override
+//	public UserVO read(Integer id) throws Exception {
+//		// TODO Auto-generated method stub
+//		return dao.read(id);
+//	}
+//
+//	@Override
+//	public void delete(Integer id) throws Exception {
+//		// TODO Auto-generated method stub
+//		dao.delete(id);
+//	}
+//
+//	@Override
+//	public void update(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//		dao.update(user);
+//		
+//	}
+//
+//	@Override
+//	public UserVO login(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//		
+//		return dao.login(user);
+//	}
 }
