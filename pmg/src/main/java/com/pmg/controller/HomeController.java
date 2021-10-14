@@ -58,95 +58,95 @@ public class HomeController {
 		
 	    
 	    
-		@GetMapping(value = "/")
-		public List<UserVO> home(Locale locale, Model model, HttpSession session, HttpServletRequest request) throws Exception {
-					
-			List<UserVO> users  = service2.listAll();
-			
-			String valeu = (String)session.getAttribute("username");
-			System.out.println("들오긴 한다");
-
-			return users;
-		}
+//		@GetMapping(value = "/")
+//		public List<UserVO> home(Locale locale, Model model, HttpSession session, HttpServletRequest request) throws Exception {
+//					
+//			List<UserVO> users  = service2.listAll();
+//			
+//			String valeu = (String)session.getAttribute("username");
+//			System.out.println("들오긴 한다");
+//
+//			return users;
+//		}
+//		
+//		@PostMapping(value="/login")
+//		public UserVO loginUser( @RequestBody UserVO user2, HttpSession session) throws Exception {
+//
+//			//System.out.println(user2.getId() +" 이랑 " + user2.getPassword());
+//			
+//			UserVO user = service2.login(user2);
+//			System.out.println(user);
+//			if(user == null) {
+//				System.out.println(user);
+//				return null;
+//			}else {
+//				
+//				session.setAttribute("username", user.getUsername());
+//
+//				return user;
+//
+//			}
+//		}
+//
+//		@PostMapping(value="/insert")
+//		public void insertUser(@RequestBody UserVO user) throws Exception {
+//
+//			service2.create(user);
+//			
+//		}
 		
-		@PostMapping(value="/login")
-		public UserVO loginUser( @RequestBody UserVO user2, HttpSession session) throws Exception {
-
-			//System.out.println(user2.getId() +" 이랑 " + user2.getPassword());
-			
-			UserVO user = service2.login(user2);
-			System.out.println(user);
-			if(user == null) {
-				System.out.println(user);
-				return null;
-			}else {
-				
-				session.setAttribute("username", user.getUsername());
-
-				return user;
-
-			}
-		}
-
-		@PostMapping(value="/insert")
-		public void insertUser(@RequestBody UserVO user) throws Exception {
-
-			service2.create(user);
-			
-		}
-		
-		@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-		public void deleteUser(@PathVariable("id") int id) throws Exception {
-			service2.delete(id);
-			
-		}
-		
-		@RequestMapping(value = "/select/{id}", method = RequestMethod.GET)
-		public UserVO selectUser(@PathVariable("id") int id, HttpSession session) throws Exception {
-			
-			UserVO user	= service2.read(id);
-			
-			System.out.println(session.getAttribute("username"));
-			
-			return user;
-			
-		}
-		
-
-		@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
-		public void updateUser(@PathVariable int id, @RequestBody UserVO user) throws Exception {
-			
-			service2.update(user);
-						
-		}
-		
-		
-	    
-	    @RequestMapping(value="/create", method=RequestMethod.GET)
-	    public void createGET(BoardVO board, Model model) throws Exception{
-	        System.out.println("/create 입니다. GET방식");
-	        
-	    }
-	    
-	    @RequestMapping(value = "/create", method=RequestMethod.POST )
-	    public String createPOST(BoardVO board, Model model) throws Exception{
-	        System.out.println("/board/create POST방식 입니다.");
-	        System.out.println(board.toString());
-	        
-	        service.create(board);
-	        model.addAttribute("result", "성공");
-	        
-	        return "redirect:/";
-	    }
-	    
-	    @RequestMapping(value = "/read", method=RequestMethod.GET )
-	    public void read(@RequestParam("b_no")int b_no, Model model, 
-	    		HttpServletRequest request) throws Exception{
-	       
-			
-	    	model.addAttribute(service.read(b_no));
-
-	    }
+//		@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+//		public void deleteUser(@PathVariable("id") int id) throws Exception {
+//			service2.delete(id);
+//			
+//		}
+//		
+//		@RequestMapping(value = "/select/{id}", method = RequestMethod.GET)
+//		public UserVO selectUser(@PathVariable("id") int id, HttpSession session) throws Exception {
+//			
+//			UserVO user	= service2.read(id);
+//			
+//			System.out.println(session.getAttribute("username"));
+//			
+//			return user;
+//			
+//		}
+//		
+//
+//		@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+//		public void updateUser(@PathVariable int id, @RequestBody UserVO user) throws Exception {
+//			
+//			service2.update(user);
+//						
+//		}
+//		
+//		
+//	    
+//	    @RequestMapping(value="/create", method=RequestMethod.GET)
+//	    public void createGET(BoardVO board, Model model) throws Exception{
+//	        System.out.println("/create 입니다. GET방식");
+//	        
+//	    }
+//	    
+//	    @RequestMapping(value = "/create", method=RequestMethod.POST )
+//	    public String createPOST(BoardVO board, Model model) throws Exception{
+//	        System.out.println("/board/create POST방식 입니다.");
+//	        System.out.println(board.toString());
+//	        
+//	        service.create(board);
+//	        model.addAttribute("result", "성공");
+//	        
+//	        return "redirect:/";
+//	    }
+//	    
+//	    @RequestMapping(value = "/read", method=RequestMethod.GET )
+//	    public void read(@RequestParam("b_no")int b_no, Model model, 
+//	    		HttpServletRequest request) throws Exception{
+//	       
+//			
+//	    	model.addAttribute(service.read(b_no));
+//
+//	    }
 	    
 //	    @RequestMapping(value = "/delete", method=RequestMethod.POST )
 //	    public String delete(@RequestParam("b_no")int b_no, Model model) throws Exception{

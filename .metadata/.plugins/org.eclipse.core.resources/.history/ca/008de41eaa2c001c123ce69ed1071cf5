@@ -1,0 +1,15 @@
+package com.pmg.domain;
+
+
+public class UserVO {
+	
+	private int id;
+	private int grade_id;
+	private String userId;
+	private String userPassword;
+	private String userName;
+	private String userPhonNumber;
+	private String userBirthday;
+	
+	
+}

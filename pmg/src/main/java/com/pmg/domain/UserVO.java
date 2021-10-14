@@ -4,12 +4,12 @@ package com.pmg.domain;
 public class UserVO {
 	
 	private int id;
-	private String username;
-	private String password;
-	private String firstName;
-	private String lastName;
-	private int age;
-	private int salary;
+	private int grade_id;
+	private String userId;
+	private String userPassword;
+	private String userName;
+	private String userPhonNumber;
+	private String userBirthday;
 	
 	public int getId() {
 		return id;
@@ -17,43 +17,41 @@ public class UserVO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public int getGrade_id() {
+		return grade_id;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setGrade_id(int grade_id) {
+		this.grade_id = grade_id;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserId() {
+		return userId;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getUserName() {
+		return userName;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public int getAge() {
-		return age;
+	public String getUserPhonNumber() {
+		return userPhonNumber;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setUserPhonNumber(String userPhonNumber) {
+		this.userPhonNumber = userPhonNumber;
 	}
-	public int getSalary() {
-		return salary;
+	public String getUserBirthday() {
+		return userBirthday;
 	}
-	public void setSalary(int salary) {
-		this.salary = salary;
+	public void setUserBirthday(String userBirthday) {
+		this.userBirthday = userBirthday;
 	}
-    
-   
-    
+		
 }

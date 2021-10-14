@@ -1,0 +1,14 @@
+package com.pmg.domain;
+
+import java.sql.Date;
+
+public class ExpenVO {
+	
+	private int id;
+	private String expenNote;
+	private int expenPrice;
+	private Date expenDate;
+	
+	
+
+}

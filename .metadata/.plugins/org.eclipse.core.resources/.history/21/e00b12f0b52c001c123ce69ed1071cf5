@@ -1,0 +1,31 @@
+package com.pmg.pnn;
+
+import javax.inject.Inject;
+
+import org.junit.Test;
+
+import com.pmg.domain.UserVO;
+import com.pmg.service.UserService;
+public class UserMapperTest {
+	
+	@Inject
+	private UserService service2;
+	
+	@Test
+	public void create() throws Exception{
+		UserVO user = new UserVO(); 
+		
+		user.setGrade_id(2);
+		user.setUserId("1234@naver.com");
+		user.setUserPassword("2311");
+		user.setUserName("박박박");
+		user.setUserPhonNumber("01012341234");
+		user.setUserBirthday("19930101");
+
+		System.out.println(user);
+		
+		service2.create(user);
+
+		
+	}
+}

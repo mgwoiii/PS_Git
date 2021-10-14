@@ -1,0 +1,9 @@
+package com.pmg.domain;
+
+public class GradeVo {
+	
+	private int id;
+	private String grade;
+	
+
+}

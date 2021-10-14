@@ -18,45 +18,60 @@ public class UserDAOImp implements UserDAO {
     private static String namespace = "com.pmg.mapper.UserMapper";
 
 	@Override
-	public void create(UserVO user) throws Exception {
+	public void userRegister(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
 		sqlSession.insert
         (namespace+".insertUser", user);
 		
 	}
-
+	
+	
 	@Override
-	public List<UserVO> listAll() throws Exception {
+	public UserVO loginUserRead(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
-        return sqlSession.selectList(namespace+".listUser");
-	}
+		return sqlSession.selectOne(namespace+".loginUserRead", user);
 
+	}	
+	
 	@Override
-	public UserVO read(Integer id) throws Exception {
+	public UserVO UserIdRead(String userId) throws Exception {
 		// TODO Auto-generated method stub
-        return sqlSession.selectOne(namespace+".detailUser", id);
 
-	}
-
-	@Override
-	public void delete(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-        sqlSession.delete(namespace+".deleteUser", id);
-
-	}
-
-	@Override
-	public void update(UserVO user) throws Exception {
-		// TODO Auto-generated method stub
-        sqlSession.update(namespace+".updateUser", user);
+		return sqlSession.selectOne(namespace+".UserIdRead", userId);
 
 	}
 	
 	
-	@Override
-	public UserVO login(UserVO user) throws Exception {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace+".loginUser", user);
+	
+	
+	
+//	@Override
+//	public List<UserVO> listAll() throws Exception {
+//		// TODO Auto-generated method stub
+//        return sqlSession.selectList(namespace+".listUser");
+//	}
+//
+//	@Override
+//	public UserVO read(Integer id) throws Exception {
+//		// TODO Auto-generated method stub
+//        return sqlSession.selectOne(namespace+".detailUser", id);
+//
+//	}
+//
+//	@Override
+//	public void delete(Integer id) throws Exception {
+//		// TODO Auto-generated method stub
+//        sqlSession.delete(namespace+".deleteUser", id);
+//
+//	}
+//
+//	@Override
+//	public void update(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//        sqlSession.update(namespace+".updateUser", user);
+//
+//	}
+//	
+//	
 
-	}
 }
