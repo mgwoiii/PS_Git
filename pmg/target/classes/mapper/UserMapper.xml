@@ -25,10 +25,18 @@
     
         <!-- 아이디 중복 조회 -->
     <select id="UserIdRead" resultType="com.pmg.domain.UserVO">
-            select *
+            select userId
             from usertable 
             where userId = #{userId}
     </select>
+    
+       <!-- 로그인 아이디 조회 -->
+    <select id="UserIdFind" resultType="com.pmg.domain.UserVO">
+            select userId
+            from usertable 
+            where userName = #{userName} and userPhonNumber = #{userPhonNumber}
+            and userBirthday = #{userBirthday}
+    </select>    
     
     
     <!-- 게시판 리스트보기 -->

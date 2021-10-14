@@ -31,12 +31,25 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public UserVO UserIdRead(String userId) throws Exception {
+	public UserVO userIdRead(String userId) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.UserIdRead(userId);
+		return dao.userIdRead(userId);
 	}
 	
 
+//	@Override
+//	public UserVO userIdFind(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//
+//		return dao.UserIdFind(user);
+//	}
+	
+	@Override
+	public List<UserVO> userIdFind(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userIdFind(user);
+	}
+	
 //
 //	@Override
 //	public List<UserVO> listAll() throws Exception {
