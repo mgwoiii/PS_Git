@@ -1,0 +1,17 @@
+package com.pmg.domain;
+
+import java.sql.Date;
+
+public class ChkInsertVO {
+	
+	private int id;
+	private int className_id;
+	private int ckeckName_id;
+	private Date chkDate;
+	
+
+
+
+
+
+}

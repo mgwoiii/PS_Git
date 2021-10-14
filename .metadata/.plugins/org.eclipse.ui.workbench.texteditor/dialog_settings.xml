@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="NullPointerException"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="NullPointerException"/>
+			<item value="dao"/>
+			<item value="List&lt;UserVO&gt; users"/>
+			<item value="jackson-databind"/>
+			<item value="b_no"/>
+			<item value="b_no`"/>
+			<item value="bno"/>
+			<item value="listBoard"/>
+			<item value="System.out"/>
+			<item value="insertBoard"/>
+			<item value="com"/>
+			<item value="org.pmg"/>
+			<item value="org.hello"/>
+			<item value="hello"/>
+			<item value="BoardDAOImpl"/>
+		</list>
+		<list key="replacehistory">
+			<item value="com.pmg"/>
+			<item value="org.pmg"/>
+			<item value="pmg"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="589"/>
+		<item key="DIALOG_Y_ORIGIN" value="247"/>
+		<item key="DIALOG_WIDTH" value="393"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>
