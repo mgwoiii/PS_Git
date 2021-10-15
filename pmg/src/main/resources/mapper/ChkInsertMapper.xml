@@ -8,21 +8,19 @@
 <mapper namespace="com.pmg.mapper.ChkInsertMapper">
  
  
-    <!-- 회원 가입(회원정보 추가하기) -->
-    <insert id="insertUser">
- 		INSERT INTO usertable
-     ( grade_id, userId, userPassword, userName, userPhonNumber, userBirthday )
-      VALUES(#{grade_id}, #{userId}, #{userPassword}, #{userName}, #{userPhonNumber}, #{userBirthday}) 
+    <!-- 입실 추가(호수 , 날짜 추가하기) -->
+    <insert id="chkinDateRegister">
+ 		INSERT INTO chkinsertTable
+     ( className_id, ckeckName_id, chkDate)
+      VALUES(#{className_id}, #{ckeckName_id} , #{chkDate}) 
     </insert>
     
-    
-       <!-- 로그인 아이디 조회 -->
-    <select id="loginUserRead" resultType="com.pmg.domain.ChkInsertVO">
+    <!-- 입실 등록(중복) 조회 -->
+    <select id="chkinDateOverlap" resultType="com.pmg.domain.ChkInsertVO">
             select *
-            from usertable 
-            where userId = #{userId} and userPassword = #{userPassword}
+            from chkinsertTable 
+            where className_id = #{className_id} and ckeckName_id = #{ckeckName_id} and chkDate = #{chkDate}
     </select>
-    
     
         <!-- 비밀번호 수정하기 -->
     <update id="userPwUpdate">

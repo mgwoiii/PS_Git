@@ -1,0 +1,86 @@
+package com.pmg.pnn;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.pmg.domain.ChkInsertVO;
+import com.pmg.service.ChkInsertService;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+public class ChkInsertMapperTest {
+
+	
+	@Autowired
+	private ChkInsertService service;
+	
+	ChkInsertVO chk = new ChkInsertVO();
+	
+	/*
+	+----+--------------+--------------+------------+
+	| id | className_id | ckeckName_id | chkDate    |
+	+----+--------------+--------------+------------+
+	|  1 |            1 |            1 | NULL       |
+	|  2 |            1 |            1 | 2021-10-13 |
+	+----+--------------+--------------+------------+
+	2 rows in set (0.03 sec)
+
+	mysql> select *
+	    -> from classTable;
+	+----+-----------+
+	| id | className |
+	+----+-----------+
+	|  1 | 101호     |
+	|  2 | 102호     |
+	|  3 | 201호     |
+	|  4 | 202호     |
+	|  5 | 203호     |
+	|  6 | 204호     |
+	|  7 | 301호     |
+	|  8 | 302호     |
+	|  9 | 303호     |
+	| 10 | 304호     |
+	+----+-----------+
+
+	*/
+	// 입실 데이터 추가
+	@Test
+	public void chkinDateRegister() throws Exception{
+		
+		chk.setCkeckName_id(0);
+		chk.setClassName_id(0);
+		chk.setChkDate(null);
+		
+	}
+	
+	// 입실 데이터 조회
+	@Test
+	public void chkinDateList() throws Exception{
+		
+		
+	}
+//
+//	// id 중복 검사
+//	@Test
+//	public void userIdOverlap() throws Exception{
+//
+//		// 값이 없을때
+//		String UserId = "aaadda@naver.com";
+//		
+//		// 값이 있을때
+//		String UserId2 = "2222@naver.com";
+//		
+//		 
+//		assertEquals(UserId2, service.userIdRead(UserId2).getUserId());
+//		
+//	}
+
+	
+
+	
+}

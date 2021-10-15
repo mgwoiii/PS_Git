@@ -31,7 +31,7 @@ public class UserMapperTest {
 		
 	}
 	
-	// 회원가입 정보
+	// 회원가입 (정보입력)
 	@Test
 	public void userRegister() throws Exception{
 

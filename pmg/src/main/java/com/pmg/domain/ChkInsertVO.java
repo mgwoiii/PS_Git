@@ -7,7 +7,7 @@ public class ChkInsertVO {
 	private int id;
 	private int className_id;
 	private int ckeckName_id;
-	private Date chkDate;
+	private String chkDate;
 	
 	public int getId() {
 		return id;
@@ -27,10 +27,10 @@ public class ChkInsertVO {
 	public void setCkeckName_id(int ckeckName_id) {
 		this.ckeckName_id = ckeckName_id;
 	}
-	public Date getChkDate() {
+	public String getChkDate() {
 		return chkDate;
 	}
-	public void setChkDate(Date chkDate) {
+	public void setChkDate(String chkDate) {
 		this.chkDate = chkDate;
 	}
 	
