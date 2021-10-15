@@ -18,14 +18,26 @@ public class UserMapperTest {
 	@Autowired
 	private UserService service;
 	
+	UserVO user = new UserVO();
+
+	// ID, PASSWORD 조회 (로그인)
+	@Test
+	public void loginUserRead() throws Exception{
+		
+		user.setUserId("1234@naver.com");
+		user.setUserPassword("12341234");
+		
+		service.loginUserRead(user);
+		
+	}
+	
 	// 회원가입 정보
 	@Test
 	public void userRegister() throws Exception{
 
-		UserVO user = new UserVO();
 		
 		user.setGrade_id(2);
-		user.setUserId("aaaa@naver.com");
+		user.setUserId("aaa2a22@naver.com");
 		user.setUserPassword("2222");
 		user.setUserName("박박박");
 		user.setUserPhonNumber("01012351235");
@@ -43,22 +55,51 @@ public class UserMapperTest {
 		String UserId = "aaadda@naver.com";
 		
 		// 값이 있을때
-		String UserId2 = "aaaa@naver.com";
+		String UserId2 = "2222@naver.com";
 		
-		assertEquals(UserId, service.UserIdRead(UserId));
+		 
+		assertEquals(UserId2, service.userIdRead(UserId2).getUserId());
 		
 	}
 	
-	// ID, PASSWORD 조회
+	// id 찾기 검사
 	@Test
-	public void loginUserRead() throws Exception{
+	public void userIdFind() throws Exception{
 
-		UserVO user = new UserVO();
+		user.setUserName("박박박");
+		user.setUserPhonNumber("01012351235");
+		user.setUserBirthday("19930101");
 		
-		user.setUserId("1234@naver.com");
-		user.setUserPassword("12341234");
+		service.userIdFind(user);
 		
-		service.loginUserRead(user);
+		//System.out.println(service.userIdFind(user));
 		
+//		int count = 0;
+//		for(UserVO str : service.userIdFind(user)){
+//		    System.out.println(count + "번째 id는: " + str.getUserId());
+//		    count++;
+//		}
+		
+
 	}
+	
+	// password 찾기
+	@Test
+	public void userPwFind() throws Exception{
+
+		user.setUserId("aaaa22@naver.com");
+		user.setUserName("박박박");
+		user.setUserPhonNumber("01012351235");
+		user.setUserBirthday("19930101");
+		
+		service.userPwFind(user);
+		
+		System.out.println(service.userPwFind(user).getUserId());
+
+	}
+	
+	
+	
+	
+	
 }

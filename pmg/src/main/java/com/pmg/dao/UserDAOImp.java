@@ -34,16 +34,31 @@ public class UserDAOImp implements UserDAO {
 	}	
 	
 	@Override
-	public UserVO UserIdRead(String userId) throws Exception {
+	public UserVO userIdRead(String userId) throws Exception {
 		// TODO Auto-generated method stub
-
 		return sqlSession.selectOne(namespace+".UserIdRead", userId);
 
 	}
 	
+//	@Override
+//	public UserVO UserIdFind(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//		return sqlSession.selectOne(namespace+".UserIdFind", user);
+//
+//	}	
 	
+	@Override
+	public List<UserVO> userIdFind(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+        return sqlSession.selectList(namespace+".UserIdFind", user);
+	}
 	
-	
+	@Override
+	public UserVO userPwFind(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".userPwFind", user);
+
+	}
 	
 //	@Override
 //	public List<UserVO> listAll() throws Exception {

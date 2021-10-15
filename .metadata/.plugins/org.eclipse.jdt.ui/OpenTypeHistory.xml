@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1630317682886"/>
-    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.service{BoardService.java[BoardService" modifiers="513" timestamp="1629365283648"/>
-    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1630682146396"/>
+    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1632823053135"/>
+    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.service{BoardService.java[BoardService" modifiers="513" timestamp="1632823053144"/>
+    <typeInfo handle="=pmg/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.pmg.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1634190825008"/>
 </typeInfoHistroy>
