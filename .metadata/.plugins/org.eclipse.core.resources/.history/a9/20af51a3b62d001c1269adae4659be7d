@@ -102,4 +102,29 @@ public class ChkInsertMapperTest {
         }
 	}
 	
+	// 입실 데이터 조회 
+	@Test
+	public void chkinDateList() throws Exception{
+		
+		
+	}
+//
+//	// id 중복 검사
+//	@Test
+//	public void userIdOverlap() throws Exception{
+//
+//		// 값이 없을때
+//		String UserId = "aaadda@naver.com";
+//		
+//		// 값이 있을때
+//		String UserId2 = "2222@naver.com";
+//		
+//		 
+//		assertEquals(UserId2, service.userIdRead(UserId2).getUserId());
+//		
+//	}
+
+	
+
+	
 }
