@@ -158,48 +158,48 @@ public class HomeController {
 //	    }
 //	    
 	    
-	    @RequestMapping(value = "/modify", method=RequestMethod.GET )
-	    public void modify(@RequestParam("b_no")int b_no, Model model) throws Exception{
-	       
-	    	model.addAttribute(service.read(b_no));
-
-	    }
-	
-	    @RequestMapping(value = "/modify", method=RequestMethod.POST )
-	    public String modifyPOST(BoardVO board, Model model) throws Exception{
-	       
-	    	System.out.println(board.getB_no());
-	    	
-	    	service.update(board);
-	    	
-	        model.addAttribute("result", "성공2222");
-	        
-	        return "redirect:/";
-	    }
-	    
-
-		public static <T> List<Map<String, Object>> convertListToMap(Collection<T> target) {
-			List<Map<String, Object>> resultList = new ArrayList<Map<String, Object>>();
-			for (T element : target) {
-				Map<String,Object> resultMap = new HashMap<String,Object>();
-				Field[] fieldList = element.getClass().getDeclaredFields();
-				if (fieldList != null && fieldList.length > 0) {
-					try {
-						for (int i = 0; i < fieldList.length; i++) {
-							String curInsName = fieldList[i].getName();
-							Field field = element.getClass().getDeclaredField(curInsName);
-							field.setAccessible(true);
-							Object targetValue = field.get(element);
-							resultMap.put(curInsName, targetValue);
-						}
-						resultList.add(resultMap);
-						
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-			return resultList;
-		}
+//	    @RequestMapping(value = "/modify", method=RequestMethod.GET )
+//	    public void modify(@RequestParam("b_no")int b_no, Model model) throws Exception{
+//	       
+//	    	model.addAttribute(service.read(b_no));
+//
+//	    }
+//	
+//	    @RequestMapping(value = "/modify", method=RequestMethod.POST )
+//	    public String modifyPOST(BoardVO board, Model model) throws Exception{
+//	       
+//	    	System.out.println(board.getB_no());
+//	    	
+//	    	service.update(board);
+//	    	
+//	        model.addAttribute("result", "성공2222");
+//	        
+//	        return "redirect:/";
+//	    }
+//	    
+//
+//		public static <T> List<Map<String, Object>> convertListToMap(Collection<T> target) {
+//			List<Map<String, Object>> resultList = new ArrayList<Map<String, Object>>();
+//			for (T element : target) {
+//				Map<String,Object> resultMap = new HashMap<String,Object>();
+//				Field[] fieldList = element.getClass().getDeclaredFields();
+//				if (fieldList != null && fieldList.length > 0) {
+//					try {
+//						for (int i = 0; i < fieldList.length; i++) {
+//							String curInsName = fieldList[i].getName();
+//							Field field = element.getClass().getDeclaredField(curInsName);
+//							field.setAccessible(true);
+//							Object targetValue = field.get(element);
+//							resultMap.put(curInsName, targetValue);
+//						}
+//						resultList.add(resultMap);
+//						
+//					} catch (Exception e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			return resultList;
+//		}
 }
