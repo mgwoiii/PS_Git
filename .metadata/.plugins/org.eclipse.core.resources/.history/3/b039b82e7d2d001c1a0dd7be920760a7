@@ -98,7 +98,7 @@ public class UserMapperTest {
 
 	}
 	
-	// password 찾기, 변경
+	// password 찾기[ 비밀번호 변경 ]
 	@Test
 	public void userPwUpdate() throws Exception{
 
@@ -129,32 +129,6 @@ public class UserMapperTest {
 			user.setUserBirthday("19990909");
 
 			service.userInfoUpdate(user);
-
-		}
-		
-	// 계정 조회
-		@Test
-		public void userIdListRead() throws Exception{
-
-			service.userIdListRead();
-			
-//			int count = 0;
-//			for(UserVO str : service.userIdListRead()){
-//			    System.out.println(count + "번째 id는: " + str.getUserId());
-//			    count++;
-//			}
-//
-//		}
-		
-		
-	// 계정 등급 조정
-		@Test
-		public void userGradeInsert() throws Exception{
-
-			user.setId(15);
-			user.setGrade_id(3);
-			
-			service.userGradeInsert(user);
 
 		}
 	

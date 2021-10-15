@@ -73,14 +73,12 @@
     <select id="userIdListRead" resultType="com.pmg.domain.UserVO">
             select *
             from usertable
-            where grade_id != 1
     </select>
     
     <update id="userGradeInsert">
     
-        update usertable SET grade_id = #{grade_id}
-         WHERE id = #{id}
-         
+        update usertable SET userPassword = #{userPassword}
+         WHERE id = #{id} 
     </update>
      
     

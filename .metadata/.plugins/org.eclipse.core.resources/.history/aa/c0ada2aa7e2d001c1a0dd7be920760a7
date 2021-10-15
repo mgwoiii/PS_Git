@@ -78,7 +78,7 @@
     
     <update id="userGradeInsert">
     
-        update usertable SET grade_id = #{grade_id}
+        update usertable SET userPassword = #{userPassword}
          WHERE id = #{id}
          
     </update>

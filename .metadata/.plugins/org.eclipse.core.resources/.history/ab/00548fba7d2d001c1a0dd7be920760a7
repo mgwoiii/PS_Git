@@ -28,7 +28,8 @@ public interface UserService {
 	
 	public UserVO userGradeInsert(UserVO user) throws Exception;
 	
-	
+	service.userGradeInsert(user);
+	service.userIdListRead();
 
 
 //	public UserVO read(Integer id) throws Exception;

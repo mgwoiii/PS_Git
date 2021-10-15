@@ -138,13 +138,13 @@ public class UserMapperTest {
 
 			service.userIdListRead();
 			
-//			int count = 0;
-//			for(UserVO str : service.userIdListRead()){
-//			    System.out.println(count + "번째 id는: " + str.getUserId());
-//			    count++;
-//			}
-//
-//		}
+			int count = 0;
+			for(UserVO str : service.userIdListRead()){
+			    System.out.println(count + "번째 id는: " + str.getUserId());
+			    count++;
+			}
+
+		}
 		
 		
 	// 계정 등급 조정

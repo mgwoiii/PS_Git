@@ -42,6 +42,8 @@ public class UserServiceImpl implements UserService {
 		return dao.userIdFind(user);
 	}
 	
+	
+	
 	@Override
 	public UserVO userPwFind(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
@@ -67,20 +69,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-	@Override
-	public List<UserVO> userIdListRead() throws Exception {
-		// TODO Auto-generated method stub
-		return dao.userIdListRead();
-	}
 	
-	@Override
-	public UserVO userGradeInsert(UserVO user) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.userGradeInsert(user);
-	}
 	
 
-
+	
 	
 	
 //
