@@ -71,10 +71,10 @@ class userInpoModify extends Component{
 
         return (
             <UserModifyContent>
-                <InputWithLabel label="이메일" name="email" placeholder="이메일" value={this.state.username} onChange={this.onChange}/>
-                <InputWithLabel label="이름" name="username" placeholder="이름" value={this.state.firstName} onChange={this.onChange}/>
-                <InputWithLabel label="전화번호" name="phone" placeholder="전화번호" value={this.state.age} onChange={this.onChange} />
-                
+                <InputWithLabel label="이메일" name="userId" placeholder="이메일" value={this.state.username} onChange={this.onChange}/>
+                <InputWithLabel label="이름" name="userName" placeholder="이름" value={this.state.firstName} onChange={this.onChange}/>
+                <InputWithLabel label="전화번호" name="userPhonNumber" placeholder="전화번호"/>
+                <InputWithLabel label="생년월일" name="userBirthday" placeholder="생년월일(YYMMDD)"/>
                 <>
                   <LoginButton onClick={this.openModal}>비밀번호 변경</LoginButton>
                   <SignIn isOpen={this.state.isModalOpen} close={this.closeModal} />
