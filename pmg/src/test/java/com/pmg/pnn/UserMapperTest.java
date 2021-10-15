@@ -83,7 +83,7 @@ public class UserMapperTest {
 
 	}
 	
-	// password 찾기
+	// password 찾기 [회원정보 조회]
 	@Test
 	public void userPwFind() throws Exception{
 
@@ -94,12 +94,42 @@ public class UserMapperTest {
 		
 		service.userPwFind(user);
 		
-		System.out.println(service.userPwFind(user).getUserId());
+		System.out.println(service.userPwFind(user).getId());
 
 	}
 	
+	// password 찾기[ 비밀번호 변경 ]
+	@Test
+	public void userPwUpdate() throws Exception{
+
+		user.setId(15);
+		user.setUserPassword("7777");
+		
+		service.userPwUpdate(user);
+
+	}
 	
+	// 개인정보 조회 [아이디, 이름, 휴대폰번호, 생일]
+		@Test
+		public void userInfoRead() throws Exception{
+
+			int Id = 15;
+			
+			service.userInfoRead(Id);
+			
+		}
 	
-	
+	// 개인정보 변경[ 개인정보 창(이름, 휴대폰번호, 생일) ]
+		@Test
+		public void userInfoUpdate() throws Exception{
+
+			user.setId(15);
+			user.setUserName("이이이");
+			user.setUserPhonNumber("01011112222");
+			user.setUserBirthday("19990909");
+
+			service.userInfoUpdate(user);
+
+		}
 	
 }

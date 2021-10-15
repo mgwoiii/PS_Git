@@ -10,14 +10,17 @@ public interface UserDAO {
 	
 	public UserVO userIdRead(String userId) throws Exception;
 	
-//	public UserVO UserIdFind(UserVO user) throws Exception;
-
 	public List<UserVO> userIdFind(UserVO user) throws Exception;
 
 	public UserVO userPwFind(UserVO user) throws Exception;
 
+	public UserVO userPwUpdate(UserVO user) throws Exception;
 	
-	
+	public UserVO userInfoUpdate(UserVO user) throws Exception;
+
+	public UserVO userInfoRead(int userId) throws Exception;
+
+
 //	public List<UserVO> listAll() throws Exception;
 //	
 //	public UserVO read(Integer id) throws Exception;

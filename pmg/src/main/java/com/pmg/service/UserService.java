@@ -18,7 +18,14 @@ public interface UserService {
 	
 	public UserVO userPwFind(UserVO user) throws Exception;
 
+	public UserVO userPwUpdate(UserVO user) throws Exception;
+
+	public UserVO userInfoUpdate(UserVO user) throws Exception;
 	
+	public UserVO userInfoRead(int Id) throws Exception;
+
+
+
 
 //	public UserVO read(Integer id) throws Exception;
 

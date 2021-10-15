@@ -58,8 +58,33 @@ public class UserDAOImp implements UserDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".userPwFind", user);
 
+	}	
+	
+	@Override
+	public UserVO userPwUpdate(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".userPwUpdate", user);
+
+	}	
+
+	@Override
+	public UserVO userInfoUpdate(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".userInfoUpdate", user);
+
 	}
 	
+	@Override
+	public UserVO userInfoRead(int id) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".userInfoRead", id);
+
+	}
+
+	
+	
+
+
 //	@Override
 //	public List<UserVO> listAll() throws Exception {
 //		// TODO Auto-generated method stub
