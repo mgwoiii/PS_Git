@@ -33,6 +33,32 @@ public class IncomeDAOImp implements IncomeDAO {
 			return sqlSession.selectList(namespace+".incomeDayRead", income);
 
 		}
+
+		@Override
+		public void incomeDayUpdate(IncomeVO income) throws Exception {
+			// TODO Auto-generated method stub
+			sqlSession.update
+	        (namespace+".incomeDayUpdate", income);
+			
+		}
+
+		@Override
+		public void incomeDayDelete(int id) throws Exception {
+			// TODO Auto-generated method stub
+			sqlSession.delete
+	        (namespace+".incomeDayDelete", id);
+			
+		}
+		
+		@Override
+		public  List<IncomeVO> incomeMonthRead(IncomeVO income) throws Exception {
+			// TODO Auto-generated method stub
+			return sqlSession.selectList
+	        (namespace+".incomeMonthRead", income);
+			
+		}
+		
+		
 		
 		
 //		@Override

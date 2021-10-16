@@ -92,7 +92,7 @@ public class ChkInsertMapperTest {
             startDate = dateFormat.format(cal.getTime()); //비교를 위한 값 셋팅
             
 
-            if((i % 3) == 1) {
+            if((i % 7) == 1) {
 	            //+1달 출력
 	            System.out.println(dateFormat.format(cal.getTime()));  
 	            

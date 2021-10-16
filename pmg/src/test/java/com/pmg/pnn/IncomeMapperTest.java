@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,10 +24,6 @@ public class IncomeMapperTest {
 	
 	IncomeVO income = new IncomeVO();
 
-	/*
-	 * ( className_id , reserveType_id , roomPrice , roomType_id , bbqPrice , bbqType_id ,
-     extraPeoplePrice ,extraPeopleType_id ,totalPrice ,note ,guestName ,IncomeDate  )
-	 * */
 	// 수입일지 등록 (insert)
 	
 	@Test
@@ -88,13 +85,64 @@ public class IncomeMapperTest {
 	}
 	
 	// 수입일지 일별 수정
+	@Test
+	public void incomeDayUpdate() throws Exception{
+
+		
+		income.setId(2203);
+
+		income.setReserveType_id(6);
+		income.setRoomPrice(2050);
+		income.setRoomType_id(3);
+		income.setBbqPrice(2000);
+		income.setBbqType_id(3);
+		income.setExtraPeoplePrice(2050);
+		income.setExtraPeopleType_id(3);
+		income.setTotalPrice(6100);
+		income.setNote("-");
+		income.setGuestName("박이이");
+		
+		service.incomeDayUpdate(income);
+			
+	}
 	
 	// 수입일지 일별 삭제
 	
-	// 수입일지 기간별 조회(월단위)
+		@Test
+		public void incomeDayDelete() throws Exception{
+			
+			int id = 2202;
+			service.incomeDayDelete(id);
+		
+		}
+		
+	// 수입일지 기간별 조회(1~12월 (월)단위)
 
-	// 
-	
+		@Test
+		public void incomeMonthRead() throws Exception{
+			
+			income.setIncomeDateStart("2021-01-01");
+			income.setIncomeDateEnd("2021-12-31");
+			
+			System.out.println(service.incomeMonthRead(income));
+		
+			for(IncomeVO bb : service.incomeMonthRead(income)) {
+				System.out.println(bb.getMonthDate()+ "이랑"+ bb.getMonthSum() );
+
+			}
+		}
+		
+	// 수입일지 기간별 조회(1~31일 (일)단위)
+
+		
+	/*
+	 
+			SELECT MONTH(IncomeDate) AS date,
+			       sum(totalPrice)
+			  FROM IncomeTable
+			WHERE DATE(IncomeDate) BETWEEN '2020-01-01' AND '2020-12-31'
+			 GROUP BY date;
+	 * */
 	// 1년치 데이터 추가.
 	@Test
 	public void aa() throws Exception{
@@ -106,10 +154,10 @@ public class IncomeMapperTest {
         Calendar cal = Calendar.getInstance();
         
         
-        cal.set ( 2022, 1-1, 1 ); //종료 날짜 셋팅
+        cal.set ( 2023, 1-1, 1 ); //종료 날짜 셋팅
         String endDate = dateFormat.format(cal.getTime());
         
-        cal.set ( 2021, 1-1, 1 ); //시작 날짜 셋팅
+        cal.set ( 2020, 1-1, 1 ); //시작 날짜 셋팅
         String startDate = dateFormat.format(cal.getTime());    
         
         int i = 0;
@@ -124,7 +172,7 @@ public class IncomeMapperTest {
             startDate = dateFormat.format(cal.getTime()); //비교를 위한 값 셋팅
             
 
-            if((i % 3) == 1) {
+            if((i % 9) == 1) {
 	            //+1달 출력
 	            System.out.println(dateFormat.format(cal.getTime()));  
 	            

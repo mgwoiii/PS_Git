@@ -29,4 +29,26 @@ public class IncomeServiceImpl implements IncomeService {
 		return dao.incomeDayRead(income);
 	}
 
+	@Override
+	public void incomeDayUpdate(IncomeVO income) throws Exception {
+		// TODO Auto-generated method stub
+		dao.incomeDayUpdate(income);
+		
+	}
+
+	@Override
+	public void incomeDayDelete(int id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.incomeDayDelete(id);
+		
+	}
+	
+	@Override
+	public List<IncomeVO> incomeMonthRead(IncomeVO income) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.incomeMonthRead(income);
+		
+	}
+	
+	
 }

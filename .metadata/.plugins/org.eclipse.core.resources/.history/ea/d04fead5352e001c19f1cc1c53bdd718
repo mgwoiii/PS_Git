@@ -1,0 +1,17 @@
+package com.pmg.dao;
+import java.util.List;
+
+import com.pmg.domain.IncomeVO;
+import com.pmg.domain.UserVO;
+
+public interface IncomeDAO {
+	
+//	public IncomeVO incomeRegister(IncomeVO income) throws Exception;
+	
+	public void incomeRegister(IncomeVO income) throws Exception;
+	
+	public List<IncomeVO> incomeDayRead(IncomeVO income) throws Exception;
+	
+	
+	
+}

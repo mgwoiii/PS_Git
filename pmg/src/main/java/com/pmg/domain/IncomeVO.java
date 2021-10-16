@@ -23,6 +23,12 @@ public class IncomeVO {
 	private String guestName;
 	private String IncomeDate;
 	
+	private int MonthDate;
+	private int MonthSum;
+	
+	private String IncomeDateStart;
+	private String IncomeDateEnd;
+	
 	public int getId() {
 		return id;
 	}
@@ -99,8 +105,33 @@ public class IncomeVO {
 		return IncomeDate;
 	}
 	public void setIncomeDate(String incomeDate) {
-		this.IncomeDate = incomeDate;
+		IncomeDate = incomeDate;
 	}
-		
+	public int getMonthDate() {
+		return MonthDate;
+	}
+	public void setMonthDate(int monthDate) {
+		MonthDate = monthDate;
+	}
+	public int getMonthSum() {
+		return MonthSum;
+	}
+	public void setMonthSum(int monthSum) {
+		MonthSum = monthSum;
+	}
+	public String getIncomeDateStart() {
+		return IncomeDateStart;
+	}
+	public void setIncomeDateStart(String incomeDateStart) {
+		IncomeDateStart = incomeDateStart;
+	}
+	public String getIncomeDateEnd() {
+		return IncomeDateEnd;
+	}
+	public void setIncomeDateEnd(String incomeDateEnd) {
+		IncomeDateEnd = incomeDateEnd;
+	}
+	
+	
 
 }

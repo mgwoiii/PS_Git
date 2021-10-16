@@ -8,11 +8,18 @@ public interface IncomeService {
 
 	//public void userRegister(UserVO user) throws Exception;
 	
-	//public UserVO loginUserRead(UserVO user) throws Exception;
+	//public IncomeVO loginUserRead(IncomeVO income) throws Exception;
 	
 	  public void incomeRegister(IncomeVO income) throws Exception;
 	
 	  public List<IncomeVO> incomeDayRead(IncomeVO income) throws Exception;
 
+	  public void incomeDayUpdate(IncomeVO income) throws Exception;
+	  
+	  public void incomeDayDelete(int id) throws Exception;
+	
+	  public List<IncomeVO> incomeMonthRead(IncomeVO income) throws Exception;
+
+	  
 	  
 }
