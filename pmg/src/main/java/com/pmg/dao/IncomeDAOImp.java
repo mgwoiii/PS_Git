@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.pmg.domain.IncomeVO;
+import com.pmg.domain.UserVO;
 
 @Repository
 public class IncomeDAOImp implements IncomeDAO {
@@ -25,7 +26,15 @@ public class IncomeDAOImp implements IncomeDAO {
 	        (namespace+".incomeRegister", income);
 			
 		}
-	  
+		
+		@Override
+		public List<IncomeVO> incomeDayRead(IncomeVO income) throws Exception {
+			// TODO Auto-generated method stub
+			return sqlSession.selectList(namespace+".incomeDayRead", income);
+
+		}
+		
+		
 //		@Override
 //		public void userRegister(UserVO user) throws Exception {
 //			// TODO Auto-generated method stub

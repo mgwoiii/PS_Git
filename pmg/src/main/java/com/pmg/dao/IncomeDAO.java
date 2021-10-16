@@ -6,8 +6,12 @@ import com.pmg.domain.UserVO;
 
 public interface IncomeDAO {
 	
-//	public void userRegister(UserVO user) throws Exception;
+//	public IncomeVO incomeRegister(IncomeVO income) throws Exception;
 	
 	public void incomeRegister(IncomeVO income) throws Exception;
-
+	
+	public List<IncomeVO> incomeDayRead(IncomeVO income) throws Exception;
+	
+	
+	
 }

@@ -11,6 +11,9 @@ public interface ChkInsertService {
 	
 	public ChkInsertVO chkinDateOverlap(ChkInsertVO chk) throws Exception;
 	
+	public void chkinDateDelete(int id) throws Exception;
+	
+	
 	
 //	public UserVO read(Integer id) throws Exception;
 

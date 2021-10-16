@@ -22,6 +22,17 @@
             where className_id = #{className_id} and ckeckName_id = #{ckeckName_id} and chkDate = #{chkDate}
     </select>
     
+       <!-- 게시판 삭제하기 -->
+    <delete id="chkinDateDelete">
+        delete from chkinsertTable where id = #{id}
+    </delete>
+    
+    
+    
+    
+    
+    
+    
         <!-- 비밀번호 수정하기 -->
     <update id="userPwUpdate">
     

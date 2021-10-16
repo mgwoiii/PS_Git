@@ -32,7 +32,12 @@ public class ChkInsertServiceImpl implements ChkInsertService {
 		
 	}
 	
-	
+	@Override
+	public void chkinDateDelete(int id) throws Exception {
+		// TODO Auto-generated method stub
+		dao.chkinDateDelete(id);
+		
+	}	
 	
 //	@Override
 //	public void userRegister(UserVO user) throws Exception {

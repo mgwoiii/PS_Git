@@ -35,9 +35,15 @@ public class ChkInsertDAOImp implements ChkInsertDAO {
 
 	}
 	
-	
-	
     
+	@Override
+	public void chkinDateDelete(int id) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.delete(namespace+".chkinDateDelete", id);
+		
+	}   
+	
+	
 //	@Override
 //	public void userRegister(UserVO user) throws Exception {
 //		// TODO Auto-generated method stub

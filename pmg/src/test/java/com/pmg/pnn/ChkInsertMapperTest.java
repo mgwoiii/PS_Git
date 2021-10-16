@@ -51,8 +51,17 @@ public class ChkInsertMapperTest {
 	}
 	
 	
+	// 입실 데이터 삭제
 	
-	
+	@Test
+	public void chkinDateDelete() throws Exception{
+		
+		int id = 2786;
+		
+		service.chkinDateDelete(id);
+		
+
+	}
 	
 	// 1년치 데이터 추가.
 	@Test

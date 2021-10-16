@@ -11,6 +11,8 @@ public interface IncomeService {
 	//public UserVO loginUserRead(UserVO user) throws Exception;
 	
 	  public void incomeRegister(IncomeVO income) throws Exception;
-
 	
+	  public List<IncomeVO> incomeDayRead(IncomeVO income) throws Exception;
+
+	  
 }
