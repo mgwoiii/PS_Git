@@ -7,19 +7,37 @@ class IncomeListMonthBody extends Component {
 
         render(){
             return(
+            <>
                 <IncomTableRow>
                     <IncomTableCell>
                         1
                     </IncomTableCell>
 
                     <IncomTableCell2>
-                        2021년 1월
+                        1일
                     </IncomTableCell2>
                     
                     <IncomTableCell2>
                         650000
                     </IncomTableCell2>
+                    
                </IncomTableRow>
+               <IncomTableRow>
+
+                <IncomTableCell>
+                2
+                </IncomTableCell>
+                
+                <IncomTableCell2>
+                    2일
+                </IncomTableCell2>
+                
+                <IncomTableCell2>
+                    650000
+                </IncomTableCell2>
+                </IncomTableRow>
+             </>
+
             );
         }
     }
