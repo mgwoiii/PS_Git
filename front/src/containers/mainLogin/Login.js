@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import ApiService from '../../ApiService';
+import ApiService from '../../ApiServer/login/ApiService';
+
 import LoginContent  from '../../component/mainLogin/LoginContent';
 import InputWithLabel from '../../component/mainLogin/InputWithLabel';
 import LoginButton from '../../component/mainLogin/loginButton';
@@ -15,8 +16,8 @@ class Login extends Component {
         super(props);
     
         this.state = {
-          username: 'aaaa',
-          password: 'bbbb'
+          userId: 'admin',
+          userPassword: 'admin'
         }
     
     
@@ -32,25 +33,23 @@ class Login extends Component {
         e.preventDefault();
 
         let user = {
-            username : this.state.username,
-            password : this.state.password,
+            userId : this.state.userId,
+            userPassword : this.state.userPassword,
         }
 
         ApiService.loginUser(user)
         .then((response) => {
+
               if(response.data === ""){   
                   alert("아이디 또는 비밀번호가 올바르지 않습니다.");
                   throw new Error('아이디 또는 비밀번호가 올바르지 않습니다.');     
             
               } else {
-  
-                  alert(user.username + "님 환영합니다");                
-
                   this.props.LOADING_FALSE();
 
-                  window.sessionStorage.setItem('name', response.data.username);
+                  window.sessionStorage.setItem('name', response.data.userId);
                   window.sessionStorage.setItem('id', response.data.id);
-                  this.props.history.push('/persion-main/persionMain');
+                  this.props.history.push('/persion-main/Persion/PersionMain');
          
               }
           })
@@ -59,7 +58,7 @@ class Login extends Component {
           })
 
           // 임시 (반드시 지우기)
-          this.props.history.push('/persion-main/persionMain');
+         // this.props.history.push('/persion-main/persionMain');
       }
 
 
@@ -68,8 +67,8 @@ class Login extends Component {
 
         return (
             <LoginContent title="로그인">
-                <InputWithLabel label="아이디" name="username" placeholder="아이디" value = {this.state.username} onChange={this.onChange}/>
-                <InputWithLabel label="비밀번호" name="password" placeholder="비밀번호" type="password"value = {this.state.password} onChange={this.onChange}/>
+                <InputWithLabel label="아이디" name="userId" placeholder="아이디" value = {this.state.userId} onChange={this.onChange}/>
+                <InputWithLabel label="비밀번호" name="userPassword" placeholder="비밀번호" type="password" value = {this.state.userPassword} onChange={this.onChange}/>
                 <LoginButton onClick={handleLocalLogin}>로그인</LoginButton>
                 <RightAlignedLink to="/main-login/register">회원가입</RightAlignedLink> 
                 <RightAlignedLink to="/main-login/findid">아이디 찾기</RightAlignedLink>
