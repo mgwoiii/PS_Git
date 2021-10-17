@@ -133,7 +133,23 @@ public class IncomeMapperTest {
 		}
 		
 	// 수입일지 기간별 조회(1~31일 (일)단위)
+		@Test
+		public void incomeMonthAndDayRead() throws Exception{
+			
+			income.setIncomeDateStart("2021-10-05");
+			
+			System.out.println(service.incomeMonthAndDayRead(income));
+		
+			for(IncomeVO bb : service.incomeMonthAndDayRead(income)) {
+				System.out.println("날짜 : "+bb.getIncomeDate()+
+				"입실 호수 :"+  bb.getClassName_id() + "객실 타입"+  bb.getReserveType_id()
+				+"방 가격 : "+  bb.getRoomPrice() +"방 타입 : "+  bb.getRoomType_id()
+				+"bbq : " + bb.getBbqPrice() + "bbq type : "+ bb.getBbqType_id()
+						
+						);
 
+			}
+		}
 		
 	/*
 	 

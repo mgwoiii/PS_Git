@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="com.pmg.mapper.IncomeMapper">
+ 
+ 
+    <!-- 수입내역 추가 -->
+    <insert id="incomeRegister">
+ 		INSERT INTO IncomeTable
+     ( className_id , reserveType_id , roomPrice , roomType_id , bbqPrice , bbqType_id ,
+     extraPeoplePrice ,extraPeopleType_id ,totalPrice ,note ,guestName ,IncomeDate  )
+      VALUES(#{className_id}, #{reserveType_id}, #{roomPrice}, #{roomType_id}, #{bbqPrice}, #{bbqType_id},
+      #{extraPeoplePrice}, #{extraPeopleType_id}, #{totalPrice}, #{note}, #{guestName}, #{IncomeDate}
+      ) 
+    </insert>
+    
+    
+    <!-- 날짜별 데이터 조회 -->
+    <select id="incomeDayRead" resultType="com.pmg.domain.IncomeVO">
+            select *
+            from IncomeTable 
+            where IncomeDate = #{IncomeDate}
+    </select>
+
+      <!-- 수입일지 수정하기 -->
+    <update id="incomeDayUpdate">
+        update IncomeTable set reserveType_id=#{reserveType_id} , roomPrice = #{roomPrice}, 
+        roomType_id = #{roomType_id},  bbqPrice = #{bbqPrice},  bbqType_id = #{bbqType_id}, 
+        bbqType_id = #{bbqType_id},  extraPeoplePrice = #{extraPeoplePrice}, 
+        extraPeopleType_id = #{extraPeopleType_id},  totalPrice = #{totalPrice}, 
+        note = #{note},  guestName = #{guestName}
+        where id = #{id}
+    </update>
+
+     <!-- 수입일지 삭제하기 -->
+    <delete id="incomeDayDelete">
+        delete from IncomeTable where id = #{id}
+    </delete>
+    
+    
+    
+     <!-- 월별 매출 조회 -->
+    <select id="incomeMonthRead" resultType="com.pmg.domain.IncomeVO">
+
+            select MONTH(IncomeDate)  AS MonthDate,
+			       sum(totalPrice) AS MonthSum
+			  from IncomeTable
+			where DATE(IncomeDate) BETWEEN #{IncomeDateStart} AND #{IncomeDateEnd}
+			group by MonthDate;
+    </select>
+    
+    
+    
+    
+    
+       <!-- 로그인 아이디 조회 -->
+    <select id="loginUserRead" resultType="com.pmg.domain.UserVO">
+            select *
+            from usertable 
+            where userId = #{userId} and userPassword = #{userPassword}
+    </select>
+    
+        <!-- 아이디 중복 조회 -->
+    <select id="UserIdRead" resultType="com.pmg.domain.UserVO">
+            select userId
+            from usertable 
+            where userId = #{userId}
+    </select>
+    
+       <!-- 로그인 아이디 조회(찾기) -->
+    <select id="UserIdFind" resultType="com.pmg.domain.UserVO">
+            select userId
+            from usertable 
+            where userName = #{userName} and userPhonNumber = #{userPhonNumber}
+            and userBirthday = #{userBirthday}
+    </select>    
+    
+    
+          <!-- 로그인 비밀번호 조회(찾기)1 -->
+    <select id="userPwFind" resultType="com.pmg.domain.UserVO">
+            select id
+            from usertable 
+            where userId = #{userId} and userName = #{userName} and 
+            userPhonNumber = #{userPhonNumber} and userBirthday = #{userBirthday}
+    </select>   
+    
+        <!-- 비밀번호 수정하기 -->
+    <update id="userPwUpdate">
+    
+        update usertable SET userPassword = #{userPassword}
+         WHERE id = #{id} 
+    </update>
+        
+        <!-- 비밀번호 수정하기 -->
+    <update id="userInfoUpdate">
+    
+        update usertable SET userName = #{userName} , userPhonNumber = #{userPhonNumber} , userBirthday = #{userBirthday}
+         WHERE id = #{id} 
+    </update>
+     
+    
+    <!-- 개인정보 조회 -->
+    <select id="userInfoRead" resultType="com.pmg.domain.UserVO">
+            select *
+            from usertable 
+            where Id = #{Id}
+    </select>
+    
+    <!-- 계정 조회 -->
+    <select id="userIdListRead" resultType="com.pmg.domain.UserVO">
+            select *
+            from usertable
+            where grade_id != 1
+    </select>
+    
+    <update id="userGradeInsert">
+    
+        update usertable SET grade_id = #{grade_id}
+         WHERE id = #{id}
+         
+    </update>
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- 게시판 리스트보기 -->
+    <select id="listUser" resultType="com.pmg.domain.UserVO">
+    <![CDATA[
+    
+        select * from users 
+        order by id DESC
+    ]]>
+    </select>
+    
+    <!-- 게시판 상세보기 -->
+    <select id="detailUser" resultType="com.pmg.domain.UserVO">
+            select * from users where id = #{id}
+    </select>
+ 
+    <!-- 게시판 삭제하기 -->
+    <delete id="deleteUser">
+        delete from users where id = #{id}
+    </delete>
+    
+    <!-- 게시판 수정하기 -->
+    <update id="updateUser">
+    
+        update users SET firstName = #{firstName}, lastName = #{lastName}, age = #{age}, salary = #{salary} 
+         WHERE id = #{id}
+    </update>
+ 
+ 
+</mapper>

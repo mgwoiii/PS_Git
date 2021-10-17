@@ -20,6 +20,7 @@ public interface IncomeService {
 	
 	  public List<IncomeVO> incomeMonthRead(IncomeVO income) throws Exception;
 
-	  
+	  public List<IncomeVO> incomeMonthAndDayRead(IncomeVO income) throws Exception;
+
 	  
 }

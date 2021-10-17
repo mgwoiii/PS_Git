@@ -53,9 +53,14 @@
 			group by MonthDate;
     </select>
     
-    
-    
-    
+        <!-- 일별(1~30일) 매출 조회 -->
+    <select id="incomeMonthAndDayRead" resultType="com.pmg.domain.IncomeVO">
+
+            select *
+			from IncomeTable
+			where DATE(IncomeDate) BETWEEN LAST_DAY(#{IncomeDateStart} - interval 1 month) + interval 1 DAY AND LAST_DAY(#{IncomeDateStart})
+		
+    </select>
     
        <!-- 로그인 아이디 조회 -->
     <select id="loginUserRead" resultType="com.pmg.domain.UserVO">
