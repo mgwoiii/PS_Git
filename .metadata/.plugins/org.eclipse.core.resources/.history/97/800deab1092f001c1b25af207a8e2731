@@ -1,0 +1,68 @@
+package com.pmg.domain;
+
+import java.sql.Date;
+
+public class ExpenVO {
+	
+	private int id;
+	private String expenNote;
+	private int expenPrice;
+	private String expenDate;
+	
+	private String expenDateStart;
+	private String expenDateEnd;
+	private String monthDate;
+	private String monthSumDate;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getExpenNote() {
+		return expenNote;
+	}
+	public void setExpenNote(String expenNote) {
+		this.expenNote = expenNote;
+	}
+	public int getExpenPrice() {
+		return expenPrice;
+	}
+	public void setExpenPrice(int expenPrice) {
+		this.expenPrice = expenPrice;
+	}
+	public String getExpenDate() {
+		return expenDate;
+	}
+	public void setExpenDate(String expenDate) {
+		this.expenDate = expenDate;
+	}
+	public String getExpenDateStart() {
+		return expenDateStart;
+	}
+	public void setExpenDateStart(String expenDateStart) {
+		this.expenDateStart = expenDateStart;
+	}
+	public String getExpenDateEnd() {
+		return expenDateEnd;
+	}
+	public void setExpenDateEnd(String expenDateEnd) {
+		this.expenDateEnd = expenDateEnd;
+	}
+	public String getMonthDate() {
+		return monthDate;
+	}
+	public void setMonthDate(String monthDate) {
+		this.monthDate = monthDate;
+	}
+	public String getMonthSumenDate() {
+		return monthSumenDate;
+	}
+	public void setMonthSumenDate(String monthSumenDate) {
+		this.monthSumenDate = monthSumenDate;
+	}
+	
+	
+
+
+}

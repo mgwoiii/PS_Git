@@ -151,20 +151,14 @@ public class IncomeMapperTest {
 			}
 		}
 		
-	/*
-	 
-			SELECT MONTH(IncomeDate) AS date,
-			       sum(totalPrice)
-			  FROM IncomeTable
-			WHERE DATE(IncomeDate) BETWEEN '2020-01-01' AND '2020-12-31'
-			 GROUP BY date;
-	 * */
+
+		
 	// 1년치 데이터 추가.
 	@Test
 	public void aa() throws Exception{
 		
 		SimpleDateFormat dateFormat;
-        //dateFormat = new SimpleDateFormat("yyyyMM"); //년월 표시
+        //dateFormat = new SimpleDateFormat("yyyyMM"); //년월 표시 
         dateFormat = new SimpleDateFormat("yyyy-MM-dd"); //년월일 표시
         
         Calendar cal = Calendar.getInstance();

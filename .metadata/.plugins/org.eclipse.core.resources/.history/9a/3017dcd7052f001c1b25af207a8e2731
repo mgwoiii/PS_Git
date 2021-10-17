@@ -1,0 +1,39 @@
+package com.pmg.dao;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import com.pmg.domain.ExpenVO;
+
+
+@Repository
+public class ExpenDAOImp implements ExpenDAO {
+
+	@Inject
+    private SqlSession sqlSession;
+    
+    private static String namespace = "com.pmg.mapper.expenMapper";
+
+	@Override
+	public void expenRegister(ExpenVO expen) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.insert
+        (namespace+".expenRegister", expen);
+		
+	}
+    
+    
+//	@Override
+//	public void userRegister(UserVO user) throws Exception {
+//		// TODO Auto-generated method stub
+//		sqlSession.insert
+//        (namespace+".insertUser", user);
+//		
+//	}
+	
+
+}

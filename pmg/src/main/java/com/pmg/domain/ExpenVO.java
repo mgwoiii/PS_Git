@@ -7,8 +7,15 @@ public class ExpenVO {
 	private int id;
 	private String expenNote;
 	private int expenPrice;
-	private Date expenDate;
+	private String expenDate;
 	
+	private String expenDateStart;
+	private String expenDateEnd;
+	private String monthDate;
+	private String monthSum;
+	
+	private String DayDate;
+	private String DaySum;
 	public int getId() {
 		return id;
 	}
@@ -27,13 +34,48 @@ public class ExpenVO {
 	public void setExpenPrice(int expenPrice) {
 		this.expenPrice = expenPrice;
 	}
-	public Date getExpenDate() {
+	public String getExpenDate() {
 		return expenDate;
 	}
-	public void setExpenDate(Date expenDate) {
+	public void setExpenDate(String expenDate) {
 		this.expenDate = expenDate;
+	}
+	public String getExpenDateStart() {
+		return expenDateStart;
+	}
+	public void setExpenDateStart(String expenDateStart) {
+		this.expenDateStart = expenDateStart;
+	}
+	public String getExpenDateEnd() {
+		return expenDateEnd;
+	}
+	public void setExpenDateEnd(String expenDateEnd) {
+		this.expenDateEnd = expenDateEnd;
+	}
+	public String getMonthDate() {
+		return monthDate;
+	}
+	public void setMonthDate(String monthDate) {
+		this.monthDate = monthDate;
+	}
+	public String getMonthSum() {
+		return monthSum;
+	}
+	public void setMonthSum(String monthSum) {
+		this.monthSum = monthSum;
+	}
+	public String getDayDate() {
+		return DayDate;
+	}
+	public void setDayDate(String dayDate) {
+		DayDate = dayDate;
+	}
+	public String getDaySum() {
+		return DaySum;
+	}
+	public void setDaySum(String daySum) {
+		DaySum = daySum;
 	}
 	
 	
-
 }
