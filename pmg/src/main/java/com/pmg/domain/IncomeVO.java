@@ -29,6 +29,10 @@ public class IncomeVO {
 	private String IncomeDateStart;
 	private String IncomeDateEnd;
 	
+	
+	private int DayDate;
+	private int DaySum;
+	
 	public int getId() {
 		return id;
 	}
@@ -131,6 +135,19 @@ public class IncomeVO {
 	public void setIncomeDateEnd(String incomeDateEnd) {
 		IncomeDateEnd = incomeDateEnd;
 	}
+	public int getDayDate() {
+		return DayDate;
+	}
+	public void setDayDate(int dayDate) {
+		DayDate = dayDate;
+	}
+	public int getDaySum() {
+		return DaySum;
+	}
+	public void setDaySum(int daySum) {
+		DaySum = daySum;
+	}
+	
 	
 	
 

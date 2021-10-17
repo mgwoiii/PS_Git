@@ -57,7 +57,15 @@ public class IncomeServiceImpl implements IncomeService {
 		return dao.incomeMonthAndDayRead(income);
 		
 	}
+	
+	@Override
+	  public List<IncomeVO> incomeMonthAndDaySumRead(IncomeVO income) throws Exception{
 		
+		// TODO Auto-generated method stub
+		return dao.incomeMonthAndDaySumRead(income);
+		
+	}
+	
 	
 
 }

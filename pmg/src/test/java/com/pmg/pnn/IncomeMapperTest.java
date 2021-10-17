@@ -56,7 +56,7 @@ public class IncomeMapperTest {
 		
 //		for(int i=1;i<=10;i++) {
 //			income.setClassName_id(i);
-			income.setIncomeDate("2021-10-18");
+			income.setIncomeDate("2021-10-21");
 			
 			
 			for(IncomeVO a : service.incomeDayRead(income)) {
@@ -135,18 +135,34 @@ public class IncomeMapperTest {
 	// 수입일지 기간별 조회(1~31일 (일)단위)
 		@Test
 		public void incomeMonthAndDayRead() throws Exception{
-			
+			 
 			income.setIncomeDateStart("2021-10-05");
 			
 			System.out.println(service.incomeMonthAndDayRead(income));
 		
-			for(IncomeVO bb : service.incomeMonthAndDayRead(income)) {
+ 			for(IncomeVO bb : service.incomeMonthAndDayRead(income)) {
 				System.out.println("날짜 : "+bb.getIncomeDate()+
 				"입실 호수 :"+  bb.getClassName_id() + "객실 타입"+  bb.getReserveType_id()
 				+"방 가격 : "+  bb.getRoomPrice() +"방 타입 : "+  bb.getRoomType_id()
 				+"bbq : " + bb.getBbqPrice() + "bbq type : "+ bb.getBbqType_id()
 						
 						);
+
+			}
+		}
+		
+		
+	// 수입일지 기간별 조회(1~31일 (일)단위)
+		@Test
+		public void incomeMonthAndDaySumRead() throws Exception{
+			 
+			income.setIncomeDateStart("2021-10-05");
+			
+			System.out.println(service.incomeMonthAndDaySumRead(income));
+		
+ 			for(IncomeVO bb : service.incomeMonthAndDaySumRead(income)) {
+				System.out.println("날짜 : "+bb.getDayDate()+
+				" 계 :"+  bb.getDaySum());
 
 			}
 		}
