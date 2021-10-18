@@ -152,28 +152,6 @@ public class HomeController {
 		   
     }			
 		
-		// 유저 정보 조회 (id로 검색)
-		@PostMapping(value="/userInfoRead")
-	    public UserVO userInfoRead( @RequestBody UserVO user) throws Exception{
-			
-			UserVO getUserVO = userService.userInfoRead(user.getId());
-		  
-			return getUserVO;
-
-		   
-    }			
-		
-		// user 정보 update
-		@PostMapping(value="/userInfoUpdate")
-	    public UserVO userInfoUpdate( @RequestBody UserVO user) throws Exception{
-			
-			UserVO getUserVO = userService.userInfoUpdate(user);
-						
-			return getUserVO;
-
-		   
-    }				
-			
 		
 //		@PostMapping(value="/insert")
 //		public void insertUser(@RequestBody UserVO user) throws Exception {

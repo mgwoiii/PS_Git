@@ -168,7 +168,9 @@ public class HomeController {
 	    public UserVO userInfoUpdate( @RequestBody UserVO user) throws Exception{
 			
 			UserVO getUserVO = userService.userInfoUpdate(user);
-						
+			
+			System.out.println(user.getId());
+			
 			return getUserVO;
 
 		   
