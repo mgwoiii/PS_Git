@@ -31,7 +31,8 @@ class Register extends Component {
             checkPhonBool : false,
             checkBirthBool : false
         }
-    }  
+    }                          
+
         //input onChange 이벤트
         handleChange = (e) => {
             this.setState({
@@ -59,9 +60,6 @@ class Register extends Component {
             if (e.target.name === 'userBirthday') {
                 setTimeout(this.handleCheckBirth(e), 100);
             }
-
-
-            
         };
 
 
@@ -115,11 +113,7 @@ class Register extends Component {
               })
               .catch(err => {
                   console.log('loginUser Err : ', err);
-              })
-
-
-        
-            
+              })       
         }
 
         // 비밀번호 체크
@@ -140,7 +134,7 @@ class Register extends Component {
                 if((regExp.test(this.state.userPassword)) && (regExp.test(this.state.userPassword2))){
                    
                     this.setState({
-                        checkPassword: '✅일치 ✅',
+                        checkPassword: '✅',
                         checkPassBool : true
                     });
 
@@ -169,7 +163,7 @@ class Register extends Component {
             if(regExp.test(this.state.userName)){
 
                 this.setState({
-                    checkName : '✅사용가능✅',
+                    checkName : '✅',
                     checkNameBool: true
                 });
 
@@ -188,37 +182,48 @@ class Register extends Component {
             }
         };
         
-        // 휴대폰 번호 체크
-        handleCheckNum = (e) =>{
-            const regex = /^[0-9\b -]{0,13}$/;
-            if(regex.test(e.target.value)){
+       // 휴대폰 번호 체크
+       handleCheckNum = (e) =>{
+        const regex = /^[0-9\b -]{0,13}$/;
+        if(regex.test(e.target.value)){
 
-                if(e.target.value.length === 11){
-                    this.setState({
-                    [e.target.name]: e.target.value,
-                    checkPhon : '✅사용가능 ✅',
-                    checkPhonBool : true
-                    });
-                }else if (e.target.value.length < 1){
-                    this.setState({
-                        checkPhon : '📝휴대전화 번호 입력📝',
-                        checkPhonBool : false
-                        });
-                }else{
-                    this.setState({
-                        checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
-                        checkPhonBool : false
-                        });
-                }
+             if(e.target.value.length === 11){
+               //console.log(e.target.value.slice(0,3));
+               
+                   if(e.target.value.slice(0,3) === '010'){
+                         this.setState({
+                             [e.target.name]: e.target.value,
+                             checkPhon : '✅',
+                             checkPhonBool : true
+                         });
+                   }else{
+                     this.setState({
+                       checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                       checkPhonBool : false
+                   });
+                   }
+               }else if (e.target.value.length < 1){
+                   this.setState({
+                       checkPhon : '📝휴대전화 번호 입력📝',
+                       checkPhonBool : false
+                   });
+               }else{
+                   this.setState({
+                       checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                       checkPhonBool : false
+                   });
+               }
 
-            }else{
-                this.setState({
-                    [e.target.name]: '',
-                    checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
-                    checkPhonBool : false
-                    });
-            }
-        }
+         }else{
+             this.setState({
+                   [e.target.name]: '',
+                   checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                   checkPhonBool : false
+             });
+         }
+     }
+
+
 
         handleCheckBirth = (e) => {
             
@@ -377,8 +382,7 @@ class Register extends Component {
             </LoginContent>
         );
     }
-}
-
+} 
 
 export default Register;
 

@@ -56,7 +56,6 @@ class PersionMain extends Component{
     }
 
     render(){
-        
         return (
             <PersionContent>
                     {this.btnSeleted()}

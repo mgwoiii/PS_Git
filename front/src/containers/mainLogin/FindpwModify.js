@@ -50,7 +50,7 @@ class FindpwModify extends Component {
                     if((regExp.test(this.state.userPassword)) && (regExp.test(this.state.userPassword2))){
                        
                         this.setState({
-                            checkPassword: '✅일치 ✅',
+                            checkPassword: '✅',
                             checkPassBool : true
                         });
     

@@ -74,7 +74,7 @@ class Findpw extends Component {
                         
                         if(regExp.test(this.state.userId)){
                             this.setState({
-                                checkId: '✅정상.✅',
+                                checkId: '✅',
                                 checkIdBool : true
                             });
                         }else{
@@ -95,7 +95,7 @@ class Findpw extends Component {
             if(regExp.test(this.state.userName)){
 
                 this.setState({
-                    checkName : '✅사용가능✅',
+                    checkName : '✅',
                     checkNameBool: true
                 });
 
@@ -114,37 +114,47 @@ class Findpw extends Component {
             }
         };
         
-        // 휴대폰 번호 체크
-        handleCheckNum = (e) =>{
-            const regex = /^[0-9\b -]{0,13}$/;
-            if(regex.test(e.target.value)){
+            // 휴대폰 번호 체크
+            handleCheckNum = (e) =>{
+                const regex = /^[0-9\b -]{0,13}$/;
+                if(regex.test(e.target.value)){
 
-                if(e.target.value.length === 11){
-                    this.setState({
-                    [e.target.name]: e.target.value,
-                    checkPhon : '✅사용가능 ✅',
-                    checkPhonBool : true
-                    });
-                }else if (e.target.value.length < 1){
-                    this.setState({
-                        checkPhon : '📝휴대전화 번호 입력📝',
-                        checkPhonBool : false
+                    if(e.target.value.length === 11){
+                    //console.log(e.target.value.slice(0,3));
+                    
+                        if(e.target.value.slice(0,3) === '010'){
+                                this.setState({
+                                    [e.target.name]: e.target.value,
+                                    checkPhon : '✅',
+                                    checkPhonBool : true
+                                });
+                        }else{
+                            this.setState({
+                            checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                            checkPhonBool : false
                         });
+                        }
+                    }else if (e.target.value.length < 1){
+                        this.setState({
+                            checkPhon : '📝휴대전화 번호 입력📝',
+                            checkPhonBool : false
+                        });
+                    }else{
+                        this.setState({
+                            checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                            checkPhonBool : false
+                        });
+                    }
+
                 }else{
                     this.setState({
+                        [e.target.name]: '',
                         checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
                         checkPhonBool : false
-                        });
-                }
-
-            }else{
-                this.setState({
-                    [e.target.name]: '',
-                    checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
-                    checkPhonBool : false
                     });
+                }
             }
-        }
+
 
         handleCheckBirth = (e) => {
             
@@ -207,7 +217,7 @@ class Findpw extends Component {
                         } else {
 
                             this.setState({
-                                checkBirth : '✅정상 ✅',
+                                checkBirth : '✅',
                                 checkBirthBool : true
                             });
 
@@ -215,7 +225,7 @@ class Findpw extends Component {
                         } 
                     }else {
                         this.setState({
-                            checkBirth : '✅정상 ✅',
+                            checkBirth : '✅',
                             checkBirthBool : true
                         });
                         return true;

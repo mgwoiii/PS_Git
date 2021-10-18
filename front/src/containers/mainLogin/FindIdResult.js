@@ -26,6 +26,7 @@ class FindIdResult extends Component {
             this.props.history.push('/');
         }
     render(){
+
         return (
             <LoginContent title = "아이디 찾기 결과">
                 {this.ResultIdList(this.props.location.ResultId)}
