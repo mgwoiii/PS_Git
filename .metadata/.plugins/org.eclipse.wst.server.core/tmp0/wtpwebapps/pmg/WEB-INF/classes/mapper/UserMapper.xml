@@ -41,11 +41,56 @@
     
           <!-- 로그인 비밀번호 조회(찾기)1 -->
     <select id="userPwFind" resultType="com.pmg.domain.UserVO">
-            select userId
+            select id
             from usertable 
             where userId = #{userId} and userName = #{userName} and 
             userPhonNumber = #{userPhonNumber} and userBirthday = #{userBirthday}
     </select>   
+    
+        <!-- 비밀번호 수정하기 -->
+    <update id="userPwUpdate">
+    
+        update usertable SET userPassword = #{userPassword}
+         WHERE id = #{id} 
+    </update>
+        
+        <!-- 비밀번호 수정하기 -->
+    <update id="userInfoUpdate">
+    
+        update usertable SET userName = #{userName} , userPhonNumber = #{userPhonNumber} , userBirthday = #{userBirthday}
+         WHERE id = #{id} 
+    </update>
+     
+    
+    <!-- 개인정보 조회 -->
+    <select id="userInfoRead" resultType="com.pmg.domain.UserVO">
+            select *
+            from usertable 
+            where Id = #{Id}
+    </select>
+    
+    <!-- 계정 조회 -->
+    <select id="userIdListRead" resultType="com.pmg.domain.UserVO">
+            select *
+            from usertable
+            where grade_id != 1
+    </select>
+    
+    <update id="userGradeInsert">
+    
+        update usertable SET grade_id = #{grade_id}
+         WHERE id = #{id}
+         
+    </update>
+     
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
