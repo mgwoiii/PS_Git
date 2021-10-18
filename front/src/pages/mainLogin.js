@@ -10,6 +10,7 @@ import Login from '../containers/mainLogin/Login';
 import Register from '../containers/mainLogin/Register';
 import Findid from '../containers/mainLogin/Findid';
 import Findpw from '../containers/mainLogin/Findpw';
+import FindpwModify from '../containers/mainLogin/FindpwModify';
 
 class MainLogin extends Component {
 
@@ -22,6 +23,9 @@ class MainLogin extends Component {
                     <Route path="/main-login/register" component = {Register}/>
                     <Route path="/main-login/findid" component = {Findid}/>
                     <Route path="/main-login/Findpw" component = {Findpw}/>
+                    <Route path="/main-login/FindpwModify" component = {FindpwModify}/>
+
+                    
                 </LoginWrapper>
         );
     }

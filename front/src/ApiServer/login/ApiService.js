@@ -18,7 +18,15 @@ class ApiService {
         return axios.post(USER_API_BASE_URL +'userRegister', user);
       }
 
-    
+      userFindpw(user){
+        return axios.post(USER_API_BASE_URL +'userFindpw', user);
+      }
+      
+      userPwUpdate(user){
+        return axios.post(USER_API_BASE_URL +'userPwUpdate', user);
+      }
+      
+      
 
     // fetchUsers() {
     //     return axios.get(USER_API_BASE_URL)

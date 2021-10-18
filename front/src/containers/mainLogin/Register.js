@@ -31,8 +31,7 @@ class Register extends Component {
             checkPhonBool : false,
             checkBirthBool : false
         }
-    }
-
+    }  
         //input onChange 이벤트
         handleChange = (e) => {
             this.setState({
