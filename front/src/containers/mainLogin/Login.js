@@ -63,13 +63,12 @@ class Login extends Component {
 
 
     render() {
-        const { handleLocalLogin } = this;
 
         return (
             <LoginContent title="로그인">
                 <InputWithLabel label="아이디" name="userId" placeholder="아이디" value = {this.state.userId} onChange={this.onChange}/>
                 <InputWithLabel label="비밀번호" name="userPassword" placeholder="비밀번호" type="password" value = {this.state.userPassword} onChange={this.onChange}/>
-                <LoginButton onClick={handleLocalLogin}>로그인</LoginButton>
+                <LoginButton onClick={this.handleLocalLogin}>로그인</LoginButton>
                 <RightAlignedLink to="/main-login/register">회원가입</RightAlignedLink> 
                 <RightAlignedLink to="/main-login/findid">아이디 찾기</RightAlignedLink>
                 <RightAlignedLink to="/main-login/findpw">비밀번호 찾기</RightAlignedLink>

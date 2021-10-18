@@ -9,6 +9,10 @@ class ApiService {
         return axios.post(USER_API_BASE_URL +'/login', user);
       }
 
+      loginChk(user){
+        return axios.post(USER_API_BASE_URL +'Chklogin', user);
+    }
+
     // fetchUsers() {
     //     return axios.get(USER_API_BASE_URL)
     
