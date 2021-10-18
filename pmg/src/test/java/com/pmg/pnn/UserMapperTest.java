@@ -36,13 +36,10 @@ public class UserMapperTest {
 	public void userRegister() throws Exception{
 
 		
-		user.setGrade_id(2);
-		user.setUserId("aaa2a22@naver.com");
-		user.setUserPassword("2222");
-		user.setUserName("박박박");
-		user.setUserPhonNumber("01012351235");
-		user.setUserBirthday("19930101");
-		
+		user.setGrade_id(1);
+		user.setUserId("admin");
+		user.setUserPassword("admin");
+		user.setUserName("admin");
 		service.userRegister(user);
 		
 	}

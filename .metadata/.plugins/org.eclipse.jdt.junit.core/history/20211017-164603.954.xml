@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ExpenMapperTest.expenMonthAndDaySumRead" project="pmg" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testcase name="expenMonthAndDaySumRead" classname="com.pmg.pnn.ExpenMapperTest" time="0.34"/>
-</testrun>

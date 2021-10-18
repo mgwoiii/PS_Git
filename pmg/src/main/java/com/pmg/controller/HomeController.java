@@ -51,12 +51,79 @@ public class HomeController {
 	    private BoardService service;
 
 		@Inject
-		private UserService service2;
+		private UserService userService;
 		/**
 		 * Simply selects the home view to render by returning its name.
 		 */
 		
-	    
+//		@GetMapping(value = "/")
+//		public void home(Locale locale, Model model, HttpSession session, HttpServletRequest request) throws Exception {
+//					
+//			List<UserVO> users  = service2.listAll();
+//			
+//			String valeu = (String)session.getAttribute("username");
+//			System.out.println("들오긴 한다");
+//
+//			return users;
+//		}
+		
+		@PostMapping(value="/login")
+		public UserVO loginUser( @RequestBody UserVO user, HttpSession session) throws Exception {
+			
+			//System.out.println(user2.getId() +" 이랑 " + user2.getPassword());
+			
+			UserVO userInfo = userService.loginUserRead(user);
+			
+			return userInfo;
+		}
+
+		@PostMapping(value="/loginChk")
+	    public UserVO loginChk( @RequestBody UserVO GetUser) throws Exception{
+			
+			
+			UserVO ReturnUser = userService.userIdRead(GetUser.getUserId());
+
+			if(ReturnUser != null) {
+				
+				System.out.println(ReturnUser.getUserId());
+
+
+			}
+			
+	        return ReturnUser;
+
+	    }
+		
+
+		@PostMapping(value="/userRegister")
+	    public UserVO userRegister( @RequestBody UserVO user) throws Exception{
+			/*
+		    +----+---------+
+			| id | grade   |
+			+----+---------+
+			|  1 | admin   |
+			|  2 | normal  |
+			|  3 | waiting |
+			|  4 | reject  |
+			+----+---------+
+		 */
+		System.out.println(user);
+		user.setGrade_id(3);
+		// 회원등급을 3으로 부여해 관리자가 반려 또는 승인을 할 수 있도록 한다. 
+		
+		userService.userRegister(user);
+        return null;
+
+    }
+		
+		
+		
+//		@PostMapping(value="/insert")
+//		public void insertUser(@RequestBody UserVO user) throws Exception {
+//
+//			service2.create(user);
+//			
+		
 	    
 //		@GetMapping(value = "/")
 //		public List<UserVO> home(Locale locale, Model model, HttpSession session, HttpServletRequest request) throws Exception {
