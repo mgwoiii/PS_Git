@@ -116,18 +116,12 @@ public class HomeController {
 
     }
 		
-		// 개인정보를 이용한 아이디 찾기
+		// 개인정보를 이용한 비밀번호 찾기
 		@PostMapping(value="/userIdFind")
 	    public List<UserVO> userIdFind( @RequestBody UserVO user) throws Exception{
 
 			List<UserVO> getUserVO = userService.userIdFind(user);
 			
-//			int count = 0;
-//			for(UserVO str : getUserVO){
-//			    System.out.println(count + "번째 id는: " + str.getUserId());
-//			    count++;
-//			}
-//			
 		    return getUserVO;
     }	
 		
