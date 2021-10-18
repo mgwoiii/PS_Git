@@ -37,6 +37,11 @@ class ApiService {
       userInfoUpdate(user){
         return axios.post(USER_API_BASE_URL +'userInfoUpdate', user);
       }
+
+
+      userPwSearch(user){
+        return axios.post(USER_API_BASE_URL +'userPwSearch', user);
+      }
     // fetchUsers() {
     //     return axios.get(USER_API_BASE_URL)
     

@@ -47,7 +47,6 @@ class userInpoModify extends Component{
 
             ApiService.userInfoRead(user)
             .then(response => {
-                  console.log(response.data);
 
                   this.setState({
                       userId : response.data.userId,
@@ -312,7 +311,7 @@ class userInpoModify extends Component{
                 </Label>
                 <>
                   <LoginButton onClick={this.openModal}>비밀번호 변경</LoginButton>
-                  <SignIn isOpen={this.state.isModalOpen} close={this.closeModal} />
+                  <SignIn isOpen={this.state.isModalOpen} close={this.closeModal} Id = {window.sessionStorage.getItem('id')} />
                 </>
                 <LoginButton onClick={this.userInfoUpdate} >정보수정</LoginButton>
             </UserModifyContent>
