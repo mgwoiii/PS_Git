@@ -19,7 +19,9 @@ class Register extends Component {
             userPhonNumber : '',
             userBirthday : '',
             checkPassword : '📝패스워드 입력📝',
-            checkId : '📝아이디 입력📝'
+            checkId : '📝아이디 입력📝',
+            checkPassBool : false,
+            checkIdBool : false
         }
     }
 
@@ -58,6 +60,7 @@ class Register extends Component {
                         
                             this.setState({
                                 checkId: '📝아이디 입력📝',
+                                checkIdBool : false
                             });
                      
                         
@@ -67,10 +70,13 @@ class Register extends Component {
                         if(regExp.test(this.state.userId)){
                             this.setState({
                                 checkId: '❌ 이미 등록된 아이디 입니다.❌',
+                                checkIdBool : false
+
                             });
                         }else{
                             this.setState({
                                 checkId: '❌ 이메일 형식이 유효하지 않습니다.❌',
+                                checkIdBool : false
                             });
                         }
                         
@@ -80,11 +86,13 @@ class Register extends Component {
                         
                         if(regExp.test(this.state.userId)){
                             this.setState({
-                                checkId: '✅사용 가능한 아이디 입니다.✅ ',
+                                checkId: '✅사용 가능한 아이디 입니다.✅',
+                                checkIdBool : true
                             });
                         }else{
                             this.setState({
                                 checkId: '❌ 이메일 형식이 유효하지 않습니다.❌',
+                                checkIdBool : false
                             });
                         }
                     }
@@ -103,27 +111,41 @@ class Register extends Component {
         handleCheckPw = () => {
             const { userPassword, userPassword2 } = this.state;
 
+            var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/
+
             // 비밀번호 무입력 상태일 때와 둘 중에 하나의 값이 입력 상태가 아닐때
             if (userPassword.length < 1 || userPassword2.length < 1) {
                 this.setState({
-                    checkPassword: '📝패스워드 입력📝',
+                    checkPassword: '📝패스워드 입력📝 1',
                 });
 
             // 비밀번호가 같다면 일치
             } else if (userPassword === userPassword2) {
-                this.setState({
-                    checkPassword: '✅일치 ✅',
-                });
+                
+                if((regExp.test(this.state.userPassword)) && (regExp.test(this.state.userPassword2))){
+                   
+                    this.setState({
+                        checkPassword: '✅일치 ✅',
+                        checkPassBool : true
+                    });
 
+                }else{
+                    this.setState({
+                        checkPassword: '❌비밀번호는 8~10자 영문, 숫자 조합으로 가능합니다.❌',
+                        checkPassBool : false
+                    });
+                }
             // 비밀번호가 같지 않다면 불일치
             } else {
                 this.setState({
                     checkPassword: '❌불일치 ❌',
+                    checkPassBool : false
                 });
             }
         };
 
     render() {
+
         return (
             <LoginContent title="회원가입">
                 <InputWithLabel label="아이디" defaultValue = {this.state.userId} onChange={this.handleChange} 
@@ -131,7 +153,7 @@ class Register extends Component {
                 name="userId" placeholder="아이디 (★★★@★★★.com) 형식" type="text" />
                 
                 <Label>
-                    {this.state.checkId}
+                {this.state.checkId}
                 </Label>
 
                 <InputWithLabel label="비밀번호" name="userPassword" defaultValue = {this.state.userPassword}  onChange={this.handleChange} 
@@ -140,7 +162,7 @@ class Register extends Component {
                 <InputWithLabel label="비밀번호 확인" name="userPassword2" defaultValue = {this.state.userPassword2}  onChange={this.handleChange}   
                                         placeholder="비밀번호 확인" type="password"/>
                 <Label>
-                    일치여부 : {this.state.checkPassword}
+                {this.state.checkPassword}
                 </Label>
                 <InputWithLabel label="이름" name="userName" defaultValue = {this.state.userName}  onChange={this.onChange}  
                                         placeholder="비밀번호 확인" type="text"/>
@@ -168,7 +190,7 @@ const Label = styled.div`
     outline: none;
     border-radius: 0px;
     line-height: 2.5rem;
-    font-size: 1.2rem;
+    font-size: 1.03rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
