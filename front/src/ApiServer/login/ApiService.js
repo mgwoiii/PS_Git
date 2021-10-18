@@ -18,6 +18,10 @@ class ApiService {
         return axios.post(USER_API_BASE_URL +'userRegister', user);
       }
 
+      userIdFind(user){
+        return axios.post(USER_API_BASE_URL +'userIdFind', user);
+      }
+
       userFindpw(user){
         return axios.post(USER_API_BASE_URL +'userFindpw', user);
       }
