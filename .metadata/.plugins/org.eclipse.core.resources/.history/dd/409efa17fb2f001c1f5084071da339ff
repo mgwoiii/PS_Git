@@ -115,24 +115,29 @@ public class HomeController {
         return null;
 
     }
-		// 개인정보를 이용한 비밀번호 찾기
+		
 		@PostMapping(value="/userFindpw")
 	    public UserVO userFindpw( @RequestBody UserVO user) throws Exception{
-
-			UserVO getUserVO = userService.userPwFind(user);
-
-		    return getUserVO;
-    }	
-		
-		
-		// 비밀번호 조회 id, 원하는 password 값
-		@PostMapping(value="/userPwUpdate")
-	    public void userPwUpdate( @RequestBody UserVO user) throws Exception{
 			
-			userService.userPwUpdate(user);
-		   
-    }			
+			System.out.println("비밀번호 찾기");
+			System.out.println(user.getUserId());
+			System.out.println(user.getUserName());
+			System.out.println(user.getUserPhonNumber());
+			System.out.println(user.getUserBirthday());
+			
+			UserVO getUserVO = userService.userPwFind(user);
 		
+			if(getUserVO == null) {
+				System.out.println(getUserVO);
+
+		        return null;
+
+			}else {
+		        return getUserVO;
+
+			}
+
+    }	
 		
 //		@PostMapping(value="/insert")
 //		public void insertUser(@RequestBody UserVO user) throws Exception {
