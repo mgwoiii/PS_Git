@@ -310,6 +310,21 @@ class Register extends Component {
 
             if(this.state.checkIdBool && this.state.checkPassBool && this.state.checkNameBool 
                 &&this.state.checkPhonBool &&this.state.checkBirthBool){
+                    let user = {
+                        userId : this.state.userId,
+                        userPassword : this.state.userPassword,
+                        userName : this.state.userName,
+                        userPhonNumber : this.state.userPhonNumber,
+                        userBirthday : this.state.userBirthday
+                    }
+            ApiService.userRegister(user)
+                .then((response) => {
+                    alert("회원가입이 정상적으로 되었습니다.");
+                    this.props.history.push('/');
+
+                }).catch(err => {
+                    console.log('loginUser Err : ', err);
+                });
 
             }else{
                 alert("올바른 정보를 입력해주세요.");

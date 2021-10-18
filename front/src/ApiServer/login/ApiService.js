@@ -10,8 +10,15 @@ class ApiService {
       }
 
       loginChk(user){
-        return axios.post(USER_API_BASE_URL +'Chklogin', user);
-    }
+        return axios.post(USER_API_BASE_URL +'loginChk', user);
+      }
+
+      
+      userRegister(user){
+        return axios.post(USER_API_BASE_URL +'userRegister', user);
+      }
+
+    
 
     // fetchUsers() {
     //     return axios.get(USER_API_BASE_URL)
