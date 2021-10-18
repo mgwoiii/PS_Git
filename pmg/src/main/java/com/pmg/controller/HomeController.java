@@ -144,13 +144,35 @@ public class HomeController {
     }	
 		
 		
-		// 비밀번호 조회 id, 원하는 password 값
+		// 비밀번호 조회 id, 원하는 password 값 (update)
 		@PostMapping(value="/userPwUpdate")
 	    public void userPwUpdate( @RequestBody UserVO user) throws Exception{
 			
 			userService.userPwUpdate(user);
 		   
     }			
+		
+		
+		// 비밀번호 조회 id, 원하는 password 값 (select)
+		@PostMapping(value="/userPwSearch")
+	    public UserVO userPwSearch( @RequestBody UserVO user) throws Exception{
+
+			System.out.println(user.getId());
+			System.out.println(user.getUserPassword());
+			UserVO getUserVO = userService.userPwSearch(user);
+			
+			if(getUserVO == null) {
+				System.out.println("null");
+				return getUserVO;
+
+			}else {
+				System.out.println(getUserVO);
+				return getUserVO;
+			}
+
+    }			
+		
+		
 		
 		// 유저 정보 조회 (id로 검색)
 		@PostMapping(value="/userInfoRead")

@@ -47,11 +47,17 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.userPwFind(user);
 	}
-	
+
 	@Override
 	public UserVO userPwUpdate(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.userPwUpdate(user);
+	}
+	
+	@Override
+	public UserVO userPwSearch(UserVO user) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userPwSearch(user);
 	}
 	
 	@Override

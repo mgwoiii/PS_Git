@@ -16,6 +16,8 @@ public interface UserDAO {
 
 	public UserVO userPwUpdate(UserVO user) throws Exception;
 	
+	public UserVO userPwSearch(UserVO user) throws Exception;
+	
 	public UserVO userInfoUpdate(UserVO user) throws Exception;
 
 	public UserVO userInfoRead(int userId) throws Exception;

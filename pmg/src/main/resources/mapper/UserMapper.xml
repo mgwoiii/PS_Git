@@ -53,8 +53,17 @@
         update usertable SET userPassword = #{userPassword}
          WHERE id = #{id} 
     </update>
-        
-        <!-- 비밀번호 수정하기 -->
+    
+         <!-- 비밀번호 개인정보창에서 변경 -->
+    <select id="userPwSearch" resultType="com.pmg.domain.UserVO">
+            select userId
+            from usertable 
+            where id = #{id} and userPassword = #{userPassword}
+    </select>
+    
+    
+    
+        <!-- 비밀번호 변경 -->
     <update id="userInfoUpdate">
     
         update usertable SET userName = #{userName} , userPhonNumber = #{userPhonNumber} , userBirthday = #{userBirthday}

@@ -19,6 +19,8 @@ public interface UserService {
 	public UserVO userPwFind(UserVO user) throws Exception;
 
 	public UserVO userPwUpdate(UserVO user) throws Exception;
+	
+	public UserVO userPwSearch(UserVO user) throws Exception;
 
 	public UserVO userInfoUpdate(UserVO user) throws Exception;
 	
@@ -27,6 +29,8 @@ public interface UserService {
 	public List<UserVO> userIdListRead() throws Exception;
 	
 	public UserVO userGradeInsert(UserVO user) throws Exception;
+	
+	
 	
 	
 
