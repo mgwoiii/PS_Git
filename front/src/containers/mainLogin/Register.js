@@ -20,8 +20,11 @@ class Register extends Component {
             userBirthday : '',
             checkPassword : '📝패스워드 입력📝',
             checkId : '📝아이디 입력📝',
+            checkName : '📝이름 입력📝',
+
             checkPassBool : false,
-            checkIdBool : false
+            checkIdBool : false,
+            checkNameBool : false
         }
     }
 
@@ -32,14 +35,16 @@ class Register extends Component {
             });
             // 파라미터로 받은 event.target.name이 name 아닐 경우에만 handleCheck함수 실행
             // setTimeout으로 딜레이를 준 이유는 딜레이를 주지 않았을 경우 setState 변경된 값이 handleCheck에서 바로 반영되지 않음
-            if (e.target.name !== 'userId') {
+            if (e.target.name === 'userId') {
+                setTimeout(this.handleCheckId, 100);
+            }
+
+            if (e.target.name === 'userPassword' || e.target.name === 'userPassword2') {
                 setTimeout(this.handleCheckPw, 100);
             }
 
-            if (e.target.name === 'userId') {
-                //setTimeout(this.handleCheck, 100);
-                setTimeout(this.handleCheckId, 100);
-
+            if (e.target.name === 'userName') {
+                setTimeout(this.handleCheckName, 100);
             }
 
         };
@@ -57,21 +62,16 @@ class Register extends Component {
                 
                     // 
                     if (this.state.userId.length < 1) {
-                        
                             this.setState({
                                 checkId: '📝아이디 입력📝',
                                 checkIdBool : false
                             });
-                     
-                        
-
                     // 
                     } else if (this.state.userId === response.data.userId) {
                         if(regExp.test(this.state.userId)){
                             this.setState({
                                 checkId: '❌ 이미 등록된 아이디 입니다.❌',
                                 checkIdBool : false
-
                             });
                         }else{
                             this.setState({
@@ -79,8 +79,6 @@ class Register extends Component {
                                 checkIdBool : false
                             });
                         }
-                        
-
                     // 
                     } else {
                         
@@ -116,7 +114,7 @@ class Register extends Component {
             // 비밀번호 무입력 상태일 때와 둘 중에 하나의 값이 입력 상태가 아닐때
             if (userPassword.length < 1 || userPassword2.length < 1) {
                 this.setState({
-                    checkPassword: '📝패스워드 입력📝 1',
+                    checkPassword: '📝패스워드 입력📝',
                 });
 
             // 비밀번호가 같다면 일치
@@ -143,7 +141,36 @@ class Register extends Component {
                 });
             }
         };
+        
 
+        // 이름 유효성 체크
+        handleCheckName = () => {
+            var regExp = /^[가-힣]{3,6}$/;
+
+            
+
+            if(regExp.test(this.state.userName)){
+
+                this.setState({
+                    checkName : '✅사용가능✅',
+                    checkNameBool: true
+                });
+
+            }else{
+                if (this.state.userName.length < 1) {
+                    this.setState({
+                        checkName: '📝이름 입력📝',
+                        checkNameBool: false
+                    });
+                }else{
+                    this.setState({
+                        checkName : '❌이름은 3 ~ 6, 한글만 사용가능합니다.❌',
+                        checkNameBool: false
+                    });
+                }   
+            }
+        };
+        
     render() {
 
         return (
@@ -164,13 +191,16 @@ class Register extends Component {
                 <Label>
                 {this.state.checkPassword}
                 </Label>
-                <InputWithLabel label="이름" name="userName" defaultValue = {this.state.userName}  onChange={this.onChange}  
-                                        placeholder="비밀번호 확인" type="text"/>
+                <InputWithLabel label="이름" name="userName" defaultValue = {this.state.userName}  onChange={this.handleChange}  
+                                        placeholder="이름" type="text" maxlength = "10"/>
+                <Label>
+                {this.state.checkName}
+                </Label>
 
-                <InputWithLabel label="전화번호" name="userPhonNumber" defaultValue = {this.state.userPhonNumber}  onChange={this.onChange}  
+                <InputWithLabel label="전화번호" name="userPhonNumber" defaultValue = {this.state.userPhonNumber} onChange={this.handleChange}  
                                         placeholder="전화번호" type="text"/>
 
-                <InputWithLabel label="생년월일" name="userBirthday" defaultValue = {this.state.userBirthday}  onChange={this.onChange}  
+                <InputWithLabel label="생년월일" name="userBirthday" defaultValue = {this.state.userBirthday} onChange={this.handleChange}  
                 placeholder="생년월일(YYMMDD)" type="text"/>
 
                 <LoginButton onClick={this.ths} >회원가입</LoginButton>
