@@ -18,13 +18,18 @@ class Register extends Component {
             userName : '',
             userPhonNumber : '',
             userBirthday : '',
+
             checkPassword : '📝패스워드 입력📝',
             checkId : '📝아이디 입력📝',
             checkName : '📝이름 입력📝',
+            checkPhon : '📝휴대전화 번호 입력📝',
+            checkBirth : '📝생일 입력📝',
 
             checkPassBool : false,
             checkIdBool : false,
-            checkNameBool : false
+            checkNameBool : false,
+            checkPhonBool : false,
+            checkBirthBool : false
         }
     }
 
@@ -47,7 +52,20 @@ class Register extends Component {
                 setTimeout(this.handleCheckName, 100);
             }
 
+            
+            if (e.target.name === 'userPhonNumber') {
+                setTimeout(this.handleCheckNum(e), 100);
+            }
+
+            if (e.target.name === 'userBirthday') {
+                setTimeout(this.handleCheckBirth(e), 100);
+            }
+
+
+            
         };
+
+
 
         // id 체크
         handleCheckId = () => {
@@ -171,13 +189,142 @@ class Register extends Component {
             }
         };
         
+        // 휴대폰 번호 체크
+        handleCheckNum = (e) =>{
+            const regex = /^[0-9\b -]{0,13}$/;
+            if(regex.test(e.target.value)){
+
+                if(e.target.value.length === 11){
+                    this.setState({
+                    [e.target.name]: e.target.value,
+                    checkPhon : '✅사용가능 ✅',
+                    checkPhonBool : true
+                    });
+                }else if (e.target.value.length < 1){
+                    this.setState({
+                        checkPhon : '📝휴대전화 번호 입력📝',
+                        checkPhonBool : false
+                        });
+                }else{
+                    this.setState({
+                        checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                        checkPhonBool : false
+                        });
+                }
+
+            }else{
+                this.setState({
+                    [e.target.name]: '',
+                    checkPhon : '❌ 올바르지 않은 번호 입니다.❌',
+                    checkPhonBool : false
+                    });
+            }
+        }
+
+        handleCheckBirth = (e) => {
+            
+            // 19930923
+            let birth = e.target.value;
+            let year = birth.slice(0,4);
+            let month = birth.slice(4,6);
+            let day = birth.slice(6,8);
+
+            var today = new Date();
+            let yearNow = today.getFullYear();
+
+           
+
+            if(e.target.value.length === 8){
+
+                    if(1900 > year || year > yearNow){
+
+                        this.setState({
+                            checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                            checkBirthBool : false
+                        });
+
+                        return false;
+                    }else if(month < 1 || month > 12){
+
+                        this.setState({
+                            checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                            checkBirthBool : false
+                        });
+
+                        return false;
+                    }else if(day < 1 || day > 31){
+                        
+                        this.setState({
+                            checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                            checkBirthBool : false
+                        });
+                        
+                        return false;
+                    }else if(((month===4) ||(month===6) ||(month===9) || (month===11)) && day===31){
+                        
+                        this.setState({
+                            checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                            checkBirthBool : false
+                        });
+
+                        return false;
+                    }else if(month === 2){
+
+                        let isleap = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+                        if (day>29 || (day===29 && !isleap)) {
+                           
+                            this.setState({
+                                checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                                checkBirthBool : false
+                            });
+
+                            return false;
+                        } else {
+
+                            this.setState({
+                                checkBirth : '✅사용가능 ✅',
+                                checkBirthBool : true
+                            });
+
+                            return true;
+                        } 
+                    }else {
+                        this.setState({
+                            checkBirth : '✅사용가능 ✅',
+                            checkBirthBool : true
+                        });
+                        return true;
+                    }
+                }else{
+                   
+                    this.setState({
+                        checkBirth : '❌ 올바르지 않은 생년월일 입니다.❌',
+                        checkBirthBool : false
+                    });
+
+                    return false;
+                }
+        }
+
+        RegisterLogin = () => {
+
+            if(this.state.checkIdBool && this.state.checkPassBool && this.state.checkNameBool 
+                &&this.state.checkPhonBool &&this.state.checkBirthBool){
+
+            }else{
+                alert("올바른 정보를 입력해주세요.");
+            }
+
+        }
+            
+
     render() {
 
         return (
             <LoginContent title="회원가입">
                 <InputWithLabel label="아이디" defaultValue = {this.state.userId} onChange={this.handleChange} 
 
-                name="userId" placeholder="아이디 (★★★@★★★.com) 형식" type="text" />
+                name="userId" placeholder="아이디 (★★★@★★★.com)" type="text" />
                 
                 <Label>
                 {this.state.checkId}
@@ -198,12 +345,20 @@ class Register extends Component {
                 </Label>
 
                 <InputWithLabel label="전화번호" name="userPhonNumber" defaultValue = {this.state.userPhonNumber} onChange={this.handleChange}  
-                                        placeholder="전화번호" type="text"/>
+                                        placeholder="전화번호(010AAAABBBB)" type="text"/>
+
+                <Label>
+                {this.state.checkPhon}
+                </Label>
 
                 <InputWithLabel label="생년월일" name="userBirthday" defaultValue = {this.state.userBirthday} onChange={this.handleChange}  
-                placeholder="생년월일(YYMMDD)" type="text"/>
+                placeholder="생년월일(YYYYMMDD)" type="text" />
+                
+                <Label>
+                {this.state.checkBirth}
+                </Label>
 
-                <LoginButton onClick={this.ths} >회원가입</LoginButton>
+                <LoginButton onClick={this.RegisterLogin} >회원가입</LoginButton>
             
             </LoginContent>
         );
