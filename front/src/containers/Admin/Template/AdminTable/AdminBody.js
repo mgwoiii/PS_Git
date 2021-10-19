@@ -1,35 +1,61 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import styled from "styled-components";
 
 class AdminBody extends Component {
 
-    
+    constructor(props){
+        super(props)
+
+        this.state = {
+            Number : 2,
+        }
+    }
+    userInfoPage = (user) => {
+        window.localStorage.setItem("userId", user.id);
+
+        this.props.history.push({
+            pathname: '/persion-main/Admin/AdminUserInfo'
+        });    
+
+        
+    }
         render(){
-
             return(
-                    <>    
-                    <Row>
+                    <>
+                     {this.props && this.props.UserDate && this.props.UserDate.map( user => 
+                        <Row key = {user.id} onClick={()=> this.userInfoPage(user)}>
                             <Cell>
-                                admin
+                            {user.userId}
+                            </Cell>  
+                            <Cell>
+                            {user.userName}
                             </Cell>
+                            
                             <Cell>
-                                박멸치
+                            {user.userPhonNumber}    
                             </Cell>
 
                             <Cell>
-                                계정상태
+                            {user.userBirthday}
                             </Cell>
                             <Cell>
-                                [계정상태조정 박스]
+                            {(user.grade_id === 2 ? "일반" : 
+                              (user.grade_id === 3 ? "대기": 
+                              (user.grade_id === 4 ? "반려":"")))}
                             </Cell>
                         </Row>
+
+                     )
+                     }
+                     
                     </>
             )
         }
     }
 
 
-export default AdminBody;
+export default withRouter(AdminBody);
 
 
 const Row = styled.div`
@@ -42,6 +68,10 @@ const Row = styled.div`
 
     color : white;
     display: flex;
+    cursor: pointer;
+
+
+
 `
 
 const Cell = styled.div`

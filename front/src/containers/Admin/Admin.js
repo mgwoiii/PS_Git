@@ -7,7 +7,7 @@ class Admin extends Component{
     render(){
         return (
             <AdminContent>
-                    관리자 페이지
+                    회원 목록
             <AdminApp />
             </AdminContent>
         );

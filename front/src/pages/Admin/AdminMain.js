@@ -3,6 +3,7 @@ import { Route } from "react-router";
 import AdminWrapper from "../../component/Admin/AdminWrapper"
 
 import Admin from '../../containers/Admin/Admin';
+import AdminUserInfo from '../../containers/Admin/AdminUserInfo';
 
 
 
@@ -12,6 +13,7 @@ class AdminMain extends Component {
         return (           
             <AdminWrapper>
                 <Route path = "/persion-main/Admin/Admin" component={Admin}/>    
+                <Route path = "/persion-main/Admin/AdminUserInfo" component={AdminUserInfo}/>    
             </AdminWrapper>
         );
     }

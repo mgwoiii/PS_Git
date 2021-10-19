@@ -18,10 +18,13 @@ class AdminHeader extends Component {
                         </Cell>
 
                         <Cell>
-                            계정상태
+                            휴대전화 번호
                         </Cell>
                         <Cell>
-                            계정상태 조정
+                           생일
+                        </Cell>
+                        <Cell>
+                            계정상태
                         </Cell>
                     </Row>
                 </>

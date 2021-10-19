@@ -49,7 +49,6 @@ class PersionMain extends Component{
             case 0 : return  this.props.history.push({
                 pathname: '/persion-main/Persion/PersionMainInsert',
                 clickedDate : this.state.selected,
-                
             });                                         
             default : return ;
         }
