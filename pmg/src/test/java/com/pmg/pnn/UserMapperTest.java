@@ -44,6 +44,33 @@ public class UserMapperTest {
 		
 	}
 	
+	// 회원가입 (정보입력) 1000명 데이터
+		@Test
+		public void userRegister2() throws Exception{
+
+			for(int i = 1; i < 100 ; i++) {
+				
+				int ran = (int) (Math.random() * 1000 + 1);
+				
+				int ran2 = (int) (Math.random() * 1000000 + 1);
+	
+				int ran3 = (int) (Math.random() * 9 + 1);
+	
+				int ran4 = (int) (Math.random() * 9 + 1);
+	
+				int ran5 = (int) (Math.random() * 9 + 1);
+		
+				user.setGrade_id(2);
+				user.setUserId("13"+ran+"@gmail.com");
+				user.setUserPassword("a"+ran2);
+				user.setUserName("admin"+ran);
+				user.setUserPhonNumber("010"+ran3+"033"+ran5+"222");
+				user.setUserBirthday("199"+ran4+"092"+ran5);
+				
+				service.userRegister(user);
+			}
+		}
+		
 	// id 중복 검사
 	@Test
 	public void userIdOverlap() throws Exception{
@@ -157,11 +184,19 @@ public class UserMapperTest {
 		}
 		
 		
+//		// 칼럼조회
+//		@Test
+//		public void ColumnsRead() throws Exception{
+//			
+//			UserVO sss = service.ColumnsRead();
+//			System.out.println(sss);
+//		}		
+		
 	// 계정 등급 조정
 		@Test
 		public void userGradeInsert() throws Exception{
 
-			user.setId(15);
+			user.setId(12);
 			user.setGrade_id(3);
 			
 			service.userGradeInsert(user);

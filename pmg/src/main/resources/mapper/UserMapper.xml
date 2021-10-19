@@ -86,10 +86,8 @@
     </select>
     
     <update id="userGradeInsert">
-    
-        update usertable SET grade_id = #{grade_id}
-         WHERE id = #{id}
-         
+         update usertable SET grade_id = #{grade_id}
+         WHERE id = #{id} 
     </update>
      
     
