@@ -1,0 +1,5 @@
+package com.pmg.domain;
+
+public class Criteria {
+
+}

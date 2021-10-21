@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.pmg.dao.UserDAO;
+import com.pmg.domain.Criteria;
+import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 
 @Service
@@ -79,13 +81,27 @@ public class UserServiceImpl implements UserService {
 		return dao.userIdListRead();
 	}
 	
+	
+	@Override
+	public List<UserVO> userIdListReadTen(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userIdListReadTen(cri);
+	}
+	
+	
+	
+	
 	@Override
 	public UserVO userGradeInsert(UserVO user) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.userGradeInsert(user);
 	}
 	
-
+	@Override
+	public int userIdListCount() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userIdListCount();
+	}
 
 	
 	

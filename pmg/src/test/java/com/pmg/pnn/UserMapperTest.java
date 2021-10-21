@@ -2,12 +2,16 @@ package com.pmg.pnn;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.pmg.domain.Criteria;
+import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 import com.pmg.service.UserService;
 
@@ -19,7 +23,7 @@ public class UserMapperTest {
 	private UserService service;
 	
 	UserVO user = new UserVO();
-
+	
 	// ID, PASSWORD 조회 (로그인)
 	@Test
 	public void loginUserRead() throws Exception{
@@ -181,6 +185,43 @@ public class UserMapperTest {
 //			    count++;
 //			}
 //
+		}
+		
+		
+		// 계정 조회[페이징 처리]
+		@Test
+		public void userIdListReadTen() throws Exception{
+
+			PageMaker page = new PageMaker();
+			Criteria cri = new Criteria();
+			
+//			cri.setPage(3);
+//			cri.setPerPageNum(1324);;
+//			page.setCri(cri);
+		
+//			page.setCri(cri);
+			
+//			List<UserVO> user = service.userIdListReadTen(cri);
+
+			cri.setPage(3);
+			
+			page.setCri(cri);
+			page.setTotalCount(service.userIdListCount());
+
+			System.out.println(page);
+			
+			int aa = service.userIdListCount();
+
+			 System.out.println(aa);
+			 
+
+			int count = 0;
+			for(UserVO str : service.userIdListReadTen(cri)){
+			    System.out.println("id :" + str.getId() + "번째 id는: " + str.getUserId() );
+			    count++;
+			}
+			
+			
 		}
 		
 		

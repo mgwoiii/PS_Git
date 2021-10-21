@@ -1,5 +1,8 @@
 package com.pmg.dao;
 import java.util.List;
+
+import com.pmg.domain.Criteria;
+import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 
 public interface UserDAO {
@@ -24,7 +27,12 @@ public interface UserDAO {
 
 	public List<UserVO> userIdListRead() throws Exception;
 
+	public List<UserVO> userIdListReadTen(Criteria cri) throws Exception;
+
 	public UserVO userGradeInsert(UserVO user) throws Exception;
+
+	public int userIdListCount() throws Exception;
+	
 	
 	
 //	public List<UserVO> listAll() throws Exception;

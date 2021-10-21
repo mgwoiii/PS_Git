@@ -1,41 +1,31 @@
 package com.pmg.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
+
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.pmg.domain.BoardVO;
+import com.pmg.domain.Criteria;
+import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
-import com.pmg.service.BoardService;
 import com.pmg.service.UserService;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 /**
  * Handles requests for the application home page.
@@ -47,9 +37,6 @@ public class HomeController {
 	
 		private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	    
-		@Inject
-	    private BoardService service;
-
 		@Inject
 		private UserService userService;
 		/**
@@ -69,26 +56,16 @@ public class HomeController {
 		
 		@PostMapping(value="/login")
 		public UserVO loginUser( @RequestBody UserVO user, HttpSession session) throws Exception {
-			
-			//System.out.println(user2.getId() +" 이랑 " + user2.getPassword());
-			
+						
 			UserVO userInfo = userService.loginUserRead(user);
-			
+
 			return userInfo;
 		}
 
 		@PostMapping(value="/loginChk")
 	    public UserVO loginChk( @RequestBody UserVO GetUser) throws Exception{
 			
-			
 			UserVO ReturnUser = userService.userIdRead(GetUser.getUserId());
-
-			if(ReturnUser != null) {
-				
-				System.out.println(ReturnUser.getUserId());
-
-
-			}
 			
 	        return ReturnUser;
 
@@ -107,11 +84,9 @@ public class HomeController {
 			|  4 | reject  |
 			+----+---------+
 		 */
-		System.out.println(user);
 		user.setGrade_id(3);
-		// 회원등급을 3으로 부여해 관리자가 반려 또는 승인을 할 수 있도록 한다. 
+		// 회원등급을 3으로 초기값을 부여해 관리자가 반려 또는 승인을 할 수 있도록 한다. 
 		
-		userService.userRegister(user);
         return null;
 
     }
@@ -157,18 +132,9 @@ public class HomeController {
 		@PostMapping(value="/userPwSearch")
 	    public UserVO userPwSearch( @RequestBody UserVO user) throws Exception{
 
-			System.out.println(user.getId());
-			System.out.println(user.getUserPassword());
 			UserVO getUserVO = userService.userPwSearch(user);
-			
-			if(getUserVO == null) {
-				System.out.println("null");
-				return getUserVO;
 
-			}else {
-				System.out.println(getUserVO);
-				return getUserVO;
-			}
+			return getUserVO;
 
     }			
 		
@@ -196,16 +162,31 @@ public class HomeController {
 		   
     }				
 		
-		
-		// user 모든정보 조회
-		
-		@PostMapping(value="/userIdListRead")
-	    public List<UserVO> userIdListRead() throws Exception{
+		// user 모든정보 조회 [페이징 처리]
+		@RequestMapping(value = "/page/{page}", method = RequestMethod.GET)
+		public List<UserVO> userIdListRead(@PathVariable("page") int page) throws Exception {
+
+			Criteria cri = new Criteria();
+			cri.setPage(page);
 			
-			List<UserVO> getUserVO = userService.userIdListRead();
+			List<UserVO> users = userService.userIdListReadTen(cri);
+
+			return users;
+		}
+		
+		
+		@GetMapping(value="/pageMaker/page/{page}")
+		 public PageMaker pageMaker(@PathVariable("page") int page) throws Exception{
+
+			PageMaker pageMaker = new PageMaker();
+			Criteria cri = new Criteria();
 			
-			System.out.println(getUserVO);
-			return getUserVO;
+			cri.setPage(page);
+			
+			pageMaker.setCri(cri);
+			pageMaker.setTotalCount(userService.userIdListCount());
+
+			return pageMaker;
 
 		   
     }				
@@ -213,13 +194,10 @@ public class HomeController {
 		// 비밀번호 조회 id, 원하는 password 값 (update)
 		@PostMapping(value="/userGradeInsert")
 	    public void userGradeInsert( @RequestBody UserVO user) throws Exception{
-
-			System.out.println(user.getId());
-			System.out.println(user.getGrade_id());
-			
 			userService.userGradeInsert(user);
-		   
-    }		
+		}		
+		
+		
 		
 		
 		

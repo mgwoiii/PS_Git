@@ -2,6 +2,8 @@ package com.pmg.service;
 
 import java.util.List;
 
+import com.pmg.domain.Criteria;
+import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 
 public interface UserService {
@@ -28,7 +30,12 @@ public interface UserService {
 	
 	public List<UserVO> userIdListRead() throws Exception;
 	
+	public List<UserVO> userIdListReadTen(Criteria cri) throws Exception;
+
 	public UserVO userGradeInsert(UserVO user) throws Exception;
+	
+	public int userIdListCount() throws Exception;
+
 	
 	
 	

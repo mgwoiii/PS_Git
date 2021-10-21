@@ -11,6 +11,8 @@ public class UserVO {
 	private String userPhonNumber;
 	private String userBirthday;
 	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -55,3 +57,4 @@ public class UserVO {
 	}
 		
 }
+

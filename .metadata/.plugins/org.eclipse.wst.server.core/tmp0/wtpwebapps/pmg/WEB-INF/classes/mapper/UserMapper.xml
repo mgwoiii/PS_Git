@@ -85,6 +85,23 @@
             where grade_id != 1
     </select>
     
+    <!-- 계정 조회[페이징] -->
+    <select id="userIdListReadTen" resultType="com.pmg.domain.UserVO">
+            select *
+			from usertable
+			order by id desc
+			limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    
+    <select id="userIdListCount" resultType="int">
+		select COUNT(*)
+		from usertable
+		where grade_id != 1
+	</select>
+    
+    
+    
     <update id="userGradeInsert">
          update usertable SET grade_id = #{grade_id}
          WHERE id = #{id} 
