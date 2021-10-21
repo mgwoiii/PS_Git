@@ -4,11 +4,15 @@ const USER_API_BASE_URL = "http://localhost:8080/pnn/";
 
 class ApiService {
 
-
-      userIdListRead(){
-        return axios.post(USER_API_BASE_URL +'/userIdListRead');
+      userIdListRead(page){
+          return axios.get(USER_API_BASE_URL + 'page/' + page);
       }
 
+      pageMaker(page){
+        return axios.get(USER_API_BASE_URL +'pageMaker/page/'+page);
+      }
+
+      
 
     // fetchUsers() {
     //     return axios.get(USER_API_BASE_URL)

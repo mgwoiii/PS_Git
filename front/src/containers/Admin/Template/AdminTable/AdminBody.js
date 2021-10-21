@@ -17,10 +17,22 @@ class AdminBody extends Component {
         this.props.history.push({
             pathname: '/persion-main/Admin/AdminUserInfo'
         });    
-
-        
     }
+
         render(){
+
+
+            const Arrylist = [];
+            
+            let i = (this.props.startPage === 0 ? 1 : this.props.startPage);
+
+            for(;i <= this.props.endPage; i++ ){
+                Arrylist.push((
+                    i
+                ))
+            }
+
+
             return(
                     <>
                      {this.props && this.props.UserDate && this.props.UserDate.map( user => 
@@ -48,9 +60,30 @@ class AdminBody extends Component {
 
                      )
                      }
-                     
+                    <Ul>
+                        
+                        {(this.props.prev ? 
+                        <Li onClick = {() => this.props.NumberPage(this.props.startPage-1)}>
+                            &lt;  
+                        </Li> :'')}
+
+                        {                     
+
+                            Arrylist.map(number => 
+                                <Li key = {number} onClick = {() => this.props.NumberPage(number)}>
+                                    {number}
+                                </Li>
+                            )
+                        }
+
+                        {(this.props.next && this.props.endPage > 0 ?
+                        <Li onClick = {() => this.props.NumberPage(this.props.endPage + 1)}>
+                             &gt; 
+                        </Li> :'')}
+                        
+                    </Ul>
                     </>
-            )
+            ) 
         }
     }
 
@@ -84,3 +117,30 @@ const Cell = styled.div`
     color : black;
 
 `
+
+const Ul = styled.ul`
+    display: flex;
+    justify-content: center;
+`
+
+const Li = styled.li`
+
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    color: black;
+    cursor: pointer;
+    padding: 1rem;
+    border-bottom: 2px solid white;
+
+    &:hover {
+        color : #758B66;
+
+    }
+
+    &:active{
+        color : #758B66;
+    }
+
+
+`;

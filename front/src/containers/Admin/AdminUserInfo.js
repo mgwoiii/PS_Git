@@ -27,10 +27,9 @@ class AdminUserInfo extends Component{
         }
     }
     componentDidMount(){
-      
         this.UserInfo();
-        
     }
+
 
     UserInfo = () => {
         
@@ -39,8 +38,11 @@ class AdminUserInfo extends Component{
             id : window.localStorage.getItem("userId")
         }
 
+        
+
         ApiService.userInfoRead(user)
         .then((response) => {
+
               this.setState({
                 userId : response.data.userId ,
                 userName : response.data.userName ,
@@ -48,13 +50,15 @@ class AdminUserInfo extends Component{
                 userBirthday : response.data.userBirthday ,
                 grade_id : response.data.grade_id,
                 newGrade : response.data.grade_id
-              })
-        })
-        .catch(err => {
-            console.log('reloadUserList() Error!', err);
+              }) 
+        }).catch(err => {
+            console.log('userInfoRead() Error!', err);
         })
 
+      
     }
+
+
      handleSelect = (e) => {
         console.log(e.target.value)
         this.setState({
@@ -76,8 +80,8 @@ class AdminUserInfo extends Component{
             ApiService.userGradeInsert(user)
             .then((response) => {
                 alert("회원 상태가 변경되었습니다.");
-                this.props.history.push('/persion-main/Admin/Admin');
-               
+                this.props.history.push('/persion-main/Admin/Admin/1');
+
             })
             .catch(err => {
                 console.log('reloadUserList() Error!', err);

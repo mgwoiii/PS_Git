@@ -19,22 +19,6 @@ const ShadowedBox = styled.div`
     margin:-150px 0 0 -250px
 `;
 
-// 로고
-const LogoWrapper = styled.div`
-    background: #cde0c1;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-const Logo = styled(Link)`
-    color: white;
-    font-family: 'Rajdhani';
-    font-size: 2.4rem;
-    letter-spacing: 5px;
-    text-decoration: none;
-`;
 
 // children 이 들어가는 곳
 const Contents = styled.div`

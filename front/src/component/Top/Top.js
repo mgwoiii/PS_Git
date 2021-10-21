@@ -16,7 +16,8 @@ class Top extends Component{
             super(props);
         
             this.state = {
-                number2: 0
+                number2: 0,
+                page: 1
             }
 
             // 새로고침을 하면 state 초기화가 되므로 페이지도 알맞게 이동
@@ -34,7 +35,7 @@ class Top extends Component{
                 case 0 :  return  this.props.history.push('/persion-main/Persion/PersionMain');
                 case 1 :  return  this.props.history.push('/persion-main/Income/Income');
                 case 2 :  return  this.props.history.push('/persion-main/Expenditure/Expenditure');
-                case 3 :  return  this.props.history.push('/persion-main/Admin/Admin');
+                case 3 :  return  this.props.history.push(`/persion-main/Admin/Admin/${this.state.page}`);
                 default : return ;
             }
         }

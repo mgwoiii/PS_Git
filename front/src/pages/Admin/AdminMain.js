@@ -12,7 +12,7 @@ class AdminMain extends Component {
     render(){
         return (           
             <AdminWrapper>
-                <Route path = "/persion-main/Admin/Admin" component={Admin}/>    
+                <Route path = "/persion-main/Admin/Admin/:page" component={Admin}/>    
                 <Route path = "/persion-main/Admin/AdminUserInfo" component={AdminUserInfo}/>    
             </AdminWrapper>
         );
