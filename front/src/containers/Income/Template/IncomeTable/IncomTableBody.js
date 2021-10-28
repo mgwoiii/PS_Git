@@ -86,7 +86,7 @@ class IncomTableBody extends Component {
                     _DateTables2.push({[name]: obj[i]});              
                 }
             }
-
+            
             for (let i in obj){
                 let name = null;
 

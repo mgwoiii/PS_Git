@@ -22,12 +22,7 @@ class PersionTableHeader extends Component {
                     <HeaderRow>
                         <RCA_UL>
                             <RCA_LI2>
-                                    <DatePicker
-                                            selected={this.props.startDate}
-                                            onChange = {date => this.ClickCalender(date)}
-                                            locale={ko} 
-                                            dateFormat="선택한 날짜 : yyyy-MM-dd"                                 
-                                            />
+                                {this.props.date}
                             </RCA_LI2>
                         </RCA_UL>       
                     </HeaderRow>

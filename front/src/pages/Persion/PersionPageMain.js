@@ -19,6 +19,7 @@ class PageMain extends Component {
             </PersionWrapper>
         );
     }
-}
+}                
+
 
 export default PageMain;

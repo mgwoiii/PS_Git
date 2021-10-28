@@ -33,8 +33,9 @@ class PersionTableApp extends Component {
             <PersionTable>
                 <PersionTableHeader
                     startDate = {this.state.startDate}
-                    setStartDate = {this.setStartDate}/>
-                <PersionTableBody />
+                    setStartDate = {this.setStartDate}
+                    date = {this.props.date} />
+                <PersionTableBody date = {this.props.date}/>
             </PersionTable>
         )
     }
@@ -52,3 +53,4 @@ const PersionTable = styled.div`
     width : 100%;
 
 `
+
