@@ -17,12 +17,18 @@ class PersionTableHeader extends Component {
     }
     
     render(){
+        
         return(
                 <>        
                     <HeaderRow>
                         <RCA_UL>
                             <RCA_LI2>
-                                {this.props.date}
+                                    <DatePicker
+                                            selected={this.props.startDate}
+                                            onChange = {date => this.ClickCalender(date)}
+                                            locale={ko} 
+                                            dateFormat="선택한 날짜 : yyyy-MM-dd"                                 
+                                            />
                             </RCA_LI2>
                         </RCA_UL>       
                     </HeaderRow>
@@ -32,9 +38,11 @@ class PersionTableHeader extends Component {
                            호수
                         </Cell>
                         <Cell2>
-                           체크인 여부
+                           체크인 상태
                         </Cell2>
-                       
+                        <Cell3>
+                           상태변경
+                        </Cell3>
                     </Row>
                 </>
         )
@@ -69,7 +77,7 @@ const Row = styled.div`
 
 const Cell = styled.div`
     border : none;
-    width: 15%;
+    width: 20%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
@@ -77,15 +85,26 @@ const Cell = styled.div`
 
 
 `
+
 const Cell2 = styled.div`
     border : none;
-    width: 85%;
+    width: 60%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
     border: 0.5px solid white;
+
 `
 
+const Cell3 = styled.div`
+    border : none;
+    width: 20%;
+    text-align : center;
+    word-break:break-all;
+    word-wrap:break-word;
+    border: 0.5px solid white;
+
+`
 const RCA_UL = styled.ul`
     display: inline-block;
     list-style:none;

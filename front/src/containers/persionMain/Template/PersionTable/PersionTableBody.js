@@ -1,40 +1,16 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import oc from 'open-color';
-
+import BtnPersionApp from './BtnPersion/BtnPersionApp';
 
 
 class PersionTableBody extends Component {
 
-    constructor(props){
-        super(props)
-
-
-        this.state = {
-            date : this.props.date ,
-            newGrade101 : 0,
-            newGrade102 : 0,
-            newGrade201 : 0,
-            newGrade202 : 0,
-            newGrade203 : 0,
-            newGrade204 : 0,
-            newGrade301 : 0,
-            newGrade302 : 0,
-            newGrade303 : 0,
-            newGrade304 : 0
-
-        }
-    }
-
-    handleSelect = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-          })
-      };
 
         render(){
-            
             return(
+             
+
                 <>
                 <Row>
                     <Cell>
@@ -42,11 +18,16 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade101} name = "newGrade101">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>
+                        {(this.props.newGrade101===1 ?"등록" : "미등록")}
                     </Cell2>
+                    <Cell3>
+                        <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {1}
+                        btnState = {this.props.newGrade101}
+                        btnChanged = {this.props.btnChanged}
+                         />
+                    </Cell3>
                     
                 </Row>
                 <Row>
@@ -55,12 +36,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade102} name = "newGrade102">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>
+                    {(this.props.newGrade102===1 ?"등록" : "미등록")}
+
                     </Cell2>
-                    
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {2}
+                        btnState = {this.props.newGrade102}
+                        btnChanged = {this.props.btnChanged}
+                         />                   
+                     </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -68,12 +54,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade201} name = "newGrade201">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>
+                    {(this.props.newGrade201===1 ?"등록" : "미등록")}
+
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {3}
+                        btnState = {this.props.newGrade201}
+                        btnChanged = {this.props.btnChanged}
+                         />                    
+                    </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -81,12 +72,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade202} name = "newGrade202">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade202===1 ?"등록" : "미등록")}
+                  
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {4}
+                        btnState = {this.props.newGrade202}
+                        btnChanged = {this.props.btnChanged}
+                         />                    
+                    </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -94,12 +90,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade203} name = "newGrade203">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade203===1 ?"등록" : "미등록")}
+                   
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {5}
+                        btnState = {this.props.newGrade203}
+                        btnChanged = {this.props.btnChanged}
+                         />                      
+                    </Cell3>
                 </Row>
 
                 <Row>
@@ -108,12 +109,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade204} name = "newGrade204">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade204===1 ?"등록" : "미등록")}
+                  
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {6}
+                        btnState = {this.props.newGrade204}
+                        btnChanged = {this.props.btnChanged}
+                         />                     
+                    </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -121,12 +127,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade301} name = "newGrade301">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>
+                    {(this.props.newGrade301===1 ?"등록" : "미등록")}
+
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {7}
+                        btnState = {this.props.newGrade301}
+                        btnChanged = {this.props.btnChanged}
+                         />                       
+                     </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -134,12 +145,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade302} name = "newGrade302">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade302===1 ?"등록" : "미등록")}
+                 
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {8}
+                        btnState = {this.props.newGrade302}
+                        btnChanged = {this.props.btnChanged}
+                         />                       
+                    </Cell3>
                 </Row>
                 <Row>
                     <Cell>
@@ -147,12 +163,17 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade303} name = "newGrade303">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade303===1 ?"등록" : "미등록")}
+          
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {9}
+                        btnState = {this.props.newGrade303}
+                        btnChanged = {this.props.btnChanged}
+                         />                       
+                    </Cell3>
                 </Row>
 
                 <Row>
@@ -161,13 +182,19 @@ class PersionTableBody extends Component {
                     </Cell>
 
                     <Cell2>
-                        <ReadSelect onChange={this.handleSelect} value={this.state.newGrade304}  name = "newGrade304">
-                            <option value="0">미등록</option>
-                            <option value="1">등록</option>
-                        </ReadSelect>                    
+                    {(this.props.newGrade304===1 ?"등록" : "미등록")}
+                    
                     </Cell2>
-                
+                    <Cell3>
+                    <BtnPersionApp 
+                        btnName = {"상태변경"}
+                        btnId = {10}
+                        btnState = {this.props.newGrade304}
+                        btnChanged = {this.props.btnChanged}
+                         />                       
+                    </Cell3>
                 </Row>
+                
             </>
             );
         }
@@ -178,8 +205,8 @@ export default PersionTableBody;
 
 const Row = styled.div`
     width: 100%;
-    height : auto;
-    line-height: 20px;
+    height : 50px;
+    
     word-break:break-all;
     background-color : #cde0c1;
     font-size: 0.8rem;
@@ -190,32 +217,39 @@ const Row = styled.div`
 
 const Cell = styled.div`
     border : none;
-    width: 15%;
+    width: 20%;
+    line-height: 50px;
+    
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
     border: 0.5px solid white;
     color : black;
-
-
+    font-size: 0.8rem;
+    font-weight: bold;
 `
 const Cell2 = styled.div`
     border : none;
-    width: 85%;
+    width: 60%;
+    line-height: 50px;
+
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
     border: 0.5px solid white;
     color : black;
+    font-size: 0.8rem;
+    font-weight: bold;
 
 `
-
-const ReadSelect = styled.select`
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    width: 30%;
-    
-    border: 1px solid ${oc.gray[3]};
-    line-height: 30rem;
-    font-size: 1.2rem;
-`;
+const Cell3 = styled.div`
+    border : none;
+    width: 20%;
+    text-align : center;
+    word-break:break-all;
+    word-wrap:break-word;
+    border: 0.5px solid white;
+    color : black;
+    font-size: 0.8rem;
+    font-weight: bold;
+`

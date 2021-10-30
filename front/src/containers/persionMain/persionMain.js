@@ -1,17 +1,9 @@
 import { Component } from "react";
 import PersionContent  from '../../component/Persion/PersionContent';
 import CalenderApp from "./Template/Calender/CalenderApp";
-import BtnPersionApp from './Template/BtnPersion/BtnPersionApp';
 import moment from "moment";
 import { withRouter } from 'react-router-dom';
-import ApiService from '../../ApiServer/Persion/ApiService';
 import Week from "./Template/Calender/Week";
-
-
-const obj = [
-    {id : 0 , value : "입실 등록"}
-]
-
 
 class PersionMain extends Component{
 
@@ -31,37 +23,7 @@ class PersionMain extends Component{
         }
     }
 
-  
-    btnSeleted = () => {
-        const _BtnTables = [];
 
-        obj.map(obj =>
-            _BtnTables.push((
-                <BtnPersionApp 
-                    btnName = {obj.value}
-                    btnId = {obj.id}
-                    btnChanged = {this.btnChanged}
-                    key={`TableBtn_${obj.id}`} />
-            ))
-            )
-
-        return _BtnTables;
-    }
-
-
-    btnChanged = (number) => {
-        switch (number){            
-            case 0 : return  this.props.history.push({
-                pathname: '/persion-main/Persion/PersionMainInsert',
-                clickedDate : this.state.selected,
-            });                                         
-            default : return ;
-        }
-    }
-
-
- 
-   
     moveMonth = (month) => {
         this.setState({
             calenderYM : this.state.calenderYM.add(month,'M')
@@ -146,10 +108,6 @@ class PersionMain extends Component{
         for (let i = 0; i < 6; i++) {
             const ArrData = [];
 
-            // ArrData.push(this.CalSelect(i));
-           // console.log("o22331o");
-            //console.log(this.CalSelect(i));
-            
             _Weeks.push((
 
             <Week key={`RCA_Calender_Week_${i}`}
@@ -160,7 +118,6 @@ class PersionMain extends Component{
                 selected = {selected}
                 fn = {clickFn}
                 CalSelect = {this.CalSelect}
-               // ArrData = {this.CalSelect(i)}
             />
             ))
         }
@@ -182,7 +139,6 @@ class PersionMain extends Component{
     render(){
         return (
             <PersionContent>
-                    {this.btnSeleted()}
                 <CalenderApp
                     moveMonth = {this.moveMonth}
                     moveDay  = {this.moveDay}

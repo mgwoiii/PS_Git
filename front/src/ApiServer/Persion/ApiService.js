@@ -10,9 +10,22 @@ class ApiService {
         return axios.get(USER_API_BASE_URL +'WeekList/chkDateStart/'+ chkDateStart+'/chkDateEnd/'+chkDateEnd);
        }
 
-       ////WeekList/chkDateStart/{chkDateStart}/chkDateEnd/{chkDateEnd}
-      //return axios.get(USER_API_BASE_URL +'pageMaker/chkDateStart/chkDateEnd/'+chkDateStart + chkDateEnd);
-    //  @RequestParam("chkDateStart") String chkDateStart, @RequestParam("chkDateEnd") int chkDateEnd
+       chkinDateOverlap(ChkDate, btnId){
+        return axios.get(USER_API_BASE_URL +'chkinDateOverlap/ChkDate/'+ChkDate+'/btnId/'+btnId);
+       }
+
+       chkinDateOverlap_Day(ChkDate){
+        return axios.get(USER_API_BASE_URL +'chkinDateOverlap_Day/ChkDate/'+ ChkDate);
+       }
+
+       
+       chkinDateRegister(ChkDate, className_id, ){
+        return axios.get(USER_API_BASE_URL +'chkinDateRegister/ChkDate/'+ChkDate+'/className_id/'+ className_id);
+       }
+
+       chkinDateDelete(ChkDate, className_id, ){
+        return axios.get(USER_API_BASE_URL +'chkinDateDelete/ChkDate/'+ChkDate+'/className_id/'+ className_id);
+       }
 
     // USER_API_BASE_URL +'WeekList', chkDateStart , chkDateEnd
       // loginUser(user){

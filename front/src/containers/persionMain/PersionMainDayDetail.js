@@ -9,7 +9,7 @@ class PersionMainDayDetail extends Component{
        // console.log(this.props.location.clickedDate.clickedDate)
         return (
             <PersionContent>
-                [입실 상태 수정]
+                [입실 상태 관리]
                <PersionTableApp date = {this.props.location.clickedDate} />
             </PersionContent>
         );
