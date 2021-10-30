@@ -35,13 +35,27 @@ public class ChkInsertDAOImp implements ChkInsertDAO {
 
 	}
 	
-    
+	
 	@Override
-	public void chkinDateDelete(int id) throws Exception {
+	public List<ChkInsertVO> chkinDateOverlap_Day(ChkInsertVO chk) throws Exception {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace+".chkinDateDelete", id);
+
+		return sqlSession.selectList(namespace+".chkinDateOverlap_Day", chk);
+
+	}
+	@Override
+	public void chkinDateDelete(ChkInsertVO chk ) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.delete(namespace+".chkinDateDelete", chk);
 		
 	}   
+	@Override
+	public List<ChkInsertVO> WeekList(ChkInsertVO chk) throws Exception{
+		// TODO Auto-generated method stub
+
+		return sqlSession.selectList(namespace+".WeekList", chk);
+
+	}
 	
 	
 //	@Override

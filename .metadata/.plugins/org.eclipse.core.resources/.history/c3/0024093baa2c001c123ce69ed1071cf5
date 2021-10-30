@@ -1,9 +1,0 @@
-package com.pmg.domain;
-
-public class ReserveTypeVO {
-	
-	private int id;
-	private String reserveName;
-	
-
-}

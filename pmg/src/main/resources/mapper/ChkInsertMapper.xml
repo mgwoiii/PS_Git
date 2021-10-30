@@ -19,20 +19,28 @@
     <select id="chkinDateOverlap" resultType="com.pmg.domain.ChkInsertVO">
             select *
             from chkinsertTable 
-            where className_id = #{className_id} and ckeckName_id = #{ckeckName_id} and chkDate = #{chkDate}
+            where className_id = #{className_id} and chkDate = #{chkDate}
+    </select>
+    
+      <!-- 입실 등록(중복) 조회 -->
+    <select id="chkinDateOverlap_Day" resultType="com.pmg.domain.ChkInsertVO">
+            select *
+            from chkinsertTable 
+            where chkDate = #{chkDate}
     </select>
     
        <!-- 게시판 삭제하기 -->
     <delete id="chkinDateDelete">
-        delete from chkinsertTable where id = #{id}
+        delete from chkinsertTable where className_id = #{className_id} and  chkDate = #{chkDate}
     </delete>
     
-    
-    
-    
-    
-    
-    
+   	<select id="WeekList" resultType="com.pmg.domain.ChkInsertVO">
+   
+	select * 
+	from chkInsertTable
+	where DATE(chkDate) BETWEEN #{chkDateStart} AND #{chkDateEnd};
+    </select>
+
         <!-- 비밀번호 수정하기 -->
     <update id="userPwUpdate">
     

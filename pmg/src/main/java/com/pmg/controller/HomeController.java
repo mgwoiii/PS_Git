@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pmg.domain.ChkInsertVO;
 import com.pmg.domain.Criteria;
 import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
+import com.pmg.service.ChkInsertService;
 import com.pmg.service.UserService;
 
 
@@ -39,6 +41,9 @@ public class HomeController {
 	    
 		@Inject
 		private UserService userService;
+		
+		@Inject
+		private ChkInsertService chkService;
 		/**
 		 * Simply selects the home view to render by returning its name.
 		 */
@@ -199,6 +204,67 @@ public class HomeController {
 		
 		
 		
+		/* ================================= Chkinsert ==========================*/
+		
+		// user 모든정보 조회 [페이징 처리]
+//		@GetMapping(value="/pageMaker/page/{page}")
+//		WeekList/chkDateStart/chkDateEnd/
+		
+		@GetMapping(value = "/WeekList/chkDateStart/{chkDateStart}/chkDateEnd/{chkDateEnd}")
+		public List<ChkInsertVO> WeekList(
+			//	@RequestParam("chkDateStart") String chkDateStart,@RequestParam("chkDateEnd") String chkDateEnd				
+				@PathVariable String chkDateStart , @PathVariable String chkDateEnd
+				) throws Exception {
+				
+				ChkInsertVO chkinsert	= new ChkInsertVO();
+				
+				chkinsert.setChkDateStart(chkDateStart);
+				chkinsert.setChkDateEnd(chkDateEnd);
+
+					return chkService.WeekList(chkinsert);
+
+				}
+
+		@GetMapping(value="/chkinDateOverlap_Day/ChkDate/{ChkDate}")
+		 public List<ChkInsertVO> chkinDateOverlap_Day(@PathVariable String ChkDate) throws Exception{
+			
+			ChkInsertVO chkinsert= new ChkInsertVO();
+			
+			chkinsert.setChkDate(ChkDate);
+
+			List<ChkInsertVO> ch = chkService.chkinDateOverlap_Day(chkinsert);
+			
+			return ch;
+			
+
+   }		
+
+		@GetMapping(value="/chkinDateOverlap/ChkDate/{ChkDate}/btnId/{btnId}")
+		 public boolean chkinDateOverlap(@PathVariable String ChkDate , @PathVariable int btnId) throws Exception{
+			
+			ChkInsertVO chkinsert= new ChkInsertVO();
+			
+			chkinsert.setChkDate(ChkDate);
+			chkinsert.setClassName_id(btnId);
+			
+			ChkInsertVO ch = chkService.chkinDateOverlap(chkinsert);
+			
+			// 성공시 db 등록
+			if(ch == null) {
+				chkinsert.setCkeckName_id(1);
+				chkService.chkinDateRegister(chkinsert);
+				return true;
+				
+			// 실패시 db 삭제
+			}else {
+				chkService.chkinDateDelete(chkinsert);
+
+				return false;
+			}
+
+  }		
+		
+
 		
 		
 //		@PostMapping(value="/insert")

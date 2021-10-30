@@ -12,7 +12,9 @@ public interface ChkInsertDAO {
 	
 	public ChkInsertVO chkinDateOverlap(ChkInsertVO chk) throws Exception;
 
-	public void chkinDateDelete(int id) throws Exception;
+	public List<ChkInsertVO> chkinDateOverlap_Day(ChkInsertVO chk) throws Exception;
 
-	
+	public void chkinDateDelete(ChkInsertVO chk) throws Exception;
+
+	public List<ChkInsertVO> WeekList(ChkInsertVO chk) throws Exception;
 }

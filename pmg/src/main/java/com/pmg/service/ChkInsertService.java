@@ -10,10 +10,14 @@ public interface ChkInsertService {
 	public void chkinDateRegister(ChkInsertVO chk) throws Exception;
 	
 	public ChkInsertVO chkinDateOverlap(ChkInsertVO chk) throws Exception;
+		
+	public List<ChkInsertVO> chkinDateOverlap_Day(ChkInsertVO chk) throws Exception;
 	
-	public void chkinDateDelete(int id) throws Exception;
-	
-	
+	public List<ChkInsertVO> WeekList(ChkInsertVO chk) throws Exception;
+
+	public void chkinDateDelete(ChkInsertVO chk) throws Exception;
+
+
 	
 //	public UserVO read(Integer id) throws Exception;
 

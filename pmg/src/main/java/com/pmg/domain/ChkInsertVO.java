@@ -9,6 +9,10 @@ public class ChkInsertVO {
 	private int ckeckName_id;
 	private String chkDate;
 	
+	private String chkDateStart;
+	private String chkDateEnd;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -32,6 +36,18 @@ public class ChkInsertVO {
 	}
 	public void setChkDate(String chkDate) {
 		this.chkDate = chkDate;
+	}
+	public String getChkDateStart() {
+		return chkDateStart;
+	}
+	public void setChkDateStart(String chkDateStart) {
+		this.chkDateStart = chkDateStart;
+	}
+	public String getChkDateEnd() {
+		return chkDateEnd;
+	}
+	public void setChkDateEnd(String chkDateEnd) {
+		this.chkDateEnd = chkDateEnd;
 	}
 	
 

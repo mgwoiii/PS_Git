@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="com.pmg.mapper.ChkInsertMapper">
+ 
+ 
+    <!-- 입실 추가(호수 , 날짜 추가하기) -->
+    <insert id="chkinDateRegister">
+ 		INSERT INTO chkinsertTable
+     ( className_id, ckeckName_id, chkDate)
+      VALUES(#{className_id}, #{ckeckName_id} , #{chkDate}) 
+    </insert>
+    
+    <!-- 입실 등록(중복) 조회 -->
+    <select id="chkinDateOverlap" resultType="com.pmg.domain.ChkInsertVO">
+            select *
+            from chkinsertTable 
+            where className_id = #{className_id} and ckeckName_id = #{ckeckName_id} and chkDate = #{chkDate}
+    </select>
+    
+      <!-- 입실 등록(중복) 조회 -->
+    <select id="chkinDateOverlap_Day" resultType="com.pmg.domain.ChkInsertVO">
+            select *
+            from chkinsertTable 
+            where chkDate = #{chkDate}
+    </select>
+    
+       <!-- 게시판 삭제하기 -->
+    <delete id="chkinDateDelete">
+        delete from chkinsertTable where id = #{id}
+    </delete>
+    
+   	<select id="WeekList" resultType="com.pmg.domain.ChkInsertVO">
+   
+	select * 
+	from chkInsertTable
+	where DATE(chkDate) BETWEEN #{chkDateStart} AND #{chkDateEnd};
+    </select>
+
+        <!-- 비밀번호 수정하기 -->
+    <update id="userPwUpdate">
+    
+        update usertable SET userPassword = #{userPassword}
+         WHERE id = #{id} 
+    </update>
+        
+     
+    
+    <!-- 게시판 리스트보기 -->
+    <select id="listUser" resultType="com.pmg.domain.UserVO">
+    <![CDATA[
+    
+        select * from users 
+        order by id DESC
+    ]]>
+    </select>
+    
+    <!-- 게시판 삭제하기 -->
+    <delete id="deleteUser">
+        delete from users where id = #{id}
+    </delete>
+    
+ 
+</mapper>
