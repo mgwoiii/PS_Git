@@ -9,14 +9,14 @@ class IncomTableSingInBody extends Component {
     test = (obj, value) => {
         const _IncomTables = [];
 
-        obj.map((obj)=> {
+        obj.map((obj)=> 
             _IncomTables.push((
                 <IncomTableCell3 key={`IncomTableCell3${obj.id}`}>
                     {this.IncomeTable2(obj.value, value)}
                 </IncomTableCell3>
             ))
 
-        })
+        )
 
         return _IncomTables;
     }
@@ -120,13 +120,13 @@ class IncomTableSingInBody extends Component {
     IncomeTable = () => {
         const _IncomTables = [];
 
-        this.props && this.props.classNumObj && this.props.classNumObj.map((obj, index)=> {
+        this.props && this.props.classNumObj && this.props.classNumObj.map((obj)=> 
                 _IncomTables.push((
                    <IncomTableRow key={`IncomTableRow${obj.id}`}>
                        {this.IncomeTable_1(obj.value)}
                     </IncomTableRow>
                 ))
-            }
+            
             );
 
             return _IncomTables;

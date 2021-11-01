@@ -9,14 +9,12 @@ class FindIdResult extends Component {
     ResultIdList = (object) => {
         const _IncomTables = [];
         
-                 object.map((obj )=> {
+                 object.map((obj )=> 
                 _IncomTables.push((
                     <Label key={`Label_${obj.userId}_${obj.id}`}>
                         {obj.userId}
                     </Label>         
                 ))
-            }
-
             );
 
             return _IncomTables;

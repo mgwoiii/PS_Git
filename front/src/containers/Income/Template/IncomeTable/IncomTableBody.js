@@ -3,201 +3,367 @@ import styled from "styled-components";
 
 class IncomTableBody extends Component {
 
-    Test3 = (tables) =>{
-        let _DateTables = [];
-
-        for (let i in tables){
-        
-            let aa = tables[i];
-            for (let j in aa){
-                _DateTables.push((
-                    <DDv>
-                         <IncomTableCell2 key={`IncomTableCell2${j}`}>{j}</IncomTableCell2> 
-                         <IncomTableCell2 key={`IncomTableCell2_1${j}`}>{aa[j]}</IncomTableCell2>                
-                    </DDv>
-                 )) 
-            }        
-        }
-        return _DateTables;          
-    }
-
-    Test = (obj, index, urlName) => {
-
-        const _IncomTables = [];
-        const _DateTables = [];
-        const _DateTables2 = [];
-        const _DateTables3 = [];
-
-        if(urlName === 'IncomeSearch'){
-            for (let i in obj){
-                let name = null;
-
-                switch(i){
-                    case "username" : 
-                        name = "소셜입금"
-                        break;
-                    
-                    case "value4" : 
-                    name = "소셜공제"
-                    break;
-
-                    case "value5" : 
-                    name = "숙박비 (현금)"
-                    break;
-  
-                    case "value6" : 
-                    name = "숙박비 (이체)"
-                    break;
-
-                    case "value7" : 
-                    name = "숙박비 (카드)"
-                    break;
-
-                    default : break;
-                }
-
-                if((i === "username")||(i === "value4")||(i === "value5")||(i === "value6")||(i === "value7")){  
-                    _DateTables.push({[name]: obj[i]});              
-                }
-            }
-
-            for (let i in obj){
-
-                let name = null;
-
-                switch(i){
-                    case "value8" : 
-                        name = "바베큐(현금)"
-                        break;
-                    
-                    case "value9" : 
-                        name = "바베큐(이체)"
-                        break;
-
-                    case "value10" : 
-                        name = "바베큐(카드)"
-                        break;
-  
-
-                    default : break;
-                }
-
-                if((i === "value8")||(i === "value9")||(i === "value10")){  
-                    _DateTables2.push({[name]: obj[i]});              
-                }
-            }
-            
-            for (let i in obj){
-                let name = null;
-
-                switch(i){
-                    case "value11" : 
-                        name = "인원추가(현금)"
-                        break;
-                    
-                    case "value12" : 
-                        name = "인원추가(이체)"
-                        break;
-
-                    case "value13" : 
-                        name = "인원추가(카드)"
-                        break;
-  
-
-                    default : break;
-                }
-
-                if((i === "value11")||(i === "value12")||(i === "value13")){  
-                    _DateTables3.push({[name]: obj[i]});              
-                }
-            }
-
-        }
-
-        for (let i in obj){
-
-                if(i !== "id"){
-
-                    if(urlName === 'IncomeSearch'){
-
-                        if(i === "username"){  
-
-                            _IncomTables.push((
-                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
-
-                                {this.Test3(_DateTables)}                        
-                                </IncomTableCell3>
-
-                                ))
-                        }else if((i === "value4")||(i === "value5")||(i === "value6")||(i === "value7")){
-                            //console.log('통과')
-                        }else if (i === "value8"){
-
-                            _IncomTables.push((
-                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
-
-                                {this.Test3(_DateTables2)}                        
-                                </IncomTableCell3>
-
-                                ))
-                                
-                        }else if((i === "value9")||(i === "value10")){
-                            //console.log('통과')
-                        }else if (i === "value11"){
-
-                            _IncomTables.push((
-                                <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
-
-                                {this.Test3(_DateTables3)}                        
-                                </IncomTableCell3>
-
-                                ))
-                                
-                        }else if((i === "value12")||(i === "value13")){
-                            //console.log('통과')
-                        }else{
-                        _IncomTables.push((
-                            <IncomTableCell3 key={`IncomTableCell3_${index}_${i}`}>
-                            {obj[i]}
-                            </IncomTableCell3>
-                            ))
-                        }
-
-                    }else{
-
-                        _IncomTables.push((
-                        <IncomTableCell key={`IncomTableCell${index}_${i}`}>{obj[i]}</IncomTableCell>))
-                       
-                    }
-                    }
-                    
-                    
-                }
-            return _IncomTables
-    } 
-
-    IncomTables = (urlName) => {
-        const _IncomTables = [];
-        
-        this.props && this.props.tsetValue && this.props.tsetValue.map((obj, index)=> {
-
-                _IncomTables.push((
-                    <IncomTableRow key={`IncomTableRow${obj.id}`}>
-                        {this.Test(obj, index, urlName)}
-                    </IncomTableRow>         
-                ))
-            }
-
-            );
-
-            return _IncomTables;
-        } 
-
         render(){
-
             return(
-                    <>    
-                        {this.IncomTables(this.props.urlName)}
+                <>
+                    <Row>
+                        <Cell3>
+                            {(this.props.class101.className_id === 1 ? '101호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class101.reserveType_id === 1 ? "현금":
+                                    (   this.props.class101.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class101.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class101.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class101.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class101.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class101.roomPrice + this.props.class101.extraPeoplePrice === 0 ?
+                                 "-":this.props.class101.roomPrice + this.props.class101.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class101.bbqPrice === 0 ?
+                                 "-":this.props.class101.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class101.totalPrice === 0 ?
+                                 "-":this.props.class101.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+                    <Row>
+                        <Cell3>
+                        {(this.props.class102.className_id === 2 ? '102호': null)}
+                        </Cell3>
+                        <Cell>
+                        {(
+                                this.props.class102.reserveType_id === 1 ? "현금":
+                                    (   this.props.class102.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class102.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class102.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class102.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class102.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>                            
+                            {(this.props.class102.roomPrice + this.props.class102.extraPeoplePrice === 0 ?
+                                 "-":this.props.class102.roomPrice + this.props.class102.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class102.bbqPrice === 0 ?
+                                 "-":this.props.class102.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class102.totalPrice === 0 ?
+                                 "-":this.props.class102.totalPrice ) }
+                        </Cell>
+                    </Row>
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class201.className_id === 3 ? '201호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class201.reserveType_id === 1 ? "현금":
+                                    (   this.props.class201.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class201.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class201.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class201.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class201.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class201.roomPrice + this.props.class201.extraPeoplePrice === 0 ?
+                                 "-":this.props.class201.roomPrice + this.props.class201.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class201.bbqPrice === 0 ?
+                                 "-":this.props.class201.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class201.totalPrice === 0 ?
+                                 "-":this.props.class201.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class202.className_id === 4 ? '202호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class202.reserveType_id === 1 ? "현금":
+                                    (   this.props.class202.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class202.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class202.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class202.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class202.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class202.roomPrice + this.props.class202.extraPeoplePrice === 0 ?
+                                 "-":this.props.class202.roomPrice + this.props.class202.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class202.bbqPrice === 0 ?
+                                 "-":this.props.class202.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class202.totalPrice === 0 ?
+                                 "-":this.props.class202.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class203.className_id === 5 ? '203호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class203.reserveType_id === 1 ? "현금":
+                                    (   this.props.class203.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class203.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class203.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class203.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class203.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class203.roomPrice + this.props.class203.extraPeoplePrice === 0 ?
+                                 "-":this.props.class203.roomPrice + this.props.class203.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class203.bbqPrice === 0 ?
+                                 "-":this.props.class203.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class203.totalPrice === 0 ?
+                                 "-":this.props.class203.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+                   
+                    <Row>
+                        <Cell3>
+                            {(this.props.class204.className_id === 6 ? '204호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class204.reserveType_id === 1 ? "현금":
+                                    (   this.props.class204.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class204.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class204.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class204.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class204.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class204.roomPrice + this.props.class204.extraPeoplePrice === 0 ?
+                                 "-":this.props.class204.roomPrice + this.props.class204.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class204.bbqPrice === 0 ?
+                                 "-":this.props.class204.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class204.totalPrice === 0 ?
+                                 "-":this.props.class204.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class301.className_id === 7 ? '301호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class301.reserveType_id === 1 ? "현금":
+                                    (   this.props.class301.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class301.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class301.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class301.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class301.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class301.roomPrice + this.props.class301.extraPeoplePrice === 0 ?
+                                 "-":this.props.class301.roomPrice + this.props.class301.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class301.bbqPrice === 0 ?
+                                 "-":this.props.class301.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class301.totalPrice === 0 ?
+                                 "-":this.props.class301.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class302.className_id === 8 ? '302호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class302.reserveType_id === 1 ? "현금":
+                                    (   this.props.class302.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class302.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class302.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class302.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class302.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class302.roomPrice + this.props.class302.extraPeoplePrice === 0 ?
+                                 "-":this.props.class302.roomPrice + this.props.class302.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class302.bbqPrice === 0 ?
+                                 "-":this.props.class302.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class302.totalPrice === 0 ?
+                                 "-":this.props.class302.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
+                    <Row>
+                        <Cell3>
+                            {(this.props.class303.className_id === 9 ? '303호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class303.reserveType_id === 1 ? "현금":
+                                    (   this.props.class303.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class303.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class303.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class303.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class303.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class303.roomPrice + this.props.class303.extraPeoplePrice === 0 ?
+                                 "-":this.props.class303.roomPrice + this.props.class303.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class303.bbqPrice === 0 ?
+                                 "-":this.props.class303.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class303.totalPrice === 0 ?
+                                 "-":this.props.class303.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+                   
+                    <Row>
+                        <Cell3>
+                            {(this.props.class304.className_id === 10 ? '304호': null)}
+                        </Cell3>
+                        <Cell>
+                            {(
+                                this.props.class304.reserveType_id === 1 ? "현금":
+                                    (   this.props.class304.reserveType_id === 2 ? "이체" :
+                                        (   this.props.class304.reserveType_id === 3 ? "카드" :    
+                                            (   this.props.class304.reserveType_id === 4 ? "야놀자" :    
+                                                (   this.props.class304.reserveType_id === 5 ? "여기어때" :    
+                                                    (   this.props.class304.reserveType_id === 6 ? "떠나요" :    
+                                            "-"
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                            )}
+                        </Cell>
+                        <Cell>
+                            {(this.props.class304.roomPrice + this.props.class304.extraPeoplePrice === 0 ?
+                                 "-":this.props.class304.roomPrice + this.props.class304.extraPeoplePrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class304.bbqPrice === 0 ?
+                                 "-":this.props.class304.bbqPrice ) }
+                        </Cell>
+                        <Cell>
+                            {(this.props.class304.totalPrice === 0 ?
+                                 "-":this.props.class304.totalPrice ) }
+
+                        </Cell>
+                    </Row>
+
+
                     </>
             )
         }
@@ -206,7 +372,7 @@ class IncomTableBody extends Component {
 
 export default IncomTableBody;
 
-const IncomTableRow = styled.div`
+const Row = styled.div`
     width: auto;
     display: flex;
     background-color : #cde0c1;
@@ -216,13 +382,13 @@ const IncomTableRow = styled.div`
 
 `
 
-const IncomTableCell = styled.div`
+const Cell = styled.div`
     color : rgb(71, 71, 71);
     border: 0.5px solid white;
     width: 20%;
     text-align : center;
 `
-const IncomTableCell2 = styled.div`
+const Cell2 = styled.div`
     color : rgb(71, 71, 71);
     border: 0.5px solid white;
     width: 100%;
@@ -232,7 +398,7 @@ const IncomTableCell2 = styled.div`
     word-wrap:break-word;
 
     `
-    const IncomTableCell3 = styled.div`
+    const Cell3 = styled.div`
     color : rgb(71, 71, 71);
     border: 0.5px solid white;
     width: 20%;
@@ -240,8 +406,3 @@ const IncomTableCell2 = styled.div`
     flex-direction:column;
 
     `
-    
-
-const DDv = styled.div`
-
-`

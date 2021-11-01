@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import oc from 'open-color';
 import BtnPersionApp from './BtnPersion/BtnPersionApp';
 
 

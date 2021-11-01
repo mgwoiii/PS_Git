@@ -4,25 +4,12 @@ import styled from "styled-components";
 
 class IncomTableHeader extends Component {
 
-    IncomHeader = () => {
-
-        const _IncomHeader = [];
-
-        this.props && this.props.IncomTableHeaderObj && this.props.IncomTableHeaderObj.map( obj => 
-            _IncomHeader.push((
-                        <IncomTableCell key={`IncomHeader${obj.id}`}>
-                            {obj.value}
-                        </IncomTableCell>
-                ))
-        );
-
-        return _IncomHeader;
-    }
+   
 
     render(){
         return(
                 <>        
-                    <IncomTableHeaderRow>
+                    <HeaderRow>
                         <RCA_UL>
                             <RCA_LI onClick={() => {this.props.moveDay(-1)}}>
                                     &lt;
@@ -34,11 +21,24 @@ class IncomTableHeader extends Component {
                                 &gt;
                             </RCA_LI>
                         </RCA_UL>       
-                    </IncomTableHeaderRow>
-
-                    <IncomTableRow>
-                        {this.IncomHeader()}
-                    </IncomTableRow>
+                    </HeaderRow>
+                    <Row>
+                        <Cell>
+                        호수
+                        </Cell>
+                        <Cell>
+                        예약유입경로
+                        </Cell>
+                        <Cell>
+                        숙박 비용
+                        </Cell>
+                        <Cell>
+                        바베큐 비용
+                        </Cell>
+                        <Cell>
+                        계
+                        </Cell>
+                    </Row>
                 </>
         )
     }
@@ -49,7 +49,7 @@ class IncomTableHeader extends Component {
 export default IncomTableHeader;
 
 
-const IncomTableHeaderRow = styled.div`
+const HeaderRow = styled.div`
     width: 100%;
     background-color: #758B66;
     border-bottom: 0.5px solid white;
@@ -58,7 +58,7 @@ const IncomTableHeaderRow = styled.div`
 
 `
 
-const IncomTableRow = styled.div`
+const Row = styled.div`
     width: 100%;
     height : auto;
     line-height: 20px;
@@ -70,7 +70,7 @@ const IncomTableRow = styled.div`
     display: flex;
 `
 
-const IncomTableCell = styled.div`
+const Cell = styled.div`
     border : none;
     width: 20%;
     text-align : center;

@@ -97,16 +97,12 @@ class PersionMain extends Component{
 
 
     Weeks = (monthYear, selected, clickFn) => {
-
-     
-
         const firstDayOfMonth = moment(monthYear).startOf('month');
         const firstDateOfMonth = firstDayOfMonth.get('d');
         const firstDayOfWeek = firstDayOfMonth.clone().add(-firstDateOfMonth,'d');
         const _Weeks = [];
 
         for (let i = 0; i < 6; i++) {
-            const ArrData = [];
 
             _Weeks.push((
 

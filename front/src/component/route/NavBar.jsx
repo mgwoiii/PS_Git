@@ -140,16 +140,16 @@ class NavBar extends Component {
     }
 
         return(
-            <Navbar>
+            <Bar>
                     {button3}{button2}{button}
                     {/* <LinkBtn onClick={() =>{ LOADING_TRUE(); this.logOut();}}>임시 로그아웃</LinkBtn> */}
-            </Navbar>
+            </Bar>
  
     )
 }
 }
 
-const Navbar = styled.div`
+const Bar = styled.div`
     background : #758B66;
     color : white;
     padding: 1rem;
