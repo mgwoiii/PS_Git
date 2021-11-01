@@ -23,9 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pmg.domain.ChkInsertVO;
 import com.pmg.domain.Criteria;
+import com.pmg.domain.IncomeVO;
 import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 import com.pmg.service.ChkInsertService;
+import com.pmg.service.IncomeService;
 import com.pmg.service.UserService;
 
 
@@ -44,6 +46,10 @@ public class HomeController {
 		
 		@Inject
 		private ChkInsertService chkService;
+		
+		
+		@Inject
+		private IncomeService incService;
 		/**
 		 * Simply selects the home view to render by returning its name.
 		 */
@@ -265,6 +271,22 @@ public class HomeController {
   }		
 		
 
+		
+		@GetMapping(value="/incomeDayRead/IncomeDate/{IncomeDate}")
+		 public List<IncomeVO> incomeDayRead(@PathVariable String IncomeDate) throws Exception{
+			
+			IncomeVO income = new IncomeVO();
+			
+			income.setIncomeDate(IncomeDate);
+			
+			List<IncomeVO> inc = incService.incomeDayRead(income);
+			
+			return inc;
+
+		}		
+		
+		
+		
 		
 		
 //		@PostMapping(value="/insert")

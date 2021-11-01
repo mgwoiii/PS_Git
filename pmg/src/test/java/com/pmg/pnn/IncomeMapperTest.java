@@ -190,52 +190,81 @@ public class IncomeMapperTest {
         while(!startDate.equals(endDate)){ //다르다면 실행, 동일 하다면 빠져나감
             
             if(i==0) { //최초 실행 출력
+
                 System.out.println(dateFormat.format(cal.getTime()));
             }
-            
+             
             //cal.add(Calendar.MONTH, 1); //1달 더해줌
             cal.add(Calendar.DATE, 1); //1일 더해줌
             startDate = dateFormat.format(cal.getTime()); //비교를 위한 값 셋팅
             
+            System.out.println(i);  
 
-            if((i % 9) == 1) {
+            if((i % 4) == 1) {
 	            //+1달 출력
+	            System.out.println("--------------");  
+
 	            System.out.println(dateFormat.format(cal.getTime()));  
 	            
 	        	IncomeVO income = new IncomeVO();
 
-	    		
+	        	int notclass1 = (int) (Math.random() * 9 + 1);
+    			
+				int notclass2 = (int) (Math.random() * 9 + 1);
+	
+				int notclass3 = (int) (Math.random() * 9 + 1);
+				
 	    		for( int j =1  ; j <=10;j++) {
-	    			int ran = (int) (Math.random() * 10 + 1);
 	    			
 
-	    			if(ran != j) {
-		    			int random, random2 ;
-		    			
-		    			random = (int) (Math.random() * 5 + 1);
-		    			random2 = (int) (Math.random() * 3 + 1);
-	
+	    			if(notclass1 == j) {
+	    	    		System.out.println("통과");
 
+	    			}else if(notclass2 == j) {
+	    				System.out.println("통과");
+	    				
+	    			}else if(notclass3 == j) {
+	    				System.out.println("통과");
+	    				
+	    			}else {
+	    				int ReserveType_id, RoomType_id, BbqType_id, ExtraPeopleType_id
+	    				,money1, money2, money3;
+		    			
+	    				ReserveType_id = (int) (Math.random() * 5 + 1);
+	    				RoomType_id = (int) (Math.random() * 3 + 1);
+	    				BbqType_id = (int) (Math.random() * 3 + 1);
+	    				ExtraPeopleType_id = (int) (Math.random() * 3 + 1);
+
+	    				money1 = (int) (Math.random() * 300000 + 1);
+	    				money2 = (int) (Math.random() * 30000 + 1);
+	    				money3 = (int) (Math.random() * 3000000 + 1);
+
+	    				
 		    			income.setClassName_id(j);
-		    			income.setReserveType_id(random);
-		    			income.setRoomPrice(1000);
-		    			income.setRoomType_id(random2);
-		    			income.setBbqPrice(1000);
-		    			income.setBbqType_id(random2);
-		    			income.setExtraPeoplePrice(1000);
-		    			income.setExtraPeopleType_id(random2);
-		    			income.setTotalPrice(3000);
+		    			income.setReserveType_id(ReserveType_id);
+		    			income.setRoomPrice(money1);
+		    			income.setRoomType_id(RoomType_id);
+		    			income.setBbqPrice(money2);
+		    			income.setBbqType_id(BbqType_id);
+		    			income.setExtraPeoplePrice(money3);
+		    			income.setExtraPeopleType_id(ExtraPeopleType_id);
+		    			income.setTotalPrice(money1 + money2 + money3);
 		    			income.setNote("-");
 		    			income.setGuestName(i+"이랑"+j);
+		    			
 		    			income.setIncomeDate(dateFormat.format(cal.getTime()));
+		    			
 		    			service.incomeRegister(income);
-
+	    			}			
+	    			
 	    			}
 
 	    			
 	    		}
-            }
             i++;
-        }
+
+            }
+
 	}
 }
+
