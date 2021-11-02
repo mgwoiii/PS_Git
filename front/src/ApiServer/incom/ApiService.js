@@ -8,6 +8,20 @@ class ApiService {
     return axios.get(USER_API_BASE_URL +'incomeDayRead/IncomeDate/'+ IncomeDate);
   }
 
+  incomeRegister(income){
+    return axios.post(USER_API_BASE_URL +'incomeRegister', income);
+  }
+
+  incomeDayUpdate(income){
+    return axios.post(USER_API_BASE_URL +'incomeDayUpdate', income);
+  }
+
+  incomeDayDelete(income){
+    console.log(USER_API_BASE_URL +'incomeDayDelete');
+
+    return axios.post(USER_API_BASE_URL +'incomeDayDelete', income);
+  }
+
   // WeekList(chkinsert){
   //       let chkDateStart = chkinsert.chkDateStart
   //       let chkDateEnd = chkinsert.chkDateEnd

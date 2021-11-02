@@ -806,9 +806,6 @@ class IncomTableApp extends Component {
                 <IncomTableBody 
                 calenderYMD = {this.state.calenderYMD.format("YYYY-MM-DD")}
 
-                classNumObj = {this.props.classNumObj} 
-                IncomTableHeaderObj = {this.props.IncomTableHeaderObj}
-                tsetValue = {this.props.tsetValue} urlName ={this.props.urlName}
                 class101 = {this.state.class101}
                 class102 = {this.state.class102}
 
