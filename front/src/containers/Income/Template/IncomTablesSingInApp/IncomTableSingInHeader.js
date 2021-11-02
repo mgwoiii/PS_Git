@@ -4,28 +4,11 @@ import styled from "styled-components";
 
 class IncomTableSingInHeader extends Component {
 
-    IncomHeader = () => {
-
-        const _IncomHeader = [];
-
-        this.props && this.props.IncomTableHeaderObj && this.props.IncomTableHeaderObj.map( obj => 
-
-               
-              
-                    _IncomHeader.push((
-                        <IncomTableCell key={`IncomHeader${obj.id}`}>
-                            {obj.value}
-                        </IncomTableCell> ))
-                
-        );
-
-        return _IncomHeader;
-    }
 
     render(){
         return(
                 <>        
-                    <IncomTableHeaderRow>
+                    <Row>
                         <RCA_UL>
                             <RCA_LI onClick={() => {this.props.moveDay(-1)}}>
                                     &lt;
@@ -37,34 +20,37 @@ class IncomTableSingInHeader extends Component {
                                 &gt;
                             </RCA_LI>
                         </RCA_UL>       
-                    </IncomTableHeaderRow>
+                    </Row>
 
-                    <IncomTableRow>
-                        <IncomTableCell>
+                    <InRow>
+                        <Cell3>
                            호수
-                        </IncomTableCell>
-                        <IncomTableCell>
-                           예약유입 경로
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell3>
+                        <Cell2>
+                           예약유입 <br/> 경로
+                        </Cell2>
+                        <Cell>
                            숙소요금
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell>
+                        <Cell>
                            바베큐
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell>
+                        <Cell>
                            추가인원
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell>
+                        <Cell>
                             계  
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell>
+                        <Cell>
                            비고
-                        </IncomTableCell>
-                        <IncomTableCell>
+                        </Cell>
+                        <Cell>
                            예약자 성함
-                        </IncomTableCell>
-                    </IncomTableRow>
+                        </Cell>
+                        <Cell3>
+                            상태변경
+                        </Cell3>
+                    </InRow>
                 </>
         )
     }
@@ -74,8 +60,37 @@ class IncomTableSingInHeader extends Component {
 
 export default IncomTableSingInHeader;
 
+const Cell = styled.div`
+    border : none;
+    width: 20%;
+    text-align : center;
+    word-break:break-all;
+    word-wrap:break-word;
+    
+    border: 0.5px solid white;
+    line-height: 60px;
+`
+const Cell2 = styled.div`
+    border: 0.5px solid white;
+    width: 20%;
+    text-align : center;
+    flex-direction:column;
+    word-break:break-all;
+    word-wrap:break-word;
+    line-height: 30px;
 
-const IncomTableHeaderRow = styled.div`
+
+    `
+    const Cell3 = styled.div`
+    border: 0.5px solid white;
+    width: 15%;
+    line-height: 60px;
+    text-align : center;
+    flex-direction:column;
+
+    `
+
+const Row = styled.div`
     width: 100%;
     background-color: #758B66;
     border-bottom: 0.5px solid white;
@@ -84,27 +99,15 @@ const IncomTableHeaderRow = styled.div`
 
 `
 
-const IncomTableRow = styled.div`
+const InRow = styled.div`
     width: 100%;
     height : auto;
-    line-height: 20px;
     word-break:break-all;
     background-color: #a7bd99;
     font-size: 0.8rem;
 
     color : white;
     display: flex;
-`
-
-const IncomTableCell = styled.div`
-    border : none;
-    width: 20%;
-    text-align : center;
-    word-break:break-all;
-    word-wrap:break-word;
-    border: 0.5px solid white;
-
-
 `
 
 const RCA_UL = styled.ul`
