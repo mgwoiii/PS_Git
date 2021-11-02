@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -288,6 +289,149 @@ public class HomeController {
 		
 		
 		
+		@PostMapping(value="/incomeRegister")
+		 public String incomeRegister( @RequestBody IncomeVO income) throws Exception{
+
+			String str = null;
+			System.out.println(income);
+			
+			System.out.println(income.getClassName_id());
+			System.out.println(income.getIncomeDate());
+			
+			incService.incomeRegister(income);
+			
+			
+			if(income.getClassName_id() == 1) {
+				str = "btnName101";
+			}else if(income.getClassName_id() == 2) {
+				str = "btnName102";
+			}else if(income.getClassName_id() == 3) {
+				str = "btnName201";
+			}else if(income.getClassName_id() == 4) {
+				str = "btnName202";
+			}else if(income.getClassName_id() == 5) {
+				str = "btnName203";
+			}else if(income.getClassName_id() == 6) {
+				str = "btnName204";
+			}else if(income.getClassName_id() == 7) {
+				str = "btnName301";
+			}else if(income.getClassName_id() == 8) {
+				str = "btnName302";
+			}else if(income.getClassName_id() == 9) {
+				str = "btnName303";
+			}else if(income.getClassName_id() == 10) {
+				str = "btnName304";
+			}
+			
+			System.out.println(str);
+			return str;
+		}
+		
+		@PostMapping(value="/incomeDayUpdate")
+		 public String incomeDayUpdate( @RequestBody IncomeVO income) throws Exception{
+
+			String str = null;
+			
+			System.out.println(income);
+			
+			System.out.println(income.getClassName_id());
+			System.out.println(income.getIncomeDate());
+			
+			incService.incomeDayUpdate(income);
+			
+			
+			if(income.getClassName_id() == 1) {
+				str = "btnName101";
+			}else if(income.getClassName_id() == 2) {
+				str = "btnName102";
+			}else if(income.getClassName_id() == 3) {
+				str = "btnName201";
+			}else if(income.getClassName_id() == 4) {
+				str = "btnName202";
+			}else if(income.getClassName_id() == 5) {
+				str = "btnName203";
+			}else if(income.getClassName_id() == 6) {
+				str = "btnName204";
+			}else if(income.getClassName_id() == 7) {
+				str = "btnName301";
+			}else if(income.getClassName_id() == 8) {
+				str = "btnName302";
+			}else if(income.getClassName_id() == 9) {
+				str = "btnName303";
+			}else if(income.getClassName_id() == 10) {
+				str = "btnName304";
+			}
+			
+			System.out.println(str);
+			return str;
+		}
+		
+		@PostMapping(value="/incomeDayDelete")
+		 public String incomeDayDelete( @RequestBody IncomeVO income) throws Exception{
+
+			String str = null;
+			
+			System.out.println(income);
+			
+			System.out.println(income.getClassName_id());
+			System.out.println(income.getIncomeDate());
+			
+			incService.incomeDayDelete(income);
+			
+			
+			if(income.getClassName_id() == 1) {
+				str = "btnName101";
+			}else if(income.getClassName_id() == 2) {
+				str = "btnName102";
+			}else if(income.getClassName_id() == 3) {
+				str = "btnName201";
+			}else if(income.getClassName_id() == 4) {
+				str = "btnName202";
+			}else if(income.getClassName_id() == 5) {
+				str = "btnName203";
+			}else if(income.getClassName_id() == 6) {
+				str = "btnName204";
+			}else if(income.getClassName_id() == 7) {
+				str = "btnName301";
+			}else if(income.getClassName_id() == 8) {
+				str = "btnName302";
+			}else if(income.getClassName_id() == 9) {
+				str = "btnName303";
+			}else if(income.getClassName_id() == 10) {
+				str = "btnName304";
+			}
+			
+			System.out.println(str);
+			return str;
+		}
+		
+		
+
+ }		
+		/*
+		 * 	@Test
+	public void incomeRegister() throws Exception{
+
+		
+		income.setClassName_id(1);
+		income.setReserveType_id(1);
+		income.setRoomPrice(1);
+		income.setRoomType_id(1);
+		income.setBbqPrice(1);
+		income.setBbqType_id(1);
+		income.setExtraPeoplePrice(1);
+		income.setExtraPeopleType_id(1);
+		income.setTotalPrice(1);
+		income.setNote(null);
+		income.setGuestName(null);
+		income.setIncomeDate(null);
+		
+
+		
+		service.incomeRegister(income);
+		
+	}*/
+		 
 		
 //		@PostMapping(value="/insert")
 //		public void insertUser(@RequestBody UserVO user) throws Exception {
@@ -440,4 +584,4 @@ public class HomeController {
 //			}
 //			return resultList;
 //		}
-}
+

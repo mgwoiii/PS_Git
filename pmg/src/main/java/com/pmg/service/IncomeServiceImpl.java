@@ -37,9 +37,9 @@ public class IncomeServiceImpl implements IncomeService {
 	}
 
 	@Override
-	public void incomeDayDelete(int id) throws Exception {
+	public void incomeDayDelete( IncomeVO income) throws Exception {
 		// TODO Auto-generated method stub
-		dao.incomeDayDelete(id);
+		dao.incomeDayDelete(income);
 		
 	}
 	

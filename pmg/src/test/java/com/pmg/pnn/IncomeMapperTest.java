@@ -108,13 +108,13 @@ public class IncomeMapperTest {
 	
 	// 수입일지 일별 삭제
 	
-		@Test
-		public void incomeDayDelete() throws Exception{
-			
-			int id = 2202;
-			service.incomeDayDelete(id);
-		
-		}
+//		@Test
+//		public void incomeDayDelete() throws Exception{
+//			
+//			int id = 2202;
+//			service.incomeDayDelete(id);
+//		
+//		}
 		
 	// 수입일지 기간별 조회(1~12월 (월)단위)
 

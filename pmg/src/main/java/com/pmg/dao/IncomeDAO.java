@@ -14,7 +14,7 @@ public interface IncomeDAO {
 	
 	public void incomeDayUpdate(IncomeVO income) throws Exception;
 	
-	public void incomeDayDelete(int id) throws Exception;
+	public void incomeDayDelete(IncomeVO income) throws Exception;
 	
 	public List<IncomeVO> incomeMonthRead(IncomeVO income) throws Exception;
 

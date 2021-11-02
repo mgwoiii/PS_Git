@@ -43,10 +43,10 @@ public class IncomeDAOImp implements IncomeDAO {
 		}
 
 		@Override
-		public void incomeDayDelete(int id) throws Exception {
+		public void incomeDayDelete(IncomeVO income) throws Exception {
 			// TODO Auto-generated method stub
 			sqlSession.delete
-	        (namespace+".incomeDayDelete", id);
+	        (namespace+".incomeDayDelete", income);
 			
 		}
 

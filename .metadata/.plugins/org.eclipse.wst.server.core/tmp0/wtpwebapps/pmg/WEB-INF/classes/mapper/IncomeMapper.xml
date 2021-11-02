@@ -33,12 +33,13 @@
         bbqType_id = #{bbqType_id},  extraPeoplePrice = #{extraPeoplePrice}, 
         extraPeopleType_id = #{extraPeopleType_id},  totalPrice = #{totalPrice}, 
         note = #{note},  guestName = #{guestName}
-        where id = #{id}
+        where className_id = #{className_id} and IncomeDate = #{IncomeDate}
     </update>
 
      <!-- 수입일지 삭제하기 -->
     <delete id="incomeDayDelete">
-        delete from IncomeTable where id = #{id}
+        delete from IncomeTable
+        where className_id = #{className_id} and IncomeDate = #{IncomeDate}
     </delete>
     
     
