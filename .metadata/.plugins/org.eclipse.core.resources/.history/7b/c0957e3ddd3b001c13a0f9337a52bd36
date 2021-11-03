@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="com.pmg.mapper.IncomeMapper">
+ 
+ 
+    <!-- 수입내역 추가 -->
+    <insert id="incomeRegister">
+ 		INSERT INTO IncomeTable
+     ( className_id , reserveType_id , roomPrice , roomType_id , bbqPrice , bbqType_id ,
+     extraPeoplePrice ,extraPeopleType_id ,totalPrice ,note ,guestName ,IncomeDate  )
+      VALUES(#{className_id}, #{reserveType_id}, #{roomPrice}, #{roomType_id}, #{bbqPrice}, #{bbqType_id},
+      #{extraPeoplePrice}, #{extraPeopleType_id}, #{totalPrice}, #{note}, #{guestName}, #{IncomeDate}
+      ) 
+    </insert>
+    
+    
+    <!-- 날짜별 데이터 조회 -->
+    <select id="incomeDayRead" resultType="com.pmg.domain.IncomeVO">
+            select *
+            from IncomeTable 
+            where IncomeDate = #{IncomeDate}
+    </select>
+
+      <!-- 수입일지 수정하기 -->
+    <update id="incomeDayUpdate">
+        update IncomeTable set reserveType_id=#{reserveType_id} , roomPrice = #{roomPrice}, 
+        roomType_id = #{roomType_id},  bbqPrice = #{bbqPrice},  bbqType_id = #{bbqType_id}, 
+        bbqType_id = #{bbqType_id},  extraPeoplePrice = #{extraPeoplePrice}, 
+        extraPeopleType_id = #{extraPeopleType_id},  totalPrice = #{totalPrice}, 
+        note = #{note},  guestName = #{guestName}
+        where className_id = #{className_id} and IncomeDate = #{IncomeDate}
+    </update>
+
+     <!-- 수입일지 삭제하기 -->
+    <delete id="incomeDayDelete">
+        delete from IncomeTable
+        where className_id = #{className_id} and IncomeDate = #{IncomeDate}
+    </delete>
+    
+    
+    
+     <!-- 월별 매출 조회 -->
+    <select id="incomeMonthRead" resultType="com.pmg.domain.IncomeVO">
+
+            select MONTH(IncomeDate)  AS MonthDate,
+            if((sum(totalPrice) IS NULL), 0, sum(totalPrice)) AS MonthSum
+			  from IncomeTable
+			where DATE(IncomeDate) BETWEEN #{IncomeDateStart} AND #{IncomeDateEnd}
+			group by MonthDate;
+    </select>
+    
+        <!-- 일별(1~30일) 매출 조회 -->
+    <select id="incomeMonthAndDayRead" resultType="com.pmg.domain.IncomeVO">
+
+            select *
+			from IncomeTable
+			where DATE(IncomeDate) BETWEEN LAST_DAY(#{IncomeDateStart} - interval 1 month) + interval 1 DAY AND LAST_DAY(#{IncomeDateStart})
+		
+    </select>
+     
+        
+        <!-- 일별(1~30일) 매출 조회 -->
+    <select id="incomeMonthAndDaySumRead" resultType="com.pmg.domain.IncomeVO">
+			select Day(IncomeDate)  AS DayDate,
+				    sum(totalPrice) AS DaySum
+			from IncomeTable
+			where DATE(IncomeDate)
+			BETWEEN LAST_DAY(#{IncomeDateStart} - interval 1 month) + interval 1 DAY 
+			AND 
+			LAST_DAY(#{IncomeDateStart})
+			group by DayDate;
+    </select>
+</mapper>

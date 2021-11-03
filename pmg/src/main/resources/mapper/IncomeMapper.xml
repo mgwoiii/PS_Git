@@ -60,19 +60,22 @@
             select *
 			from IncomeTable
 			where DATE(IncomeDate) BETWEEN LAST_DAY(#{IncomeDateStart} - interval 1 month) + interval 1 DAY AND LAST_DAY(#{IncomeDateStart})
-		
+			order by IncomeDate asc
     </select>
      
         
         <!-- 일별(1~30일) 매출 조회 -->
-    <select id="incomeMonthAndDaySumRead" resultType="com.pmg.domain.IncomeVO">
-			select Day(IncomeDate)  AS DayDate,
-				    sum(totalPrice) AS DaySum
-			from IncomeTable
-			where DATE(IncomeDate)
-			BETWEEN LAST_DAY(#{IncomeDateStart} - interval 1 month) + interval 1 DAY 
-			AND 
-			LAST_DAY(#{IncomeDateStart})
-			group by DayDate;
+    <select id="incomeMonthAndDaySumRead" resultType="com.pmg.domain.IncomeVO">	
+     <![CDATA[
+		 SELECT DATE(IncomeDate) AS DateDate,
+		       sum(totalPrice) AS DateSum
+		  FROM IncomeTable
+		 WHERE DATE(IncomeDate) >= 
+		 LAST_DAY(STR_TO_DATE(#{IncomeDateStart}, '%Y-%m-%d') - interval 1 month) + interval 1 DAY 
+		   AND DATE(IncomeDate) <= 
+		   LAST_DAY(STR_TO_DATE(#{IncomeDateStart}, '%Y-%m-%d'))
+		 GROUP BY DateDate
+		 order BY IncomeDate asc
+     ]]>
     </select>
 </mapper>

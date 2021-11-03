@@ -293,11 +293,6 @@ public class HomeController {
 		 public String incomeRegister( @RequestBody IncomeVO income) throws Exception{
 
 			String str = null;
-			System.out.println(income);
-			
-			System.out.println(income.getClassName_id());
-			System.out.println(income.getIncomeDate());
-			
 			incService.incomeRegister(income);
 			
 			
@@ -332,10 +327,6 @@ public class HomeController {
 
 			String str = null;
 			
-			System.out.println(income);
-			
-			System.out.println(income.getClassName_id());
-			System.out.println(income.getIncomeDate());
 			
 			incService.incomeDayUpdate(income);
 			
@@ -371,11 +362,6 @@ public class HomeController {
 
 			String str = null;
 			
-			System.out.println(income);
-			
-			System.out.println(income.getClassName_id());
-			System.out.println(income.getIncomeDate());
-			
 			incService.incomeDayDelete(income);
 			
 			
@@ -406,8 +392,36 @@ public class HomeController {
 		}
 		
 		
+ 
+		@GetMapping(value="/incomeMonthRead/incomeDateStart/{incomeDateStart}/incomeDateEnd/{incomeDateEnd}")
+		 public List<IncomeVO> incomeMonthRead
+		 (@PathVariable String incomeDateStart , @PathVariable String incomeDateEnd) 
+		  throws Exception{
+			
+			IncomeVO income = new IncomeVO();
 
- }		
+			income.setIncomeDateStart(incomeDateStart);
+			income.setIncomeDateEnd(incomeDateEnd);
+			
+			
+			return incService.incomeMonthRead(income);
+		}
+
+
+		@GetMapping(value="/incomeMonthAndDaySumRead/{MonthDate}")
+		 public List<IncomeVO> incomeMonthAndDaySumRead (@PathVariable String MonthDate) throws Exception{
+			
+			
+			IncomeVO income = new IncomeVO();
+
+			income.setIncomeDateStart(MonthDate);
+			
+			List<IncomeVO> inc = incService.incomeMonthAndDaySumRead(income);
+//			
+			return inc;
+		}
+
+}		
 		/*
 		 * 	@Test
 	public void incomeRegister() throws Exception{

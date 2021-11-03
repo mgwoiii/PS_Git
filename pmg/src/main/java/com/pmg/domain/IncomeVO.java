@@ -33,6 +33,26 @@ public class IncomeVO {
 	private int DayDate;
 	private int DaySum;
 	
+	private String DateDate;
+	private int DateSum;
+	
+	
+	
+	
+	public String getDateDate() {
+		return DateDate;
+	}
+	public void setDateDate(String dateDate) {
+		DateDate = dateDate;
+	}
+	
+	public int getDateSum() {
+		return DateSum;
+	}
+	public void setDateSum(int dateSum) {
+		DateSum = dateSum;
+	}
+	
 	public int getId() {
 		return id;
 	}

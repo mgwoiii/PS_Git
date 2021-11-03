@@ -9,6 +9,10 @@
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
 			<item value="incomeRegister"/>
+			<item value="incomeMonthRead"/>
+			<item value="incomeDayDelete"/>
+			<item value=" IncomeVO income"/>
+			<item value="incomeDayUpdate"/>
 			<item value="incomeDayRead"/>
 			<item value="chkinDateRegister"/>
 			<item value="chkinDateOverlap"/>
@@ -19,10 +23,6 @@
 			<item value="org.springframework.stereotype.Controller"/>
 			<item value=" &lt;mvc:annotation-driven /&gt;"/>
 			<item value="com.fasterxml.jackson.core"/>
-			<item value="userIdListRead"/>
-			<item value="userIdListReadTen"/>
-			<item value="perPageNum"/>
-			<item value="totalCount"/>
 		</list>
 		<list key="replacehistory">
 			<item value="com.pmg"/>
