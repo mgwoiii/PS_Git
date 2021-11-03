@@ -1,50 +1,52 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import styled from "styled-components";
-
 
 
 class ExpendTableBody extends Component {
 
+        dayDetail = (date) => {
+            // this.props.history.push('/persion-main/Expenditure/ExpenditureDayDetail');
+             this.props.history.push({
+                pathname: '/persion-main/Expenditure/ExpenditureDayDetail',
+                date : date,
+                
+            });                                          
+        }
+        
+
+        monthData = (monthList) => {
+
+            let _MonthArr = [];
+
+            monthList.map( month => {
+                _MonthArr.push(
+                <Row key = {`monthList${month.dayDate}`} onClick = {() => this.dayDetail(month.dayDate)}>
+                    <Cell>
+                        {month.dayDate}
+                    </Cell>
+
+                    <Cell2>
+                        {month.daySum}
+                    </Cell2>      
+                </Row>
+                )
+            })
+
+            return _MonthArr
+        }
+
         render(){
             return(
-                <>
-                <Row>
-                    <Cell>
-                        1
-                    </Cell>
-
-                    <Cell2>
-                        구매내역
-                    </Cell2>
-
-                    
-                    <Cell2>
-                        100000
-                    </Cell2>
-                    
-                </Row>
-                <Row>
-                    <Cell>
-                        2
-                    </Cell>
-
-                    <Cell2>
-                        구매내역1
-                    </Cell2>
-
-                    
-                    <Cell2>
-                        100000
-                    </Cell2>
-                    
-                </Row>
+            <>
+                {this.monthData(this.props.monthList)}
             </>
             );
         }
     }
 
 
-export default ExpendTableBody;
+export default withRouter(ExpendTableBody);
 
 const Row = styled.div`
     width: 100%;
@@ -56,6 +58,8 @@ const Row = styled.div`
 
     color : white;
     display: flex;
+    cursor: pointer;   
+
 `
 
 const Cell = styled.div`
@@ -71,7 +75,7 @@ const Cell = styled.div`
 `
 const Cell2 = styled.div`
     border : none;
-    width: 42.5%;
+    width: 85%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

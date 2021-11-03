@@ -29,7 +29,9 @@ class IncomTableHeader extends Component {
                         <Cell>
                             가격
                         </Cell>
-
+                        <Cell2>
+                            
+                        </Cell2>
                     </Row>
                 </>
         )
@@ -64,7 +66,7 @@ const Row = styled.div`
 
 const Cell = styled.div`
     border : none;
-    width: 50%;
+    width: 45%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;
@@ -72,7 +74,16 @@ const Cell = styled.div`
 
 
 `
+const Cell2 = styled.div`
+    border : none;
+    width: 10%;
+    text-align : center;
+    word-break:break-all;
+    word-wrap:break-word;
+    border: 0.5px solid white;
+    color : black;
 
+`
 const RCA_UL = styled.ul`
     display: inline-block;
     list-style:none;
