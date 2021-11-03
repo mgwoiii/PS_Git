@@ -79,6 +79,17 @@ public class ExpenDAOImp implements ExpenDAO {
 		
 	}  
 	  
+	@Override
+	public List<ExpenVO> expenDateSearch(ExpenVO expen) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList
+        (namespace+".expenDateSearch", expen);
+		
+	}
+	
+	
+	
+	
 //	@Override
 //	public void userRegister(UserVO user) throws Exception {
 //		// TODO Auto-generated method stub

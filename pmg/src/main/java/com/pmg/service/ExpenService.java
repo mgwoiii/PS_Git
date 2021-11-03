@@ -20,5 +20,8 @@ public interface ExpenService {
 	  
 	  public void expenDayDelete(int id) throws Exception;
 	  
+	  public List<ExpenVO> expenDateSearch(ExpenVO expen) throws Exception;
+
+	  
 	
 }

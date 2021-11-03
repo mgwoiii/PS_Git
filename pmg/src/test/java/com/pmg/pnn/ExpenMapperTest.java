@@ -34,6 +34,19 @@ public class ExpenMapperTest {
 		service.expenRegister(expen);
 		
 	}
+	// 지출일지 일별 조회
+	
+	@Test
+	public void expenDateSearch() throws Exception{
+		
+		
+		expen.setExpenDate("2021-01-01");
+		
+		System.out.println(service.expenDateSearch(expen));
+	
+	}
+	
+	
 	// 지출일지 조회 [월별] 1~ 12월 합
 	
 	@Test

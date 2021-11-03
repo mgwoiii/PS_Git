@@ -15,7 +15,8 @@ public class ExpenVO {
 	private String monthSum;
 	
 	private String DayDate;
-	private String DaySum;
+	private int DaySum;
+	
 	public int getId() {
 		return id;
 	}
@@ -70,10 +71,10 @@ public class ExpenVO {
 	public void setDayDate(String dayDate) {
 		DayDate = dayDate;
 	}
-	public String getDaySum() {
+	public int getDaySum() {
 		return DaySum;
 	}
-	public void setDaySum(String daySum) {
+	public void setDaySum(int daySum) {
 		DaySum = daySum;
 	}
 	

@@ -24,10 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pmg.domain.ChkInsertVO;
 import com.pmg.domain.Criteria;
+import com.pmg.domain.ExpenVO;
 import com.pmg.domain.IncomeVO;
 import com.pmg.domain.PageMaker;
 import com.pmg.domain.UserVO;
 import com.pmg.service.ChkInsertService;
+import com.pmg.service.ExpenService;
 import com.pmg.service.IncomeService;
 import com.pmg.service.UserService;
 
@@ -51,6 +53,11 @@ public class HomeController {
 		
 		@Inject
 		private IncomeService incService;
+		
+		@Inject
+		private ExpenService expService;
+		
+		
 		/**
 		 * Simply selects the home view to render by returning its name.
 		 */
@@ -397,7 +404,6 @@ public class HomeController {
 		 public List<IncomeVO> incomeMonthRead
 		 (@PathVariable String incomeDateStart , @PathVariable String incomeDateEnd) 
 		  throws Exception{
-			
 			IncomeVO income = new IncomeVO();
 
 			income.setIncomeDateStart(incomeDateStart);
@@ -420,6 +426,55 @@ public class HomeController {
 //			
 			return inc;
 		}
+		
+		
+		@GetMapping(value="/expenMonthAndDaySumRead/{Monthdate}")
+		 public List<ExpenVO> expenMonthAndDaySumRead (@PathVariable String Monthdate) throws Exception{
+			
+			
+			ExpenVO expen = new ExpenVO();
+
+			expen.setExpenDateStart(Monthdate);
+			
+			List<ExpenVO> exp = expService.expenMonthAndDaySumRead(expen);
+			
+			return exp;
+		}
+		
+		
+		
+		@GetMapping(value="/expenDateSearch/{dateSearch}")
+		 public List<ExpenVO> expenDateSearch (@PathVariable String dateSearch) throws Exception{
+			
+			
+			ExpenVO expen = new ExpenVO();
+
+			expen.setExpenDate(dateSearch);
+			
+			List<ExpenVO> exp = expService.expenDateSearch(expen);
+			
+			return exp;
+		}
+
+		@GetMapping(value="/expenDayDelete/{id}")
+		 public void expenDayDelete (@PathVariable int id) throws Exception{
+			
+			expService.expenDayDelete(id);
+			
+		}
+		
+		@PostMapping(value="/expenRegister")
+		 public void expenRegister( @RequestBody ExpenVO expen) throws Exception{
+
+			expService.expenRegister(expen);
+			
+		}
+		
+		
+		
+		
+		
+		
 
 }		
 		/*

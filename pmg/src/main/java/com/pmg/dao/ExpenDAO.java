@@ -20,4 +20,8 @@ public interface ExpenDAO {
 	public void expenDayUpdate(ExpenVO expen) throws Exception;
 	  
 	public void expenDayDelete(int id) throws Exception;
+	
+	public List<ExpenVO> expenDateSearch(ExpenVO expen) throws Exception;
+
+	
 }

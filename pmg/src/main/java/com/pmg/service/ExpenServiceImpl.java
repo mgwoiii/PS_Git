@@ -64,5 +64,11 @@ public class ExpenServiceImpl implements ExpenService {
 		
 	}
 	
+	@Override
+	public List<ExpenVO> expenDateSearch(ExpenVO expen) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.expenDateSearch(expen);
+	}
 	
+
 }

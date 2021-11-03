@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="com.pmg.mapper.ExpenMapper">
+ 
+ 
+    <!-- 구지출일지 등록 -->
+    <insert id="expenRegister">
+ 		INSERT INTO expentable
+     ( expenNote, expenPrice, expenDate )
+      VALUES(#{expenNote}, #{expenPrice}, #{expenDate}) 
+    </insert>
+    
+    <!-- 지출일지 일일 조회-->
+    <select id="expenDateSearch" resultType="com.pmg.domain.ExpenVO">
+        select *
+		from expentable
+		where expenDate = #{expenDate}
+    </select>
+    
+      
+    
+    <!-- 지출일지 조회 [월별] 1~ 12월 합-->
+    <select id="expenMonthRead" resultType="com.pmg.domain.ExpenVO">
+        select MONTH(expenDate)  AS MonthDate,
+			    sum(expenPrice) AS MonthSum
+		from expentable
+		where DATE(expenDate) BETWEEN #{expenDateStart} AND #{expenDateEnd}
+			group by MonthDate;
+    </select>
+
+        <!-- 일별(1~30일) 매출 조회 -->
+    <select id="expenMonthAndDayRead" resultType="com.pmg.domain.ExpenVO">
+
+            select *
+			from expentable
+			where DATE(expenDate) BETWEEN LAST_DAY(#{expenDateStart} - interval 1 month) + interval 1 DAY AND LAST_DAY(#{expenDateStart})
+		
+    </select>
+    
+             <!-- 일별(1~30일) 매출 조회[합] -->
+    <select id="expenMonthAndDaySumRead" resultType="com.pmg.domain.ExpenVO">
+		<![CDATA[
+		 SELECT DATE(expenDate)  AS DayDate,
+		       sum(expenPrice) AS DaySum
+		  FROM expentable
+		 WHERE DATE(expenDate) >= 
+		 LAST_DAY(STR_TO_DATE(#{expenDateStart}, '%Y-%m-%d') - interval 1 month) + interval 1 DAY 
+		   AND DATE(expenDate) <= 
+		   LAST_DAY(STR_TO_DATE(#{expenDateStart}, '%Y-%m-%d'))
+		 GROUP BY DayDate
+		 order BY expenDate asc
+     ]]>
+    </select>
+           <!-- 지출일지 삭제하기 -->
+    <delete id=expenDayDelete>
+        delete from expentable where id = #{id}
+    </delete>
+</mapper>
