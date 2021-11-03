@@ -5,7 +5,7 @@ class IncomeSearchListMonth extends Component{
     render(){
         return (
             <IncomeContent>
-               수입일지  [21년 ㅇㅇ월] 조회
+            
                <IncomeListMonthApp />
 
             </IncomeContent>

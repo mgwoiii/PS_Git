@@ -5,39 +5,34 @@ import styled from "styled-components";
 
 class IncomeListMonthBody extends Component {
 
+        MonthDate = (object) =>{
+            
+            let _MonthArr =[];
+
+            object.map(obj =>{
+                _MonthArr.push(
+                    <Row>
+                        <Cell>
+                        {obj.dateDate}
+                        </Cell>
+                        <Cell>
+                        {obj.dateSum}
+                        </Cell>
+                    </Row>
+                )
+            })
+
+
+            return _MonthArr;
+        }
+
         render(){
             return(
-            <>
-                <IncomTableRow>
-                    <IncomTableCell>
-                        1
-                    </IncomTableCell>
-
-                    <IncomTableCell2>
-                        1일
-                    </IncomTableCell2>
-                    
-                    <IncomTableCell2>
-                        650000
-                    </IncomTableCell2>
-                    
-               </IncomTableRow>
-               <IncomTableRow>
-
-                <IncomTableCell>
-                2
-                </IncomTableCell>
+                <>
+                {this.MonthDate(this.props.MonthData)}
                 
-                <IncomTableCell2>
-                    2일
-                </IncomTableCell2>
-                
-                <IncomTableCell2>
-                    650000
-                </IncomTableCell2>
-                </IncomTableRow>
-             </>
-
+                </>
+    
             );
         }
     }
@@ -45,7 +40,7 @@ class IncomeListMonthBody extends Component {
 
 export default IncomeListMonthBody;
 
-const IncomTableRow = styled.div`
+const Row = styled.div`
     width: 100%;
     height : auto;
     line-height: 20px;
@@ -53,23 +48,12 @@ const IncomTableRow = styled.div`
     background-color : #cde0c1;
     font-size: 0.8rem;
 
-    color : white;
+    color : black;
     display: flex;
 `
-
-const IncomTableCell = styled.div`
+const Cell = styled.div`
     border : none;
-    width: 6%;
-    text-align : center;
-    word-break:break-all;
-    word-wrap:break-word;
-    border: 0.5px solid white;
-
-
-`
-const IncomTableCell2 = styled.div`
-    border : none;
-    width: 47%;
+    width: 50%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

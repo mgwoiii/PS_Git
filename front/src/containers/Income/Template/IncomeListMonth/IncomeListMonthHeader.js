@@ -22,18 +22,15 @@ class IncomeListMonthHeader extends Component {
                         </RCA_UL>       
                     </IncomTableHeaderRow>
 
-                    <IncomTableRow>
-                        <IncomTableCell>
-                           　
-                        </IncomTableCell>
-                        <IncomTableCell2>
+                    <Row>
+                        <Cell>
                            날짜
-                        </IncomTableCell2>
-                        <IncomTableCell2>
+                        </Cell>
+                        <Cell>
                            계
-                        </IncomTableCell2>
+                        </Cell>
                        
-                    </IncomTableRow>
+                    </Row>
                 </>
         )
     }
@@ -53,7 +50,7 @@ const IncomTableHeaderRow = styled.div`
 
 `
 
-const IncomTableRow = styled.div`
+const Row = styled.div`
     width: 100%;
     height : auto;
     line-height: 20px;
@@ -65,19 +62,10 @@ const IncomTableRow = styled.div`
     display: flex;
 `
 
-const IncomTableCell = styled.div`
-    border : none;
-    width: 6%;
-    text-align : center;
-    word-break:break-all;
-    word-wrap:break-word;
-    border: 0.5px solid white;
 
-
-`
-const IncomTableCell2 = styled.div`
+const Cell = styled.div`
     border : none;
-    width: 47%;
+    width: 50%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

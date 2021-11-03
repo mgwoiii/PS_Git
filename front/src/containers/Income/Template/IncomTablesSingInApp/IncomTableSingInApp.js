@@ -829,7 +829,6 @@ class IncomTableSingInApp extends Component {
      
         ApiService.incomeDayRead(DayTime)
         .then((response) => {
-            console.log(response)
 
             // 배열 초기화
             this.setState((state, props) => { return { 

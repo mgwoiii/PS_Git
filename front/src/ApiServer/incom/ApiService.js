@@ -17,9 +17,16 @@ class ApiService {
   }
 
   incomeDayDelete(income){
-    console.log(USER_API_BASE_URL +'incomeDayDelete');
-
     return axios.post(USER_API_BASE_URL +'incomeDayDelete', income);
+  }
+
+  incomeMonthRead(incomeDateStart,incomeDateEnd){
+    return axios.get(USER_API_BASE_URL + 'incomeMonthRead/incomeDateStart/'+ incomeDateStart+'/incomeDateEnd/'+incomeDateEnd)
+  }
+
+  incomeMonthAndDaySumRead(MonthDate){
+    return axios.get(USER_API_BASE_URL + 'incomeMonthAndDaySumRead/'+ MonthDate)
+
   }
 
   // WeekList(chkinsert){

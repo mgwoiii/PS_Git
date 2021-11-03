@@ -35,7 +35,7 @@ class IncomeSearchList extends Component{
         
         return (
             <IncomeContent>
-               {this.btnSeleted()} 수입일지 월별 조회 [21년 1월 ~ 12월]
+               {this.btnSeleted()}
             <IncomeListYearApp />
             
             </IncomeContent>
