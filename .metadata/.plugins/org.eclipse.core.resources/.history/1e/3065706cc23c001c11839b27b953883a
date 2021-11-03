@@ -53,16 +53,16 @@ public class ExpenVO {
 	public void setExpenDateEnd(String expenDateEnd) {
 		this.expenDateEnd = expenDateEnd;
 	}
-	public int getMonthDate() {
+	public String getMonthDate() {
 		return monthDate;
 	}
-	public void setMonthDate(int monthDate) {
+	public void setMonthDate(String monthDate) {
 		this.monthDate = monthDate;
 	}
-	public int getMonthSum() {
+	public String getMonthSum() {
 		return monthSum;
 	}
-	public void setMonthSum(int monthSum) {
+	public void setMonthSum(String monthSum) {
 		this.monthSum = monthSum;
 	}
 	public String getDayDate() {

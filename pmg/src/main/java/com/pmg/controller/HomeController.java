@@ -474,7 +474,23 @@ public class HomeController {
 		
 		
 		
-		
+		@GetMapping(value="/expenMonthRead/expenDateStart/{expenDateStart}/expenDateEnd/{expenDateEnd}")
+		 public List<ExpenVO> expenMonthRead
+		 (@PathVariable String expenDateStart , @PathVariable String expenDateEnd) 
+		  throws Exception{
+			
+			ExpenVO expen = new ExpenVO();
+
+			expen.setExpenDateStart(expenDateStart);
+			
+			expen.setExpenDateEnd(expenDateEnd);
+			
+			List<ExpenVO> exp =  expService.expenMonthRead(expen);
+
+			
+			return exp;
+
+		}
 
 }		
 		/*

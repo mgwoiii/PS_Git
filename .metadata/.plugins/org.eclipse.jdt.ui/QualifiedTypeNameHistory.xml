@@ -42,8 +42,6 @@
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
-    <fullyQualifiedTypeName name="com.pmg.service.ExpenService"/>
-    <fullyQualifiedTypeName name="com.pmg.domain.ExpenVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.pmg.domain.UserVO"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="com.pmg.domain.ChkInsertVO"/>
     <fullyQualifiedTypeName name="com.pmg.service.ChkInsertService"/>
     <fullyQualifiedTypeName name="com.pmg.domain.IncomeVO"/>
+    <fullyQualifiedTypeName name="com.pmg.domain.ExpenVO"/>
+    <fullyQualifiedTypeName name="com.pmg.service.ExpenService"/>
 </qualifiedTypeNameHistroy>
