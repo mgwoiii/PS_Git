@@ -22,9 +22,6 @@ class ExpendYearHeader extends Component {
                     </HeaderRow>
 
                     <Row>
-                        <Cell>
-                           　
-                        </Cell>
                         <Cell2>
                            날짜
                         </Cell2>
@@ -64,19 +61,9 @@ const Row = styled.div`
     display: flex;
 `
 
-const Cell = styled.div`
-    border : none;
-    width: 6%;
-    text-align : center;
-    word-break:break-all;
-    word-wrap:break-word;
-    border: 0.5px solid white;
-
-
-`
 const Cell2 = styled.div`
     border : none;
-    width: 47%;
+    width: 50%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

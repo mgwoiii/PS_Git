@@ -7,7 +7,6 @@ class ExpenditureMonth extends Component{
     render(){
         return (
             <ExpenditureContent>
-                    ExpenditureMonth
                     <ExpendYearApp />
             </ExpenditureContent>
         );

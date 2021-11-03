@@ -22,6 +22,11 @@ class ApiService {
 
  }
   
+ expenMonthRead(expenDateStart, expenDateEnd){
+    return axios.get(USER_API_BASE_URL +'expenMonthRead/expenDateStart/'+ expenDateStart+'/expenDateEnd/'+expenDateEnd);
+}
+
+
   // incomeDayRead(IncomeDate){
   //   return axios.get(USER_API_BASE_URL +'incomeDayRead/IncomeDate/'+ IncomeDate);
   // }
