@@ -32,6 +32,9 @@ class IncomeListMonthApp extends Component {
             this.setState((state, props) => { return { 
                 MonthData : res.data
              }},()=>{});
+        }).catch(err => {
+            console.log('incomeMonthAndDaySumRead() Error!', err);
+    
         })
     }
 
@@ -54,31 +57,6 @@ class IncomeListMonthApp extends Component {
     }
 }
 
-/*
-
-
-select DATE(IncomeDate)  AS dayDate,
-		sum(totalPrice) AS MonthSum
-from IncomeTable
-where DATE(IncomeDate) BETWEEN 2021-11-01 and 2021-11-31
-group by date
-order by IncomeDate asc
-
-SELECT DATE(IncomeDate) AS dayDate,
-       sum(totalPrice) AS MonthSum
-  FROM IncomeTable
- WHERE DATE(IncomeDate) >= 
- LAST_DAY(STR_TO_DATE('2021-11-03', '%Y-%m-%d') - interval 1 month) + interval 1 DAY 
-   AND DATE(IncomeDate) <= 
-   LAST_DAY(STR_TO_DATE('2021-11-05', '%Y-%m-%d'))
- GROUP BY dayDate
- order by IncomeDate asc
-
-select
-from incometable
-where 
-
-*/
 export default IncomeListMonthApp;
 
 const IncomTable = styled.div`

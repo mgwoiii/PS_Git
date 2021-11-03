@@ -24,13 +24,10 @@ class ExpendTableHeader extends Component {
 
                     <Row>
                         <Cell>
-                           순서
+                           날짜
                         </Cell>
                         <Cell2>
-                           지출내용
-                        </Cell2>
-                        <Cell2>
-                           원
+                           사용액
                         </Cell2>
                        
                     </Row>
@@ -77,7 +74,7 @@ const Cell = styled.div`
 `
 const Cell2 = styled.div`
     border : none;
-    width: 42.5%;
+    width: 85%;
     text-align : center;
     word-break:break-all;
     word-wrap:break-word;

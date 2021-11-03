@@ -11,7 +11,7 @@ class IncomeListMonthBody extends Component {
 
             object.map(obj =>{
                 _MonthArr.push(
-                    <Row>
+                    <Row key = {obj.id}>
                         <Cell>
                         {obj.dateDate}
                         </Cell>
