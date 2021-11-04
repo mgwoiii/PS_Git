@@ -8,6 +8,7 @@ import ExpenditureMain from './Expenditure/ExpenditureMain';
 import AdminMain from './Admin/AdminMain';
 import NavBar from "../component/route/NavBar";
 
+import PrivateRoute from '../component/common/PrivateRoute';
 
 
 class PageMain extends Component {
@@ -17,10 +18,10 @@ class PageMain extends Component {
             <>       
             <NavBar />
             <PageMainWrapper>
-                <Route path = "/persion-main/Persion" component={PersionPageMain}/>
-                <Route path = "/persion-main/Income" component={IncomeMain}/>
-                <Route path = "/persion-main/Expenditure" component={ExpenditureMain}/>
-                <Route path = "/persion-main/Admin" component={AdminMain}/>
+                <PrivateRoute path = "/persion-main/Persion" component={PersionPageMain}/>
+                <PrivateRoute path = "/persion-main/Income" component={IncomeMain}/>
+                <PrivateRoute path = "/persion-main/Expenditure" component={ExpenditureMain}/>
+                <PrivateRoute path = "/persion-main/Admin" component={AdminMain}/>
             </PageMainWrapper>
             </>
         );

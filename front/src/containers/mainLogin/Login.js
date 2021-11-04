@@ -49,6 +49,9 @@ class Login extends Component {
 
                   window.sessionStorage.setItem('name', response.data.userId);
                   window.sessionStorage.setItem('id', response.data.id);
+                  window.sessionStorage.setItem('grade_id', response.data.grade_id);
+
+                  
                   this.props.history.push('/persion-main/Persion/PersionMain');
          
               }

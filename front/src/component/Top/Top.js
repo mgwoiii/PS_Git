@@ -41,6 +41,7 @@ class Top extends Component{
         }
 
     render(){
+        
         return (
             <Wrap>
                         {

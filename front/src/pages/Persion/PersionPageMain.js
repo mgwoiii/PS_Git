@@ -4,6 +4,7 @@ import PersionWrapper from "../../component/Persion/PersionWrapper"
 
 import PersionMain from '../../containers/PersionMain/PersionMain';
 import PersionMainDayDetail from '../../containers/PersionMain/PersionMainDayDetail';
+import PrivateRoute from '../../component/common/PrivateRoute';
 
 
 
@@ -12,8 +13,8 @@ class PageMain extends Component {
     render(){
         return (           
             <PersionWrapper>
-                <Route path = "/persion-main/Persion/PersionMain" component={PersionMain}/>
-                <Route path = "/persion-main/Persion/PersionMainDayDetail" component={PersionMainDayDetail}/>    
+                <PrivateRoute path = "/persion-main/Persion/PersionMain" component={PersionMain}/>
+                <PrivateRoute path = "/persion-main/Persion/PersionMainDayDetail" component={PersionMainDayDetail}/>    
             </PersionWrapper>
         );
     }

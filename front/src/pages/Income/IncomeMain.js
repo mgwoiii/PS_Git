@@ -8,6 +8,7 @@ import IncomeSearch from '../../containers/Income/IncomeSearch';
 import IncomeSearchList from '../../containers/Income/IncomeSearchList';
 import IncomeSearchListMonth from '../../containers/Income/IncomeSearchListMonth';
 import IncomeModify from '../../containers/Income/IncomeModify';
+import PrivateRoute from '../../component/common/PrivateRoute';
 
 
 
@@ -18,12 +19,12 @@ class IncomeMain extends Component {
         return (           
 
             <IncomeWrapper>
-                <Route path = "/persion-main/Income/Income" component={Income}/>
-                <Route path = "/persion-main/Income/IncomeSingUp" component={IncomeSingUp}/>
-                <Route path = "/persion-main/Income/IncomeSearch" component={IncomeSearch}/>
-                <Route path = "/persion-main/Income/IncomeSearchList" component={IncomeSearchList}/>
-                <Route path = "/persion-main/Income/IncomeSearchListMonth" component={IncomeSearchListMonth}/>
-                <Route path = "/persion-main/Income/IncomeModify" component={IncomeModify}/>
+                <PrivateRoute path = "/persion-main/Income/Income" component={Income}/>
+                <PrivateRoute path = "/persion-main/Income/IncomeSingUp" component={IncomeSingUp}/>
+                <PrivateRoute path = "/persion-main/Income/IncomeSearch" component={IncomeSearch}/>
+                <PrivateRoute path = "/persion-main/Income/IncomeSearchList" component={IncomeSearchList}/>
+                <PrivateRoute path = "/persion-main/Income/IncomeSearchListMonth" component={IncomeSearchListMonth}/>
+                <PrivateRoute path = "/persion-main/Income/IncomeModify" component={IncomeModify}/>
 
             </IncomeWrapper>
         );
